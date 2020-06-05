@@ -1,13 +1,21 @@
 const gulp = require("gulp");
 const htmlMin = require("gulp-htmlmin");
-// const del = require("del");
+const del = require("del");
 const path = require("path");
 
-const dest = path.join(__dirname, "docs");
+const dest = path.join(__dirname, "..");
 
 async function cleandocs() {
-  // return del(dest);
-  return;
+  return del(
+    [
+      "../aisha",
+      "../experements",
+      "../merry-christmas-ajesh",
+      "../merry-christmas-amal",
+      "../index.html",
+    ],
+    { force: true }
+  );
 }
 
 function minifyHtml() {
@@ -21,7 +29,6 @@ function minifyHtml() {
         collapseWhitespace: true,
         minifyCSS: true,
         minifyJS: true,
-        collapseInlineTagWhitespace: true,
       })
     )
     .pipe(gulp.dest(dest));
