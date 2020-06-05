@@ -3,9 +3,9 @@ const htmlMin = require("gulp-htmlmin");
 // const del = require("del");
 const path = require("path");
 
-const dest = path.join(__dirname, "dist");
+const dest = path.join(__dirname, "docs");
 
-async function cleanDist() {
+async function cleandocs() {
   // return del(dest);
   return;
 }
@@ -13,7 +13,7 @@ async function cleanDist() {
 function minifyHtml() {
   // minify
   // const htmlSrc = src.map((el) => path.join(__dirname, el, "index.html"));
-  const htmlSrc = ["**/*.html", "!dist/**", "!node_modules/**"];
+  const htmlSrc = ["**/*.html", "!docs/**", "!node_modules/**"];
   return gulp
     .src(htmlSrc)
     .pipe(
@@ -32,7 +32,7 @@ function copyEverythingExceptHTML() {
     .src([
       "**/*",
       "!**/*.html",
-      "!dist/**",
+      "!docs/**",
       "!node_modules/**",
       "!*.js",
       "!.gitignore",
@@ -43,4 +43,4 @@ function copyEverythingExceptHTML() {
     .pipe(gulp.dest(dest));
 }
 
-exports.default = gulp.series(cleanDist, minifyHtml, copyEverythingExceptHTML);
+exports.default = gulp.series(cleandocs, minifyHtml, copyEverythingExceptHTML);
