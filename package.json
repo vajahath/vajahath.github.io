@@ -1,0 +1,29 @@
+{
+  "name": "vajahath.github.io",
+  "version": "1.0.0",
+  "description": "my github pages",
+  "private": true,
+  "scripts": {
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vajahath/vajahath.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vajahath/vajahath.github.io/issues"
+  },
+  "homepage": "https://github.com/vajahath/vajahath.github.io#readme",
+  "engines": {
+    "node": ">=13.12.0",
+    "npm": "please use yarn",
+    "yarn": ">=1.22.4"
+  },
+  "dependencies": {
+    "del": "^5.1.0",
+    "eslint": "^7.1.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-htmlmin": "^5.0.1"
+  }
+}

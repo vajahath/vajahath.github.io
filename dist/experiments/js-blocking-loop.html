@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>JS Blocking Loop Demo</title><style>.placeholder{color:grey}#container-left{background-color:#ff0;float:left;padding:7px;width:40%}#container-right{background-color:#fff;display:inline-block;width:50%}#brick{width:100px;height:100px;background-color:red;position:relative;-webkit-animation-name:example;-webkit-animation-duration:4s;animation-name:example;animation-duration:3s;animation-iteration-count:50}@-webkit-keyframes example{0%{background-color:red;left:0;top:0}25%{background-color:#ff0;left:200px;top:0}50%{background-color:#00f;left:200px;top:200px}75%{background-color:green;left:0;top:200px}100%{background-color:red;left:0;top:0}}@keyframes example{0%{background-color:red;left:0;top:0}25%{background-color:#ff0;left:200px;top:0}50%{background-color:#00f;left:200px;top:200px}75%{background-color:green;left:0;top:200px}100%{background-color:red;left:0;top:0}}</style></head><body><h1>JS Blocking Loop Demo</h1><p>"play" button runs a loop from 0 to 5798989898. "print" button interacts with the ui. Open console and hit "play" to see the browser stops rendering the ui and all</p><p>Play function:</p><!-- <pre style="font-family: monospace;">
+  function play() {
+    let i = 0;
+    
+    while (i < 5798989898) {
+      i++;
+    }
+    
+  }
+    </pre> --><button onclick="play()">play</button><button onclick="log((new Date).toString())">print</button><br><br><div><div id="container-left"><span class="placeholder">Prints goes here</span></div><div id="container-right"><div id="brick"></div></div></div><script>const PRINT_SPACE = document.getElementById("container-left");
+
+      function play() {
+        console.log("play-start");
+        let i = 0;
+        while (i < 5798989898) {
+          i++;
+        }
+        console.log("play-end");
+      }
+
+      function log(content) {
+        const p = document.createElement("p");
+        const text = document.createTextNode(content);
+        p.appendChild(text);
+        PRINT_SPACE.appendChild(p);
+      }</script></body></html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>🎶 Url Player</title></head><body><h1>🤳🎶🤣</h1><p>Please open in 🕵️‍ incognito</p><audio src="music.mp3" controls></audio><script>document.addEventListener("DOMContentLoaded", function(event) {
+        //do work
+        const sym = ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"];
+        const aue = document.querySelector("audio");
+        let d = new Uint8Array(16); // 16
+        let timeo;
+        let audioCtx;
+        let analyser;
+
+        function initContexts() {
+          if (!audioCtx) {
+            audioCtx = new AudioContext();
+          }
+          if (!analyser) {
+            analyser = audioCtx.createAnalyser();
+            analyser.fftSize = 32;
+          }
+        }
+
+        aue.onplay = () => {
+          initContexts();
+          const stream = aue.captureStream();
+          console.log(stream);
+          audioCtx.createMediaStreamSource(stream).connect(analyser);
+          draw();
+        };
+
+        function draw() {
+          timeo = setTimeout(draw, 50);
+          analyser.getByteFrequencyData(d);
+          const s = [];
+          // console.log(d);
+          d.forEach(v => s.push(sym[Math.floor((v / 255) * 8)]));
+          location.hash = "🎶-" + s.join("");
+        }
+        console.log("🎶");
+        aue.onpause = () => {
+          clearTimeout(timeo);
+        };
+      });</script></body></html>
