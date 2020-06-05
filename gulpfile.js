@@ -5,8 +5,9 @@ const path = require("path");
 
 const dest = path.join(__dirname, "dist");
 
-function cleanDist() {
+async function cleanDist() {
   // return del(dest);
+  return;
 }
 
 function minifyHtml() {
