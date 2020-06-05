@@ -28,7 +28,17 @@ function minifyHtml() {
 
 function copyEverythingExceptHTML() {
   return gulp
-    .src(["**/*", "!**/*.html", "!dist/**", "!node_modules/**"])
+    .src([
+      "**/*",
+      "!**/*.html",
+      "!dist/**",
+      "!node_modules/**",
+      "!*.js",
+      "!.gitignore",
+      "!*.json",
+      "!*.md",
+      "!*.lock",
+    ])
     .pipe(gulp.dest(dest));
 }
 
