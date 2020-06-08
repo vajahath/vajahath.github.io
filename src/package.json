@@ -24,6 +24,6 @@
     "eslint": "^7.1.0",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
-    "gulp-htmlmin": "^5.0.1"
+    "gulp-html-minifier-terser": "^6.0.0"
   }
 }

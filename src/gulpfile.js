@@ -1,5 +1,5 @@
 const gulp = require("gulp");
-const htmlMin = require("gulp-htmlmin");
+const htmlMin = require("gulp-html-minifier-terser");
 const del = require("del");
 const path = require("path");
 
