@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web worker experiments | No WW</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/dark.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Web worker experiments (Has Worker)</h1>
+    <h2>
+      This page has web worker.
+      <a style="color: salmon" href="./without-worker.html"
+        >See without web worker implementation</a
+      >
+    </h2>
+    <hr />
+    <br />
+    <br />
+    <progress id="progress" value="0" max="1000"></progress>
+    <br /><span
+      >Time elapsed in last run: <strong id="timeField">N/A</strong> sec</span
+    >
+    <br />
+    <br />
+
+    <button id="burner">Burn CPU</button> (Clicking this button runs a CPU
+    intensive task off the main thread)
+    <br />
+
+    <h3>What is this?</h3>
+    <p>
+      Clicking this button run a high CPU intensive task. This implementation is
+      with using web worker. This is to show the difference in UX between
+      with and without using web workers. The above button will run the
+      following function.
+    </p>
+    <pre><code id="mainFunctionPreview"></code></pre>
+
+    <p>See code <a style="color: salmon;" href="https://github.com/vajahath/vajahath.github.io/tree/master/src/experiments/web-worker">github.com/vajahath/.../web-worker</a></p>
+    <script type="module">
+      // This code is not optimized.
+      // Written in a way that the buttonClick function is able to
+      // teach how web workers are interfaced.
+      // Don't blindly copy paste.
+
+      import prettier from "https://unpkg.com/prettier@2.5.1/esm/standalone.mjs";
+      import parserBabel from "https://unpkg.com/prettier@2.5.1/esm/parser-babel.mjs";
+      import * as Comlink from "https://unpkg.com/comlink/dist/esm/comlink.mjs";
+
+      {
+        // worker connection test
+        const worker = new Worker("./worker.js");
+        const obj = Comlink.wrap(worker);
+
+        obj.test
+          .then((msg) =>
+            console.log("Worker connected! Message from worker:", msg)
+          )
+          .catch((err) => console.error(err));
+      }
+
+      const burnerButton = document.getElementById("burner");
+      const timeField = document.getElementById("timeField");
+      const mainFunctionPreview = document.getElementById(
+        "mainFunctionPreview"
+      );
+      mainFunctionPreview.innerText = prettier.format(buttonClick.toString(), {
+        parser: "babel",
+        plugins: [parserBabel],
+      });
+
+      burnerButton.addEventListener("click", () => {
+        disableButton();
+        buttonClick();
+      });
+
+      const progressBar = document.getElementById("progress");
+      const totalNumberOfTasks = 1000;
+      progressBar.max = totalNumberOfTasks;
+
+      async function buttonClick() {
+        resetTimeField();
+        disableButton();
+        updateProgressBar(0);
+        const timeStart = Date.now();
+
+        const worker = new Worker("./worker.js");
+        const obj = Comlink.wrap(worker);
+
+        const tasks = getListOfTasksTodo();
+        for (const task of tasks) {
+          const progress = await obj.executeTask(task);
+          updateProgressBar(progress);
+        }
+
+        const timeEnd = Date.now();
+        enableButton();
+        updateTimeFieldAtLast(timeStart, timeEnd);
+      }
+
+      function getListOfTasksTodo() {
+        return Array.from({ length: totalNumberOfTasks }).map((_, i) => i + 1);
+      }
+
+      function disableButton() {
+        burnerButton.disabled = true;
+      }
+      function enableButton() {
+        burnerButton.disabled = false;
+      }
+      function updateProgressBar(progress) {
+        progressBar.value = progress;
+      }
+
+      function resetTimeField() {
+        timeField.innerText = "--";
+      }
+
+      function updateTimeFieldAtLast(start, end) {
+        const diff = end - start;
+        const toSeconds = diff / 1000;
+        timeField.innerText = toSeconds.toString();
+      }
+    </script>
+  </body>
+</html>

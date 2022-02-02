@@ -1,0 +1,33 @@
+html, body{
+  font-family: 'Roboto Mono', monospace;
+  background-color: rgb(31, 31, 31);
+  color: aliceblue;
+}
+
+body{
+  margin: 10px 10%;
+}
+
+button {
+  background-color: rgb(200, 0, 0);
+  color: wheat;
+  padding: 5px 10px;
+}
+
+button:active{
+  background-color: salmon;
+  color: black;
+}
+
+pre{
+  font-family: 'Roboto Mono', monospace;
+  font-size: large;
+  padding: 10px;
+  border: thin solid salmon;
+  display: inline-block;
+}
+
+progress{
+  width: 50%;
+  height: 30px;
+}
