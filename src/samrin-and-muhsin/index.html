@@ -98,18 +98,7 @@
       </div>
     </div>
     <script type="module">
-      const images = [
-        "https://materializecss.com/images/parallax2.jpg",
-        "https://materializecss.com/images/parallax2.jpg",
-        "https://materializecss.com/images/parallax2.jpg",
-        "https://materializecss.com/images/parallax2.jpg",
-        "https://materializecss.com/images/parallax2.jpg",
-        "https://materializecss.com/images/parallax2.jpg",
-        "https://materializecss.com/images/parallax2.jpg",
-        "https://materializecss.com/images/parallax2.jpg",
-        "https://materializecss.com/images/parallax2.jpg",
-        "https://materializecss.com/images/parallax2.jpg",
-      ];
+      const imageIndex = Array.from({length:4}).map((_, index)=>index+1);
 
       function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -118,15 +107,15 @@
         }
       }
 
-      shuffleArray(images);
+      shuffleArray(imageIndex);
 
       // attach images
       const viewContainerElement = document.getElementById("view-container");
-      for(const src of images){
+      for(const src of imageIndex){
         const img= document.createElement("img");
-        img.src = src;
-        img.setAttribute("class", "card");
         img.setAttribute("loading", "lazy");
+        img.setAttribute("class", "card");
+        img.src = `./assets/${src}.webp`;
         viewContainerElement.appendChild(img);
       }
 
