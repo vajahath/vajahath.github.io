@@ -1,11 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samrin & Muhsin</title>
-</head>
-<body>
-    
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Macondo&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        font-family: "Macondo", cursive;
+        color: white;
+      }
+
+      #view-container {
+        scroll-snap-type: both mandatory;
+        width: 100vw;
+        height: 100vh;
+        gap: 10vw;
+        overflow-x: scroll;
+        overflow-y: scroll;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(20, 1fr);
+        grid-column-gap: 3vw;
+        grid-row-gap: 3vw;
+      }
+
+      .card {
+        aspect-ratio: 1/1;
+        height: 93vw;
+        width: 93vw;
+        border-radius: 10%;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+      }
+
+      .text {
+        background-color: rgb(33, 31, 31);
+        text-align: center;
+      }
+
+      button {
+        background-color: #000000;
+        border: thin solid #4a4a4a;
+        border-radius: 16px;
+        min-height: 56px;
+        min-width: 56px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #201e1e;
+      }
+
+      button:active {
+        background-color: #270228;
+      }
+
+      #fab-like {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        background-color: white;
+        border: none;
+        min-width: 93px;
+        border-radius: 40px;
+        box-shadow: 0px 3px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="fab-like">
+      <small style="font-size: 13px" id="fab-like-value"></small> 💕
+    </button>
+    <div id="view-container">
+      <div class="card text">
+        <h1>To, Samrin & Muhsin</h1>
+        <p>
+          May Allah shower upon you abundance of health, wealth and happiness!
+        </p>
+        <p style="color: #8c8c8c">
+          <small>With lots of love from Vaju & Aisha.</small>
+        </p>
+        <br />
+        <p id="likes">loading...</p>
+        <button id="add-like">💕</button>
+      </div>
+    </div>
+    <script type="module">
+      const images = [
+        "https://materializecss.com/images/parallax2.jpg",
+        "https://materializecss.com/images/parallax2.jpg",
+        "https://materializecss.com/images/parallax2.jpg",
+        "https://materializecss.com/images/parallax2.jpg",
+        "https://materializecss.com/images/parallax2.jpg",
+        "https://materializecss.com/images/parallax2.jpg",
+        "https://materializecss.com/images/parallax2.jpg",
+        "https://materializecss.com/images/parallax2.jpg",
+        "https://materializecss.com/images/parallax2.jpg",
+        "https://materializecss.com/images/parallax2.jpg",
+      ];
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+
+      shuffleArray(images);
+
+      // attach images
+      const viewContainerElement = document.getElementById("view-container");
+      for(const src of images){
+        const img= document.createElement("img");
+        img.src = src;
+        img.setAttribute("class", "card");
+        img.setAttribute("loading", "lazy");
+        viewContainerElement.appendChild(img);
+      }
+
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+      import {
+        getFirestore,
+        doc,
+        onSnapshot,
+        increment,
+        updateDoc,
+      } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAR4tXOMsSzLVkwy9f2qn0s9nRd8HOx5RA",
+        authDomain: "mine-c47bb.firebaseapp.com",
+        databaseURL: "https://mine-c47bb.firebaseio.com",
+        projectId: "mine-c47bb",
+        storageBucket: "mine-c47bb.appspot.com",
+        messagingSenderId: "371296852237",
+        appId: "1:371296852237:web:171bfaaf9c9d7b43dc3844",
+        measurementId: "G-7EKEFH6VZR",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const firestore = getFirestore(app);
+      const likesElement = document.getElementById("likes");
+      const fabLikesElement = document.getElementById("fab-like-value");
+      const likesDoc = doc(firestore, "general", "samrin-and-muhsin-wedding");
+
+      const unsubscribe = onSnapshot(likesDoc, (record) => {
+        const likes = record.data().likes;
+        likesElement.innerText = likes;
+        fabLikesElement.innerText = likes;
+      });
+
+      const vibrator =
+        window.navigator && window.navigator.vibrate
+          ? () => {
+              window.navigator.vibrate(6);
+            }
+          : () => {};
+
+      async function incrementLike() {
+        vibrator();
+        await updateDoc(likesDoc, {
+          likes: increment(1),
+        });
+      }
+
+      document
+        .getElementById("add-like")
+        .addEventListener("click", incrementLike);
+      document
+        .getElementById("fab-like")
+        .addEventListener("click", incrementLike);
+    </script>
+  </body>
 </html>
