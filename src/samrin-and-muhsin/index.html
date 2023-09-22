@@ -79,7 +79,7 @@
       }
     </style>
   </head>
-  <body>
+  <body id="body">
     <button id="fab-like">
       <small style="font-size: 13px" id="fab-like-value"></small> 💕
     </button>
@@ -180,6 +180,10 @@
       document
         .getElementById("fab-like")
         .addEventListener("click", incrementLike);
+      document
+        .getElementById("body")
+        .addEventListener("dblclick", incrementLike);
+        
     </script>
   </body>
 </html>
