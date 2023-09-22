@@ -72,7 +72,7 @@
         bottom: 40px;
         right: 40px;
         background-color: white;
-        border: none;
+        border: thick solid rgb(255, 255, 255);
         min-width: 93px;
         border-radius: 40px;
         box-shadow: 0px 3px 10px;
@@ -160,6 +160,13 @@
         fabLikesElement.innerText = likes;
       });
 
+      function randomizeFabBorder(){
+        const colorBase = Math.random() * 360;
+        const el = document
+        .getElementById("fab-like");
+        el.style.borderColor = `hsl(${colorBase}, 100%, 50%)`;
+        el.style.backgroundColor = `hsl(${colorBase}, 100%, 90%)`;
+      }
       const vibrator =
         window.navigator && window.navigator.vibrate
           ? () => {
@@ -169,6 +176,7 @@
 
       async function incrementLike() {
         vibrator();
+        randomizeFabBorder();
         await updateDoc(likesDoc, {
           likes: increment(1),
         });
