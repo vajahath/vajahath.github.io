@@ -65,7 +65,7 @@ const tagMetadata = tags.map(
                         <span class="font-bold">12m ago</span>
                     </div>
                 </div>
-                <div class="order-1 md:order-2 aspect-video bg-gray-100 dark:bg-zinc-800 overflow-hidden border-2 border-black dark:border-white">
+                <div class="order-1 md:order-2 aspect-video bg-gray-100 dark:bg-zinc-800 overflow-hidden">
                     {post.data.heroImage && (
                         <Image
                             src={post.data.heroImage}
@@ -116,7 +116,7 @@ const tagMetadata = tags.map(
                         {post.data.description}
                     </p>
                 </div>
-                <div class="w-full md:w-40 aspect-square bg-gray-100 dark:bg-zinc-800 overflow-hidden shrink-0 border-2 border-black dark:border-white">
+                <div class="w-full md:w-40 aspect-square bg-gray-100 dark:bg-zinc-800 overflow-hidden shrink-0">
                     {post.data.heroImage && (
                         <Image
                             src={post.data.heroImage}
