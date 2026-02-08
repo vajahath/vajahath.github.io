@@ -18,10 +18,22 @@ function toTitleCase(str: string) {
 	);
 }
 
-const breakingPost = posts[0];
-const feedPosts = posts.slice(1, 4);
-const sidebarPosts = posts.slice(4, 9);
-const focusPost = posts[9] || posts[0];
+// 1. Explicitly fetch Breaking and Focus news
+const breakingPost = posts.find((p) => p.data.isBreaking) || posts[0];
+
+// Exclude breaking post from candidates for Focus to avoid duplication
+const focusOptions = posts.filter((p) => p.id !== breakingPost?.id);
+const focusPost =
+	focusOptions.find((p) => p.data.isFocus) ||
+	focusOptions[8] ||
+	focusOptions[0];
+
+// 2. Prepare remaining posts for the main feed and sidebar
+const assignedIds = new Set([breakingPost?.id, focusPost?.id].filter(Boolean));
+const remainingPosts = posts.filter((p) => !assignedIds.has(p.id));
+
+const feedPosts = remainingPosts.slice(0, 3);
+const sidebarPosts = remainingPosts.slice(3, 8);
 
 const focusTitle = focusPost ? toTitleCase(focusPost.data.title) : "";
 ---

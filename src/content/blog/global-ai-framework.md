@@ -3,6 +3,8 @@ title: 'Global Artificial Intelligence Consortium Announces Landmark Framework f
 description: 'A group of leading nations and tech giants have signed a historic agreement to ensure the safe and transparent development of artificial intelligence.'
 pubDate: 'Feb 08 2026'
 heroImage: '../../assets/blog-placeholder-1.jpg'
+tags: ['AI & TECH', 'DESIGN']
+isFocus: true
 ---
 
 In a historic move that many are calling a "Geneva Convention for the Digital Age," the Global Artificial Intelligence Consortium (GAIC) officially ratified the Ethical AI Deployment Framework today. The agreement, signed by 45 nations and 20 of the world's largest technology firms, sets a new international standard for how artificial intelligence should be developed, tested, and integrated into society.
