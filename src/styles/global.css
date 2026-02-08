@@ -9,8 +9,8 @@
   --font-sans: var(--md-sys-typescale-font-family);
 
   --font-weight-normal: 400;
-  --font-weight-bold: 700;
-  --font-weight-black: 900;
+  --font-weight-bold: 600;
+  --font-weight-black: 800;
 }
 
 /* Tailwind 4 Class Strategy for Dark Mode */

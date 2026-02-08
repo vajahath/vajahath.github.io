@@ -54,27 +54,27 @@
     /* Display Large (Hero Headlines) */
     --md-sys-typescale-display-large-size: 3.5rem;
     --md-sys-typescale-display-large-line-height: 1.05;
-    --md-sys-typescale-display-large-weight: 900;
-    --md-sys-typescale-display-large-variation: var(--md-sys-font-variation-base), "wght" 900, "opsz" 144;
+    --md-sys-typescale-display-large-weight: 800;
+    --md-sys-typescale-display-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 144;
 
     /* Headline Large (Article Titles) */
     --md-sys-typescale-headline-large-size: 2rem;
     --md-sys-typescale-headline-large-line-height: 1.15;
-    --md-sys-typescale-headline-large-weight: 900;
-    --md-sys-typescale-headline-large-variation: var(--md-sys-font-variation-base), "wght" 900, "opsz" 72;
+    --md-sys-typescale-headline-large-weight: 800;
+    --md-sys-typescale-headline-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 72;
 
 
     /* Title Large (Section Headers) */
     --md-sys-typescale-title-large-size: 1.375rem;
     --md-sys-typescale-title-large-line-height: 1.25;
-    --md-sys-typescale-title-large-weight: 800;
-    --md-sys-typescale-title-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 32;
+    --md-sys-typescale-title-large-weight: 700;
+    --md-sys-typescale-title-large-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 32;
 
     /* Focus Title (Special Callouts) */
     --md-sys-typescale-focus-title-size: 1.75rem;
     --md-sys-typescale-focus-title-line-height: 1.1;
-    --md-sys-typescale-focus-title-weight: 900;
-    --md-sys-typescale-focus-title-variation: var(--md-sys-font-variation-base), "wght" 900, "opsz" 48;
+    --md-sys-typescale-focus-title-weight: 800;
+    --md-sys-typescale-focus-title-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 48;
 
     /* Body Large (Main Text) */
     --md-sys-typescale-body-large-size: 1.125rem;
@@ -86,14 +86,14 @@
     /* Label Large */
     --md-sys-typescale-label-large-size: 0.875rem;
     --md-sys-typescale-label-large-line-height: 1.25;
-    --md-sys-typescale-label-large-weight: 800;
-    --md-sys-typescale-label-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 12;
+    --md-sys-typescale-label-large-weight: 700;
+    --md-sys-typescale-label-large-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 12;
 
     /* Label Medium (Metadata) */
     --md-sys-typescale-label-medium-size: 0.75rem;
     --md-sys-typescale-label-medium-line-height: 1;
-    --md-sys-typescale-label-medium-weight: 800;
-    --md-sys-typescale-label-medium-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 10;
+    --md-sys-typescale-label-medium-weight: 700;
+    --md-sys-typescale-label-medium-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 10;
 
     /* Lede (Article Description) */
     --md-sys-typescale-lede-size: 1.5rem;
