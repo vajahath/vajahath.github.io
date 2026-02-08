@@ -43,7 +43,7 @@ const tagMetadata = tags.map(
                             {title}
                         </h2>
                     </a>
-                    <p class="m3-body-large text-gray-700 dark:text-gray-300 mb-6 line-clamp-3">
+                    <p class="m3-body-large text-black dark:text-white mb-6 line-clamp-3">
                         {post.data.description}
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
@@ -59,9 +59,9 @@ const tagMetadata = tags.map(
                             </a>
                         ))}
                     </div>
-                    <div class="flex items-center gap-4 m3-label-medium text-gray-500 dark:text-gray-400">
+                    <div class="flex items-center gap-4 m3-label-medium text-black dark:text-white">
                         <span class="font-bold">By Author Name</span>
-                        <span class="text-gray-300 dark:text-gray-700">•</span>
+                        <span class="text-black/30 dark:text-white/30">•</span>
                         <span class="font-bold">12m ago</span>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ const tagMetadata = tags.map(
                                 {tag.label}
                             </a>
                         ))}
-                        <span class="m3-label-medium text-gray-500 dark:text-gray-400 ml-1">
+                        <span class="m3-label-medium text-black dark:text-white ml-1">
                             <FormattedDate date={post.data.pubDate} />
                         </span>
                     </div>
@@ -112,7 +112,7 @@ const tagMetadata = tags.map(
                             {title}
                         </h4>
                     </a>
-                    <p class="m3-body-large text-gray-600 dark:text-gray-400 line-clamp-2">
+                    <p class="m3-body-large text-black dark:text-white line-clamp-2">
                         {post.data.description}
                     </p>
                 </div>
@@ -140,7 +140,7 @@ const tagMetadata = tags.map(
                 className,
             ]}
         >
-            <span class="m3-label-medium text-gray-400 block mb-1">
+            <span class="m3-label-medium text-black dark:text-white block mb-1">
                 {new Date(post.data.pubDate).toLocaleTimeString("en-US", {
                     hour: "2-digit",
                     minute: "2-digit",

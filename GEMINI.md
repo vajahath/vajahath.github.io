@@ -5,13 +5,13 @@
 
 ## Design Foundation: Material Design 3
 
-### Typography: Serif pairing (Noto Serif & Roboto Condensed)
-The system uses a high-contrast pairing of a classic serif with a modern condensed sans-serif to achieve a "live" news aesthetic.
+### Typography: Roboto Pairing (Roboto Slab & Roboto Condensed)
+The system uses a high-contrast pairing of a sturdy slab serif with a modern condensed sans-serif to achieve a "live" news aesthetic.
 
 - **Fonts in Use**:
-  - **Noto Serif**: Main body text and ledes (variable weight 100-900).
+  - **Roboto Slab**: Main body text and ledes (variable weight 100-900).
   - **Roboto Condensed**: Display headlines, section titles, and UI labels (variable weight 100-900).
-- **Variable Axes**: Both use the `wght` axis for precise weight control. Noto Serif uses a fixed `wdth` (100).
+- **Variable Axes**: Both use the `wght` axis for precise weight control.
 
 ### Tonal Color System
 The color system follows M3 semantic roles, mapped to high-energy news colors:
