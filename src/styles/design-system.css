@@ -114,26 +114,6 @@
     --md-sys-accessibility-touch-target: 48px;
 }
 
-/* Dark Theme Overrides */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --md-sys-color-primary: #60a5fa;
-        --md-sys-color-on-primary: #000000;
-        --md-sys-color-primary-container: #1e3a8a;
-        --md-sys-color-on-primary-container: #dbeafe;
-
-        --md-sys-color-surface: #000000;
-        --md-sys-color-on-surface: #ffffff;
-        --md-sys-color-surface-variant: #18181b;
-        --md-sys-color-on-surface-variant: #d1d5db;
-        --md-sys-color-outline: #ffffff;
-        --md-sys-color-outline-variant: #3f3f46;
-
-        /* Reduce weight slightly for dark mode to prevent "glow" bloom */
-        --md-sys-typescale-body-large-weight: 460;
-        --md-sys-typescale-body-large-variation: var(--md-sys-font-variation-base), "wght" 460, "opsz" 12;
-    }
-}
 
 .dark {
     --md-sys-color-primary: #60a5fa;
