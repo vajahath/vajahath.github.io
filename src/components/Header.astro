@@ -140,7 +140,7 @@ const randomHotTake =
 		}
 
 		function updateUI(theme) {
-			if (btn) btn.textContent = `Theme: ${theme}`;
+			if (btn) btn.textContent = theme;
 
 			if (theme === "auto") {
 				const isDark = window.matchMedia(
