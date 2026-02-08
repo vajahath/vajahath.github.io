@@ -83,16 +83,16 @@ const displayTitle = title;
 					{
 						hotTakes.length > 0 && (
 							<div class="news-signal-highlight">
-								<h3 class="m3-label-medium mb-4 uppercase tracking-[0.3em] text-live-red font-black">
+								<h3 class="m3-label-medium mb-3 uppercase tracking-[0.3em] text-live-red font-black">
 									Signal Highlights
 								</h3>
-								<ul class="list-none space-y-4">
+								<ul class="list-none space-y-2.5">
 									{hotTakes.map((take: string) => (
-										<li class="m3-title-large text-xl leading-relaxed flex gap-4 items-start">
-											<span class="text-live-red text-2xl mt-1 leading-none">
+										<li class="m3-body-large flex gap-4 items-start">
+											<span class="text-live-red text-xl leading-none mt-0.5">
 												/
 											</span>
-											<span class="italic font-light">
+											<span class="font-medium">
 												{take}
 											</span>
 										</li>

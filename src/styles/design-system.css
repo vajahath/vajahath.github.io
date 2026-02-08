@@ -241,7 +241,7 @@
 }
 
 @utility news-signal-highlight {
-    @apply p-6 pr-10 bg-zinc-50 dark:bg-zinc-900/50 border-l-4 border-live-red relative overflow-hidden;
+    @apply p-5 pr-8 bg-zinc-50 dark:bg-zinc-900/50 border-l-4 border-live-red relative overflow-hidden;
 
     &::before {
         content: "SIGNAL";
