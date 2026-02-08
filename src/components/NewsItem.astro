@@ -1,0 +1,129 @@
+---
+import { Image } from "astro:assets";
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+    post: any;
+    type?: "hero" | "standard" | "sidebar-item";
+    className?: string;
+}
+
+const { post, type = "standard", className = "" } = Astro.props;
+
+// Function to convert string to Title Case
+function toTitleCase(str: string) {
+    return str.replace(
+        /\w\S*/g,
+        (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    );
+}
+
+const title = toTitleCase(post.data.title);
+---
+
+{
+    type === "hero" && (
+        <div class:list={["flex flex-col gap-6", className]}>
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2.5 h-2.5 bg-live-red rounded-full" />
+                <span class="m3-label-medium text-live-red">Breaking News</span>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="order-2 md:order-1">
+                    <a href={`/blog/${post.id}/`} class="group m3-touch-target">
+                        <h2 class="m3-display-large mb-4 group-hover:text-brand-blue transition-colors text-black dark:text-white">
+                            {title}
+                        </h2>
+                    </a>
+                    <p class="m3-body-large text-gray-700 dark:text-gray-300 mb-6 line-clamp-3">
+                        {post.data.description}
+                    </p>
+                    <div class="flex items-center gap-4 m3-label-medium text-gray-500 dark:text-gray-400">
+                        <span class="font-bold">By Author Name</span>
+                        <span class="text-gray-300 dark:text-gray-700">•</span>
+                        <span class="font-bold">12m ago</span>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 aspect-video bg-gray-100 dark:bg-zinc-800 overflow-hidden border-2 border-black dark:border-white">
+                    {post.data.heroImage && (
+                        <Image
+                            src={post.data.heroImage}
+                            alt={post.data.title}
+                            width={1200}
+                            height={675}
+                            class="w-full h-full object-cover grayscale brightness-110 contrast-125 dark:grayscale-0 dark:brightness-90 transition-transform duration-500 hover:scale-105"
+                        />
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+{
+    type === "standard" && (
+        <article
+            class:list={[
+                "py-6 group border-b-2 border-black dark:border-white last:border-0",
+                className,
+            ]}
+        >
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="tag-accent">
+                            {post.data.category || "Solar"}
+                        </span>
+                        <span class="m3-label-medium text-gray-500 dark:text-gray-400">
+                            <FormattedDate date={post.data.pubDate} />
+                        </span>
+                    </div>
+                    <a href={`/blog/${post.id}/`} class="m3-touch-target">
+                        <h4 class="m3-headline-large mb-3 group-hover:text-brand-blue transition-colors text-black dark:text-white">
+                            {title}
+                        </h4>
+                    </a>
+                    <p class="m3-body-large text-gray-600 dark:text-gray-400 line-clamp-2">
+                        {post.data.description}
+                    </p>
+                </div>
+                <div class="w-full md:w-40 aspect-square bg-gray-100 dark:bg-zinc-800 overflow-hidden shrink-0 border-2 border-black dark:border-white">
+                    {post.data.heroImage && (
+                        <Image
+                            src={post.data.heroImage}
+                            alt={post.data.title}
+                            width={400}
+                            height={400}
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        />
+                    )}
+                </div>
+            </div>
+        </article>
+    )
+}
+
+{
+    type === "sidebar-item" && (
+        <div
+            class:list={[
+                "pb-4 border-b border-black/10 dark:border-white/10 last:border-0",
+                className,
+            ]}
+        >
+            <span class="m3-label-medium text-gray-400 block mb-1">
+                {new Date(post.data.pubDate).toLocaleTimeString("en-US", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: false,
+                })}
+            </span>
+            <a
+                href={`/blog/${post.id}/`}
+                class="m3-touch-target m3-title-large text-base hover:underline text-black dark:text-white hover:text-brand-blue dark:hover:text-brand-blue block"
+            >
+                {title}
+            </a>
+        </div>
+    )
+}

@@ -1,0 +1,212 @@
+/* 
+  Material Design 3 (M3) Design System for Faint Signals
+  Based on Roboto Flex Variable Font
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap');
+
+:root {
+    /* --- COLOR TOKENS (System Roles) --- */
+
+    /* Primary: High-energy Brand Color */
+    --md-sys-color-primary: #3b82f6;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #dbeafe;
+    --md-sys-color-on-primary-container: #1e3a8a;
+
+    /* Secondary: Medium Emphasis / Content Groups */
+    --md-sys-color-secondary: #71717a;
+    --md-sys-color-on-secondary: #ffffff;
+    --md-sys-color-secondary-container: #f4f4f5;
+    --md-sys-color-on-secondary-container: #18181b;
+
+    /* Tertiary: Accents / Highlights */
+    --md-sys-color-tertiary: #10b981;
+    /* Emerald-500 equivalent */
+    --md-sys-color-on-tertiary: #ffffff;
+    --md-sys-color-tertiary-container: #dcfce7;
+    --md-sys-color-on-tertiary-container: #064e3b;
+
+    /* Error: Live/Breaking Status */
+    --md-sys-color-error: #ef4444;
+    --md-sys-color-on-error: #ffffff;
+    --md-sys-color-error-container: #fee2e2;
+    --md-sys-color-on-error-container: #991b1b;
+
+    /* Neutral: Surface and Background */
+    --md-sys-color-surface: #ffffff;
+    --md-sys-color-on-surface: #000000;
+    --md-sys-color-surface-variant: #f4f4f5;
+    --md-sys-color-on-surface-variant: #3f3f46;
+    --md-sys-color-outline: #000000;
+    /* High contrast outline for news vibe */
+    --md-sys-color-outline-variant: #e5e7eb;
+
+    /* --- TYPOGRAPHY TOKENS (Roboto Flex) --- */
+    --md-sys-typescale-font-family: "Roboto Flex", sans-serif;
+
+    /* Variation Settings Base */
+    --md-sys-font-variation-base: "slnt" 0, "wdth" 100, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+
+    /* Display Large (Hero Headlines) */
+    --md-sys-typescale-display-large-size: 3.5rem;
+    --md-sys-typescale-display-large-line-height: 1.05;
+    --md-sys-typescale-display-large-weight: 820;
+    --md-sys-typescale-display-large-variation: "opsz" 144, "wght" 820, "XTRA" 500;
+
+    /* Headline Large (Article Titles) */
+    --md-sys-typescale-headline-large-size: 2rem;
+    --md-sys-typescale-headline-large-line-height: 1.15;
+    --md-sys-typescale-headline-large-weight: 780;
+    --md-sys-typescale-headline-large-variation: "opsz" 32, "wght" 780, "XTRA" 468;
+
+
+    /* Title Large (Section Headers) */
+    --md-sys-typescale-title-large-size: 1.375rem;
+    --md-sys-typescale-title-large-line-height: 1.25;
+    --md-sys-typescale-title-large-weight: 700;
+    --md-sys-typescale-title-large-variation: "opsz" 22, "wght" 700;
+
+    /* Focus Title (Special Callouts) */
+    --md-sys-typescale-focus-title-size: 1.75rem;
+    --md-sys-typescale-focus-title-line-height: 1.1;
+    --md-sys-typescale-focus-title-weight: 700;
+    --md-sys-typescale-focus-title-variation: "opsz" 28, "wght" 700, "XTRA" 468, "GRAD" 50;
+
+    /* Body Large (Main Text) */
+    --md-sys-typescale-body-large-size: 1.0625rem;
+    /* 17px for news readability */
+    --md-sys-typescale-body-large-line-height: 1.6;
+    --md-sys-typescale-body-large-weight: 400;
+    --md-sys-typescale-body-large-variation: "opsz" 17, "wght" 400, "GRAD" 0;
+
+    /* Label Medium (Metadata) */
+    --md-sys-typescale-label-medium-size: 0.75rem;
+    --md-sys-typescale-label-medium-line-height: 1;
+    --md-sys-typescale-label-medium-weight: 700;
+    --md-sys-typescale-label-medium-variation: "opsz" 12, "wght" 700, "XTRA" 500;
+
+    /* --- SHAPE & ELEVATION --- */
+    --md-sys-shape-corner-none: 0;
+    --md-sys-shape-corner-small: 4px;
+    --md-sys-shape-corner-medium: 8px;
+
+    /* --- DENSITY TOKENS --- */
+    --md-sys-density-minus-1: 4px;
+    --md-sys-density-minus-2: 0px;
+
+    /* Touch Target Minimum */
+    --md-sys-accessibility-touch-target: 48px;
+}
+
+/* Dark Theme Overrides */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --md-sys-color-primary: #60a5fa;
+        --md-sys-color-on-primary: #000000;
+        --md-sys-color-primary-container: #1e3a8a;
+        --md-sys-color-on-primary-container: #dbeafe;
+
+        --md-sys-color-surface: #000000;
+        --md-sys-color-on-surface: #ffffff;
+        --md-sys-color-surface-variant: #18181b;
+        --md-sys-color-on-surface-variant: #d1d5db;
+        --md-sys-color-outline: #ffffff;
+        --md-sys-color-outline-variant: #3f3f46;
+
+        /* Reduce weight slightly for dark mode to prevent "glow" bloom */
+        --md-sys-typescale-body-large-weight: 350;
+        --md-sys-typescale-body-large-variation: "opsz" 17, "wght" 350, "GRAD" -25;
+    }
+}
+
+.dark {
+    --md-sys-color-primary: #60a5fa;
+    --md-sys-color-on-primary: #000000;
+    --md-sys-color-primary-container: #1e3a8a;
+    --md-sys-color-on-primary-container: #dbeafe;
+
+    --md-sys-color-surface: #000000;
+    --md-sys-color-on-surface: #ffffff;
+    --md-sys-color-surface-variant: #18181b;
+    --md-sys-color-on-surface-variant: #d1d5db;
+    --md-sys-color-outline: #ffffff;
+    --md-sys-color-outline-variant: #3f3f46;
+
+    /* Reduce weight slightly for dark mode to prevent "glow" bloom */
+    --md-sys-typescale-body-large-weight: 350;
+    --md-sys-typescale-body-large-variation: "opsz" 17, "wght" 350, "GRAD" -25;
+}
+
+
+@utility m3-display-large {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-display-large-size);
+    line-height: var(--md-sys-typescale-display-large-line-height);
+    font-weight: var(--md-sys-typescale-display-large-weight);
+    font-variation-settings: var(--md-sys-typescale-display-large-variation);
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-wrap: balance;
+}
+
+@utility m3-headline-large {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-headline-large-size);
+    line-height: var(--md-sys-typescale-headline-large-line-height);
+    font-weight: var(--md-sys-typescale-headline-large-weight);
+    font-variation-settings: var(--md-sys-typescale-headline-large-variation);
+    letter-spacing: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-wrap: balance;
+}
+
+@utility m3-title-large {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-title-large-size);
+    line-height: var(--md-sys-typescale-title-large-line-height);
+    font-weight: var(--md-sys-typescale-title-large-weight);
+    font-variation-settings: var(--md-sys-typescale-title-large-variation);
+}
+
+@utility m3-body-large {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-body-large-size);
+    line-height: var(--md-sys-typescale-body-large-line-height);
+    font-weight: var(--md-sys-typescale-body-large-weight);
+    font-variation-settings: var(--md-sys-typescale-body-large-variation);
+}
+
+@utility m3-label-medium {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-label-medium-size);
+    line-height: var(--md-sys-typescale-label-medium-line-height);
+    font-weight: var(--md-sys-typescale-label-medium-weight);
+    font-variation-settings: var(--md-sys-typescale-label-medium-variation);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+@utility m3-focus-title {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-focus-title-size);
+    line-height: var(--md-sys-typescale-focus-title-line-height);
+    font-weight: var(--md-sys-typescale-focus-title-weight);
+    font-variation-settings: var(--md-sys-typescale-focus-title-variation);
+    letter-spacing: -0.01em;
+    color: var(--md-sys-color-primary);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-wrap: balance;
+}
+
+@utility m3-touch-target {
+    min-width: var(--md-sys-accessibility-touch-target);
+    min-height: var(--md-sys-accessibility-touch-target);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

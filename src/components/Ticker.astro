@@ -1,0 +1,53 @@
+---
+const { items = [] } = Astro.props;
+---
+
+<div
+    class="w-full bg-black dark:bg-white text-white dark:text-black py-2 px-4 overflow-hidden border-b border-black dark:border-white"
+>
+    <div class="max-w-7xl mx-auto flex items-center gap-4">
+        <div class="flex-shrink-0 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-accent-red animate-pulse"
+            ></span>
+            <span class="font-black text-xs uppercase tracking-widest"
+                >Live Updates</span
+            >
+        </div>
+        <div class="flex-1 overflow-hidden whitespace-nowrap relative h-5">
+            <div class="absolute flex gap-12 animate-ticker hover:pause">
+                {
+                    items.map((item: string) => (
+                        <span class="text-sm font-bold uppercase tracking-tight underline-offset-4 hover:underline cursor-pointer">
+                            {item}
+                        </span>
+                    ))
+                }
+                {/* Duplicate for seamless loop */}
+                {
+                    items.map((item: string) => (
+                        <span class="text-sm font-bold uppercase tracking-tight underline-offset-4 hover:underline cursor-pointer">
+                            {item}
+                        </span>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes ticker {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    .animate-ticker {
+        animation: ticker 30s linear infinite;
+    }
+    .hover\:pause:hover {
+        animation-play-state: paused;
+    }
+</style>
