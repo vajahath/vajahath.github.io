@@ -5,13 +5,12 @@
 
 ## Design Foundation: Material Design 3
 
-### Typography: Roboto Pairing (Roboto Slab & Roboto Condensed)
-The system uses a high-contrast pairing of a sturdy slab serif with a modern condensed sans-serif to achieve a "live" news aesthetic.
+### Typography: Roboto Flex (Universal Variable)
+The system has transitioned to a universal font face, **Roboto Flex**, utilizing its expansive variable axes (XOPQ, XTRA, YOPQ, etc.) to achieve a high-density, "broadcast" news aesthetic.
 
 - **Fonts in Use**:
-  - **Roboto Slab**: Main body text and ledes (variable weight 100-900).
-  - **Roboto Condensed**: Display headlines, section titles, and UI labels (variable weight 100-900).
-- **Variable Axes**: Both use the `wght` axis for precise weight control.
+  - **Roboto Flex**: Applied globally across all scales, from massive display headlines to high-readability body text.
+- **Variable Axes**: Extensively uses `wght`, `opsz`, `XOPQ` (thick strokes), `XTRA` (counter width), and `YTAS`/`YTDE` (ascender/descender height) for a punchy, technical look.
 
 ### Tonal Color System
 The color system follows M3 semantic roles, mapped to high-energy news colors:
@@ -45,8 +44,7 @@ Styles are managed via tokens in `src/styles/design-system.css` and applied thro
 - **Theme Variable Strategy**: Use `@theme` for design system tokens but prefer custom properties (`--md-sys-*`) for fine-grained control over variable font axes.
 
 ### Typography & Legibility
-- **Variable Font Axes (Noto Serif)**: Main body text uses `Noto Serif`. For all-caps headlines (if any used), we relax tracking.
-- **Variable Font Axes (Roboto Condensed)**: Display headlines and UI elements use `Roboto Condensed`. High weights (700-900) are used for strong visual impact.
+- **Variable Font Axes**: The system leverages the full range of Roboto Flex axes. For headlines, we maximize `wght` and `XTRA` for impact. For body text, we prioritize `opsz` and `wght` for clarity.
 - **Responsive Wrapping**: Large editorial titles must use `text-wrap: balance` to distribute words evenly. Combine this with `overflow-wrap: break-word` to prevent horizontal scrolling on small viewports caused by long headlines.
 
 ### Layout & Alignment
