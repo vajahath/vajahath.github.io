@@ -17,6 +17,7 @@ const {
 	updatedDate,
 	heroImage,
 	tags = [],
+	hotTakes = [],
 } = Astro.props;
 const tagMetadata = tags.map(
 	(t: string) =>
@@ -80,6 +81,26 @@ const displayTitle = title;
 					>
 						{description}
 					</p>
+
+					{
+						hotTakes.length > 0 && (
+							<div class="mt-4 p-6 bg-gray-50 dark:bg-zinc-950 border-2 border-black dark:border-white">
+								<h3 class="m3-label-medium mb-4 uppercase tracking-[0.2em] text-live-red">
+									Signal Highlights
+								</h3>
+								<ul class="list-none space-y-4">
+									{hotTakes.map((take: string) => (
+										<li class="m3-title-large text-lg flex gap-4 items-start">
+											<span class="text-live-red">●</span>
+											<span class="italic leading-snug">
+												{take}
+											</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						)
+					}
 				</div>
 
 				<div class="w-full h-0.5 bg-black/10 dark:bg-white/10 my-1">

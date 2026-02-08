@@ -1,10 +1,16 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import NewsItem from "../components/NewsItem.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+// --- CONFIGURATION ---
+const FEED_POSTS_COUNT = 6;
+const HOT_TAKES_COUNT = 5;
+// ---------------------
 
 const posts = (await getCollection("blog")).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -18,24 +24,36 @@ function toTitleCase(str: string) {
 	);
 }
 
-// 1. Explicitly fetch Breaking and Focus news
-const breakingPost = posts.find((p) => p.data.isBreaking) || posts[0];
+// 1. Explicitly fetch Spotlight and Focus news
+const spotlightPost = posts.find((p) => p.data.isSpotlight) || posts[0];
 
-// Exclude breaking post from candidates for Focus to avoid duplication
-const focusOptions = posts.filter((p) => p.id !== breakingPost?.id);
+// Exclude spotlight post from candidates for Focus to avoid duplication
+const focusOptions = posts.filter((p) => p.id !== spotlightPost?.id);
 const focusPost =
 	focusOptions.find((p) => p.data.isFocus) ||
 	focusOptions[8] ||
 	focusOptions[0];
 
-// 2. Prepare remaining posts for the main feed and sidebar
-const assignedIds = new Set([breakingPost?.id, focusPost?.id].filter(Boolean));
+// 2. Prepare remaining posts for the main feed
+const assignedIds = new Set([spotlightPost?.id, focusPost?.id].filter(Boolean));
 const remainingPosts = posts.filter((p) => !assignedIds.has(p.id));
 
-const feedPosts = remainingPosts.slice(0, 3);
-const sidebarPosts = remainingPosts.slice(3, 8);
+const feedPosts = remainingPosts.slice(0, FEED_POSTS_COUNT);
 
 const focusTitle = focusPost ? toTitleCase(focusPost.data.title) : "";
+
+// 3. Hot Takes Logic
+const hotTakesList = posts
+	.filter((p) => p.data.hotTakes && p.data.hotTakes.length > 0)
+	.flatMap((p) => {
+		const takes = p.data.hotTakes || [];
+		return takes.map((take) => ({
+			text: take,
+			postId: p.id,
+		}));
+	})
+	.sort(() => Math.random() - 0.5)
+	.slice(0, HOT_TAKES_COUNT);
 ---
 
 <!DOCTYPE html>
@@ -52,11 +70,11 @@ const focusTitle = focusPost ? toTitleCase(focusPost.data.title) : "";
 		<Header />
 
 		<main class="max-w-7xl mx-auto px-4 py-8">
-			{/* Breaking News Hero Section */}
+			{/* Spotlight Hero Section */}
 			{
-				breakingPost && (
+				spotlightPost && (
 					<section class="pb-10 mb-10 border-b-2 border-black dark:border-white">
-						<NewsItem post={breakingPost} type="hero" />
+						<NewsItem post={spotlightPost} type="hero" />
 					</section>
 				)
 			}
@@ -83,19 +101,29 @@ const focusTitle = focusPost ? toTitleCase(focusPost.data.title) : "";
 				<aside
 					class="space-y-12 border-t lg:border-t-0 lg:border-l-2 border-black/10 dark:border-white/10 lg:pl-10 pt-10 lg:pt-0"
 				>
-					{/* Just In Feed */}
+					{/* Hot Takes Feed */}
 					<section>
 						<h3
 							class="m3-label-medium mb-6 flex items-center gap-2 uppercase tracking-[0.2em]"
 						>
-							<span class="w-2.5 h-2.5 bg-live-green rounded-full"
+							<span class="w-2.5 h-2.5 bg-live-red rounded-full"
 							></span>
-							Just In
+							Hot Takes
 						</h3>
-						<div class="space-y-6">
+						<div class="flex flex-col gap-8">
 							{
-								sidebarPosts.map((post) => (
-									<NewsItem post={post} type="sidebar-item" />
+								hotTakesList.map((take) => (
+									<div class="group relative">
+										<p class="m3-title-large text-xl italic leading-tight mb-2">
+											{take.text}
+										</p>
+										<a
+											href={`/blog/${take.postId}/`}
+											class="m3-label-medium text-live-red hover:underline uppercase tracking-widest text-[10px]"
+										>
+											Source Signal →
+										</a>
+									</div>
 								))
 							}
 						</div>
@@ -104,23 +132,36 @@ const focusTitle = focusPost ? toTitleCase(focusPost.data.title) : "";
 					{/* Focus Section */}
 					{
 						focusPost && (
-							<section class="p-8 bg-gray-50 dark:bg-zinc-950 border-l-8 border-brand-blue">
-								<h3 class="m3-label-medium mb-6 uppercase tracking-[0.2em]">
-									Focus
-								</h3>
-								<p class="m3-focus-title italic mb-4 leading-tight">
-									"{focusTitle}"
-								</p>
+							<section class="bg-gray-50 dark:bg-zinc-950 border-2 border-black dark:border-white overflow-hidden">
+								{focusPost.data.heroImage && (
+									<div class="aspect-video w-full overflow-hidden border-b-2 border-black dark:border-white">
+										<Image
+											src={focusPost.data.heroImage}
+											alt={focusPost.data.title}
+											width={800}
+											height={450}
+											class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+										/>
+									</div>
+								)}
+								<div class="p-8">
+									<h3 class="m3-label-medium mb-6 uppercase tracking-[0.2em] text-brand-blue">
+										Focus Analysis
+									</h3>
+									<p class="m3-focus-title italic mb-4 leading-tight text-2xl font-black">
+										{focusTitle}
+									</p>
 
-								<p class="m3-body-large text-gray-600 dark:text-gray-400 mb-6 font-medium">
-									{focusPost.data.description}
-								</p>
-								<a
-									href={`/blog/${focusPost.id}/`}
-									class="m3-touch-target inline-flex items-center m3-label-medium text-black dark:text-white hover:underline px-6 py-2 border-2 border-black dark:border-white transition-all"
-								>
-									Read Analysis →
-								</a>
+									<p class="m3-body-large text-gray-600 dark:text-gray-400 mb-6 font-medium line-clamp-4">
+										{focusPost.data.description}
+									</p>
+									<a
+										href={`/blog/${focusPost.id}/`}
+										class="m3-touch-target inline-flex items-center m3-label-medium text-black dark:text-white hover:underline px-6 py-2 border-2 border-black dark:border-white transition-all uppercase tracking-widest"
+									>
+										Read Full Analysis →
+									</a>
+								</div>
 							</section>
 						)
 					}

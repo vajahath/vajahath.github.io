@@ -3,6 +3,8 @@ title: 'Central Banks Signal Major Shift in Monetary Policy as Digital Currencie
 description: 'Financial institutions are preparing for a new era of decentralized finance as major economies move toward sovereign digital assets.'
 pubDate: 'Feb 06 2026'
 heroImage: '../../assets/blog-placeholder-3.jpg'
+tags: ['AI & TECH', 'DESIGN']
+hotTakes: ['Privacy is the trade-off for financial speed.', 'The bank of the future is an API, not a building.']
 ---
 
 In a coordinated series of statements this week, several of the world's most influential central banks have indicated they are accelerating their plans for Central Bank Digital Currencies (CBDCs). The move comes as decentralized finance (DeFi) platforms continue to capture a growing share of international trade settlements, bypassing traditional banking rails.

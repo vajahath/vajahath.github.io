@@ -4,6 +4,7 @@ description: 'Marine biologists uncover a thriving colony of unknown species ben
 pubDate: 'Feb 07 2026'
 heroImage: '../../assets/blog-placeholder-2.jpg'
 tags: ['TRAVEL', 'AI & TECH']
+hotTakes: ['The Arctic is the last unexplored frontier on Earth.', 'Bioluminescence is the internet of the deep sea.']
 ---
 
 Explorers aboard the vessel *Polaris* have reported a groundbreaking discovery in the Arctic Ocean. Advanced AUVs found a bioluminescent ecosystem thousands of meters beneath the ice.

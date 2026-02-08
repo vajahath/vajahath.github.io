@@ -14,8 +14,9 @@ const blog = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			heroImage: image().optional(),
 			tags: z.array(z.string()).default(['PERSONAL BLOG']),
-			isBreaking: z.boolean().optional().default(false),
+			isSpotlight: z.boolean().optional().default(false),
 			isFocus: z.boolean().optional().default(false),
+			hotTakes: z.array(z.string()).optional(),
 		}),
 });
 

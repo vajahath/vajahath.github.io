@@ -12,55 +12,64 @@ const today = new Date();
 				{SITE_TITLE.toUpperCase()}
 			</h2>
 			<p class="m3-body-medium text-gray-500 max-w-md leading-relaxed">
-				A digital news hub focused on the intersections of technology,
-				energy, and aesthetics. Built for high performance and absolute
-				legibility.
+				Faint Signals is an independent news portal exploring the
+				margins of technology, design, and culture. We prioritize
+				high-density information over high-volume noise.
 			</p>
 		</div>
 		<div>
-			<h4 class="m3-label-medium text-black dark:text-white mb-4">
-				Sections
+			<h4
+				class="m3-label-medium text-black dark:text-white mb-4 uppercase tracking-widest"
+			>
+				Network
 			</h4>
 			<ul class="m3-label-large space-y-2 text-black dark:text-white">
 				<li>
 					<a
 						href="/"
 						class="hover:underline opacity-80 hover:opacity-100"
-						>Home</a>
+						>LATEST SIGNALS</a
+					>
 				</li>
 				<li>
 					<a
-						href="/blog"
+						href="/tags"
 						class="hover:underline opacity-80 hover:opacity-100"
-						>Dev Logs</a>
+						>TOPIC ARCHIVE</a
+					>
 				</li>
 				<li>
 					<a
-						href="#"
+						href="/tags/ai-&-tech"
 						class="hover:underline opacity-80 hover:opacity-100"
-						>Solar Energy</a>
+						>AI & SYSTEMS</a
+					>
 				</li>
 				<li>
 					<a
-						href="#"
+						href="/tags/design"
 						class="hover:underline opacity-80 hover:opacity-100"
-						>Fashion Design</a>
+						>DESIGN THEORY</a
+					>
 				</li>
 			</ul>
 		</div>
 		<div>
-			<h4 class="m3-label-medium text-black dark:text-white mb-4">
-				About
+			<h4
+				class="m3-label-medium text-black dark:text-white mb-4 uppercase tracking-widest"
+			>
+				The Take
 			</h4>
-			<p class="m3-body-medium text-gray-500 italic">
-				"Subject to change. Probably wrong. Frequently noted."
+			<p class="m3-body-medium text-gray-500 italic leading-relaxed">
+				"Everything here is subject to change. Most signals are weak.
+				Some are probably wrong. All are noted."
 			</p>
 		</div>
 	</div>
 	<div
-		class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-black/5 dark:border-white/5 flex justify-between items-center m3-label-small text-gray-400"
+		class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 m3-label-small text-gray-400 uppercase tracking-widest"
 	>
 		<span>© {today.getFullYear()} {SITE_TITLE.toUpperCase()}</span>
-		<span>All takes are my own.</span>
+		<span>BROADCASTING FROM THE NOISE</span>
 	</div>
 </footer>

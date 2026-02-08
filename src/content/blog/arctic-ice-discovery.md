@@ -4,7 +4,7 @@ description: 'Marine biologists have uncovered a thriving colony of previously u
 pubDate: 'Feb 07 2026'
 heroImage: '../../assets/blog-placeholder-2.jpg'
 tags: ['TRAVEL', 'AI & TECH']
-isBreaking: true
+isSpotlight: true
 ---
 
 Explorers and scientists aboard the research vessel *Polaris* have reported a groundbreaking discovery in the deep waters of the Arctic Ocean. Utilizing advanced autonomous underwater vehicles (AUVs), the team found a vast, bioluminescent ecosystem thriving thousands of meters beneath the permanent ice pack.
