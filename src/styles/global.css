@@ -129,7 +129,7 @@
 
   /* Sidebar/Utility Header Rule */
   .header-h3 {
-    @apply m3-label-medium text-gray-500 dark:text-gray-400;
+    @apply m3-label-medium text-black dark:text-white;
   }
 
   /* Category Tag Base */
@@ -139,11 +139,11 @@
 
   /* Metadata/Byline Base */
   .metadata-cap {
-    @apply m3-label-medium text-gray-500 dark:text-gray-400;
+    @apply m3-label-medium text-black dark:text-white;
   }
 
   /* Caption Base */
   .caption-text {
-    @apply text-xs italic font-medium text-gray-500 dark:text-gray-400;
+    @apply text-xs italic font-medium text-black dark:text-white;
   }
 }
