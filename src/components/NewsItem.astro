@@ -29,7 +29,7 @@ const tagMetadata = tags.map(
 
 {
     type === "hero" && (
-        <div class:list={["flex flex-col gap-6", className]}>
+        <div class:list={["flex flex-col gap-6 @container/hero", className]}>
             <div class="flex items-center gap-2">
                 <span class="inline-block w-2.5 h-2.5 bg-live-red rounded-full" />
                 <span class="m3-label-medium text-live-red font-black tracking-widest uppercase">
@@ -38,10 +38,12 @@ const tagMetadata = tags.map(
             </div>
             <div
                 class={`grid ${
-                    post.data.heroImage ? "md:grid-cols-2" : "grid-cols-1"
+                    post.data.heroImage
+                        ? "grid-cols-1 @[600px]/hero:grid-cols-2"
+                        : "grid-cols-1"
                 } gap-8 items-start`}
             >
-                <div class="order-2 md:order-1">
+                <div class="order-2 @[600px]/hero:order-1">
                     <a href={`/blog/${post.id}/`} class="group m3-touch-target">
                         <h2 class="m3-display-large mb-4 text-black dark:text-white">
                             {title}
@@ -70,7 +72,7 @@ const tagMetadata = tags.map(
                     </div>
                 </div>
                 {post.data.heroImage && (
-                    <div class="order-1 md:order-2 aspect-video bg-gray-100 dark:bg-zinc-800 overflow-hidden">
+                    <div class="order-1 @[600px]/hero:order-2 aspect-video bg-gray-100 dark:bg-zinc-800 overflow-hidden">
                         <Image
                             src={post.data.heroImage}
                             alt={post.data.title}
@@ -89,12 +91,12 @@ const tagMetadata = tags.map(
     type === "standard" && (
         <article
             class:list={[
-                "py-6 group border-b-2 border-black dark:border-white last:border-0",
+                "py-6 group border-b-2 border-black dark:border-white last:border-0 @container/standard",
                 className,
             ]}
         >
-            <div class="flex flex-col md:flex-row gap-6">
-                <div class="flex-1">
+            <div class="flex flex-col @[500px]:flex-row gap-6">
+                <div class="flex-1 order-2 @[500px]:order-1">
                     <div class="flex flex-wrap items-center gap-2 mb-3">
                         {tagMetadata.map((tag: any) => (
                             <a
@@ -116,12 +118,12 @@ const tagMetadata = tags.map(
                             {title}
                         </h4>
                     </a>
-                    <p class="m3-body-large text-black dark:text-white line-clamp-2">
+                    <p class="m3-body-large text-black dark:text-white line-clamp-3">
                         {post.data.description}
                     </p>
                 </div>
                 {post.data.heroImage && (
-                    <div class="w-full md:w-40 aspect-square bg-gray-100 dark:bg-zinc-800 overflow-hidden shrink-0">
+                    <div class="w-full @[500px]:w-48 aspect-video @[500px]:aspect-square bg-gray-100 dark:bg-zinc-800 overflow-hidden shrink-0 order-1 @[500px]:order-2">
                         <Image
                             src={post.data.heroImage}
                             alt={post.data.title}

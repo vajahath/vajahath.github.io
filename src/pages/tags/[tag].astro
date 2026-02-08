@@ -59,30 +59,32 @@ const metadata = TAGS[tagName as TagKey] || {
                 </h1>
             </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
-                {
-                    posts.map((post: any, index: number) => {
-                        // Create an asymmetrical layout pattern
-                        const isFullWidth = index % 5 === 0;
-                        const isTwoThirds = index % 5 === 1;
-                        const isOneThird = index % 5 === 2;
+            <div class="grid lg:grid-cols-3 gap-x-12 gap-y-0">
+                {/* Main Column (2/3) */}
+                <div
+                    class="lg:col-span-2 divide-y-2 divide-black dark:divide-white"
+                >
+                    {
+                        posts
+                            .slice(0, Math.ceil(posts.length * 0.6))
+                            .map((post: any) => (
+                                <NewsItem post={post} type="standard" />
+                            ))
+                    }
+                </div>
 
-                        let colSpan = "lg:col-span-12"; // Default full
-                        if (isTwoThirds) colSpan = "lg:col-span-8";
-                        if (isOneThird) colSpan = "lg:col-span-4";
-                        if (index % 5 === 3) colSpan = "lg:col-span-6";
-                        if (index % 5 === 4) colSpan = "lg:col-span-6";
-
-                        return (
-                            <div class={colSpan}>
-                                <NewsItem
-                                    post={post}
-                                    type={isFullWidth ? "hero" : "standard"}
-                                />
-                            </div>
-                        );
-                    })
-                }
+                {/* Sidebar Column (1/3) */}
+                <aside
+                    class="space-y-0 divide-y-2 divide-black/10 dark:divide-white/10 border-t lg:border-t-0 lg:border-l-2 border-black/10 dark:border-white/10 lg:pl-10 pt-10 lg:pt-0"
+                >
+                    {
+                        posts
+                            .slice(Math.ceil(posts.length * 0.6))
+                            .map((post: any) => (
+                                <NewsItem post={post} type="standard" />
+                            ))
+                    }
+                </aside>
             </div>
         </main>
         <Footer />
