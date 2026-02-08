@@ -3,7 +3,7 @@
   Based on Roboto Flex Variable Font
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
 :root {
     /* --- COLOR TOKENS (System Roles) --- */
@@ -45,20 +45,20 @@
     /* --- TYPOGRAPHY TOKENS (Roboto Flex) --- */
     --md-sys-typescale-font-family: "Roboto Flex", sans-serif;
 
-    /* Variation Settings Base */
-    --md-sys-font-variation-base: "slnt" 0, "wdth" 100, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+    /* Variation Settings Base - using simple opsz + wght only for better readability */
+    --md-sys-font-variation-base: "opsz" auto;
 
     /* Display Large (Hero Headlines) */
     --md-sys-typescale-display-large-size: 3.5rem;
     --md-sys-typescale-display-large-line-height: 1.05;
     --md-sys-typescale-display-large-weight: 820;
-    --md-sys-typescale-display-large-variation: "opsz" 144, "wght" 820, "XTRA" 500;
+    --md-sys-typescale-display-large-variation: "opsz" 144, "wght" 820;
 
     /* Headline Large (Article Titles) */
     --md-sys-typescale-headline-large-size: 2rem;
     --md-sys-typescale-headline-large-line-height: 1.15;
     --md-sys-typescale-headline-large-weight: 780;
-    --md-sys-typescale-headline-large-variation: "opsz" 32, "wght" 780, "XTRA" 468;
+    --md-sys-typescale-headline-large-variation: "opsz" 32, "wght" 780;
 
 
     /* Title Large (Section Headers) */
@@ -71,32 +71,32 @@
     --md-sys-typescale-focus-title-size: 1.75rem;
     --md-sys-typescale-focus-title-line-height: 1.1;
     --md-sys-typescale-focus-title-weight: 700;
-    --md-sys-typescale-focus-title-variation: "opsz" 28, "wght" 700, "XTRA" 468, "GRAD" 50;
+    --md-sys-typescale-focus-title-variation: "opsz" 28, "wght" 700;
 
     /* Body Large (Main Text) */
-    --md-sys-typescale-body-large-size: 1.0625rem;
-    /* 17px for news readability */
+    --md-sys-typescale-body-large-size: 1.125rem;
+    /* 18px for news readability */
     --md-sys-typescale-body-large-line-height: 1.6;
-    --md-sys-typescale-body-large-weight: 400;
-    --md-sys-typescale-body-large-variation: "opsz" 17, "wght" 400, "GRAD" 0;
+    --md-sys-typescale-body-large-weight: 420;
+    --md-sys-typescale-body-large-variation: "opsz" 18, "wght" 420;
 
     /* Label Large */
     --md-sys-typescale-label-large-size: 0.875rem;
     --md-sys-typescale-label-large-line-height: 1.25;
     --md-sys-typescale-label-large-weight: 700;
-    --md-sys-typescale-label-large-variation: "opsz" 14, "wght" 700, "XTRA" 500;
+    --md-sys-typescale-label-large-variation: "opsz" 14, "wght" 700;
 
     /* Label Medium (Metadata) */
     --md-sys-typescale-label-medium-size: 0.75rem;
     --md-sys-typescale-label-medium-line-height: 1;
     --md-sys-typescale-label-medium-weight: 700;
-    --md-sys-typescale-label-medium-variation: "opsz" 12, "wght" 700, "XTRA" 500;
+    --md-sys-typescale-label-medium-variation: "opsz" 12, "wght" 700;
 
     /* Lede (Article Description) */
     --md-sys-typescale-lede-size: 1.5rem;
     --md-sys-typescale-lede-line-height: 1.3;
-    --md-sys-typescale-lede-weight: 300;
-    --md-sys-typescale-lede-variation: "opsz" 24, "wght" 300, "slnt" -8, "XTRA" 468;
+    --md-sys-typescale-lede-weight: 400;
+    --md-sys-typescale-lede-variation: "opsz" 24, "wght" 400;
 
     /* --- SHAPE & ELEVATION --- */
     --md-sys-shape-corner-none: 0;
@@ -127,8 +127,8 @@
         --md-sys-color-outline-variant: #3f3f46;
 
         /* Reduce weight slightly for dark mode to prevent "glow" bloom */
-        --md-sys-typescale-body-large-weight: 350;
-        --md-sys-typescale-body-large-variation: "opsz" 17, "wght" 350, "GRAD" -25;
+        --md-sys-typescale-body-large-weight: 420;
+        --md-sys-typescale-body-large-variation: "opsz" 18, "wght" 420;
     }
 }
 
@@ -146,8 +146,8 @@
     --md-sys-color-outline-variant: #3f3f46;
 
     /* Reduce weight slightly for dark mode to prevent "glow" bloom */
-    --md-sys-typescale-body-large-weight: 350;
-    --md-sys-typescale-body-large-variation: "opsz" 17, "wght" 350, "GRAD" -25;
+    --md-sys-typescale-body-large-weight: 420;
+    --md-sys-typescale-body-large-variation: "opsz" 18, "wght" 420;
 }
 
 
@@ -190,6 +190,7 @@
     line-height: var(--md-sys-typescale-body-large-line-height);
     font-weight: var(--md-sys-typescale-body-large-weight);
     font-variation-settings: var(--md-sys-typescale-body-large-variation);
+    color: var(--md-sys-color-on-surface);
 }
 
 @utility m3-label-large {
@@ -231,7 +232,7 @@
     line-height: var(--md-sys-typescale-lede-line-height);
     font-weight: var(--md-sys-typescale-lede-weight);
     font-variation-settings: var(--md-sys-typescale-lede-variation);
-    color: var(--md-sys-color-on-surface-variant);
+    color: var(--md-sys-color-on-surface);
 }
 
 @utility news-signal-highlight {
