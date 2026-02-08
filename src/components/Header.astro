@@ -1,9 +1,26 @@
 ---
+import { getCollection } from "astro:content";
 import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
 const isHome = pathname === "/";
+
+const posts = await getCollection("blog");
+const allHotTakes = posts
+	.filter((p) => p.data.hotTakes && p.data.hotTakes.length > 0)
+	.flatMap((p) => {
+		const takes = p.data.hotTakes || [];
+		return takes.map((take) => ({
+			text: take,
+			postId: p.id,
+		}));
+	});
+
+const randomHotTake =
+	allHotTakes.length > 0
+		? allHotTakes[Math.floor(Math.random() * allHotTakes.length)]
+		: { text: "Faint signals detected in the deep noise...", postId: "" };
 ---
 
 {/* Top Utility & Ticker Row */}
@@ -14,19 +31,25 @@ const isHome = pathname === "/";
 		class="flex-1 flex items-center gap-4 px-4 py-2 overflow-hidden border-r border-gray-800"
 	>
 		<span
-			class="m3-label-medium bg-live-red px-1.5 py-0.5 shrink-0 text-white"
+			class="m3-label-medium bg-live-red px-1.5 py-0.5 shrink-0 text-white font-black"
 		>
-			Ticker
+			{">>>"}
 		</span>
 		<div
-			class="m3-label-medium whitespace-nowrap overflow-hidden relative w-full h-4"
+			class="m3-label-medium whitespace-nowrap overflow-hidden flex-1 flex items-center"
 		>
-			<p class="absolute animate-marquee opacity-90">
-				Solar energy adoption hits record high in northern sectors • New
-				fashion collection merges code with couture • Gaming communities
-				shift to decentralized hosting • Faint signals detected in the
-				deep noise...
-			</p>
+			<a
+				href={randomHotTake.postId
+					? `/blog/${randomHotTake.postId}/`
+					: "#"}
+				class="flex items-center gap-4 max-w-full opacity-0 hover:text-live-red transition-colors animate-ticker-entry"
+			>
+				<span class="truncate">{randomHotTake.text}</span>
+				<span
+					class="shrink-0 font-black text-[10px] tracking-[0.2em] uppercase bg-white/10 px-1.5 py-0.5"
+					>Read More</span
+				>
+			</a>
 		</div>
 	</div>
 	<button
@@ -90,16 +113,20 @@ const isHome = pathname === "/";
 </header>
 
 <style>
-	@keyframes marquee {
-		0% {
-			transform: translateX(100%);
+	@keyframes tickerSlideUp {
+		from {
+			transform: translateY(100%);
+			opacity: 0;
 		}
-		100% {
-			transform: translateX(-100%);
+		to {
+			transform: translateY(0.5px);
+			opacity: 0.9;
 		}
 	}
-	.animate-marquee {
-		animation: marquee 30s linear infinite;
+
+	.animate-ticker-entry {
+		animation: tickerSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+		animation-delay: 1s;
 	}
 </style>
 
