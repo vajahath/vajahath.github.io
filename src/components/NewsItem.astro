@@ -36,7 +36,11 @@ const tagMetadata = tags.map(
                     Spotlight
                 </span>
             </div>
-            <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div
+                class={`grid ${
+                    post.data.heroImage ? "md:grid-cols-2" : "grid-cols-1"
+                } gap-8 items-start`}
+            >
                 <div class="order-2 md:order-1">
                     <a href={`/blog/${post.id}/`} class="group m3-touch-target">
                         <h2 class="m3-display-large mb-4 text-black dark:text-white">
@@ -65,8 +69,8 @@ const tagMetadata = tags.map(
                         <span class="font-bold">12m ago</span>
                     </div>
                 </div>
-                <div class="order-1 md:order-2 aspect-video bg-gray-100 dark:bg-zinc-800 overflow-hidden">
-                    {post.data.heroImage && (
+                {post.data.heroImage && (
+                    <div class="order-1 md:order-2 aspect-video bg-gray-100 dark:bg-zinc-800 overflow-hidden">
                         <Image
                             src={post.data.heroImage}
                             alt={post.data.title}
@@ -74,8 +78,8 @@ const tagMetadata = tags.map(
                             height={675}
                             class="w-full h-full object-cover grayscale brightness-110 contrast-125 dark:grayscale-0 dark:brightness-90 transition-transform duration-500 hover:scale-105"
                         />
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
         </div>
     )
@@ -116,8 +120,8 @@ const tagMetadata = tags.map(
                         {post.data.description}
                     </p>
                 </div>
-                <div class="w-full md:w-40 aspect-square bg-gray-100 dark:bg-zinc-800 overflow-hidden shrink-0">
-                    {post.data.heroImage && (
+                {post.data.heroImage && (
+                    <div class="w-full md:w-40 aspect-square bg-gray-100 dark:bg-zinc-800 overflow-hidden shrink-0">
                         <Image
                             src={post.data.heroImage}
                             alt={post.data.title}
@@ -125,8 +129,8 @@ const tagMetadata = tags.map(
                             height={400}
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                         />
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
         </article>
     )
