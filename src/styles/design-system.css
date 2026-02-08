@@ -54,8 +54,8 @@
     /* Display Large (Hero Headlines) */
     --md-sys-typescale-display-large-size: 3.5rem;
     --md-sys-typescale-display-large-line-height: 1.05;
-    --md-sys-typescale-display-large-weight: 1000;
-    --md-sys-typescale-display-large-variation: var(--md-sys-font-variation-base), "wght" 1000, "opsz" 144;
+    --md-sys-typescale-display-large-weight: 900;
+    --md-sys-typescale-display-large-variation: var(--md-sys-font-variation-base), "wght" 900, "opsz" 144;
 
     /* Headline Large (Article Titles) */
     --md-sys-typescale-headline-large-size: 2rem;
