@@ -1,0 +1,90 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import NewsItem from "../../components/NewsItem.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, TAGS, type TagKey } from "../../consts";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    const tags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
+
+    return tags.map((tag) => ({
+        params: { tag: tag.toLowerCase().replace(/\s+/g, "-") },
+        props: {
+            tagName: tag,
+            posts: posts
+                .filter((post) => post.data.tags?.includes(tag))
+                .sort(
+                    (a, b) =>
+                        b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+                ),
+        },
+    }));
+}
+
+const { tagName, posts } = Astro.props;
+const metadata = TAGS[tagName as TagKey] || {
+    color: "#000",
+    textColor: "#fff",
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <BaseHead
+            title={`${tagName} | ${SITE_TITLE}`}
+            description={`${SITE_DESCRIPTION} - ${tagName}`}
+        />
+    </head>
+    <body
+        class="bg-white text-black dark:bg-black dark:text-gray-100 transition-colors duration-200"
+    >
+        <Header />
+        <main class="max-w-7xl mx-auto px-4 py-12">
+            <section
+                class="border-b-4 border-black dark:border-white pb-12 mb-12 flex flex-col items-start gap-4"
+            >
+                <span
+                    class="m3-label-medium text-gray-500 uppercase tracking-widest px-1"
+                    >Tag_Archives</span
+                >
+                <h1
+                    class="m3-display-large italic leading-none px-6 py-2 border-2 border-black/10"
+                    style={`background-color: ${metadata.color}; color: ${metadata.textColor};`}
+                >
+                    {tagName}
+                </h1>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+                {
+                    posts.map((post: any, index: number) => {
+                        // Create an asymmetrical layout pattern
+                        const isFullWidth = index % 5 === 0;
+                        const isTwoThirds = index % 5 === 1;
+                        const isOneThird = index % 5 === 2;
+
+                        let colSpan = "lg:col-span-12"; // Default full
+                        if (isTwoThirds) colSpan = "lg:col-span-8";
+                        if (isOneThird) colSpan = "lg:col-span-4";
+                        if (index % 5 === 3) colSpan = "lg:col-span-6";
+                        if (index % 5 === 4) colSpan = "lg:col-span-6";
+
+                        return (
+                            <div class={colSpan}>
+                                <NewsItem
+                                    post={post}
+                                    type={isFullWidth ? "hero" : "standard"}
+                                />
+                            </div>
+                        );
+                    })
+                }
+            </div>
+        </main>
+        <Footer />
+    </body>
+</html>

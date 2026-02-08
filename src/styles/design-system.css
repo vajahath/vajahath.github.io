@@ -80,6 +80,12 @@
     --md-sys-typescale-body-large-weight: 400;
     --md-sys-typescale-body-large-variation: "opsz" 17, "wght" 400, "GRAD" 0;
 
+    /* Label Large */
+    --md-sys-typescale-label-large-size: 0.875rem;
+    --md-sys-typescale-label-large-line-height: 1.25;
+    --md-sys-typescale-label-large-weight: 700;
+    --md-sys-typescale-label-large-variation: "opsz" 14, "wght" 700, "XTRA" 500;
+
     /* Label Medium (Metadata) */
     --md-sys-typescale-label-medium-size: 0.75rem;
     --md-sys-typescale-label-medium-line-height: 1;
@@ -178,6 +184,16 @@
     line-height: var(--md-sys-typescale-body-large-line-height);
     font-weight: var(--md-sys-typescale-body-large-weight);
     font-variation-settings: var(--md-sys-typescale-body-large-variation);
+}
+
+@utility m3-label-large {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-label-large-size);
+    line-height: var(--md-sys-typescale-label-large-line-height);
+    font-weight: var(--md-sys-typescale-label-large-weight);
+    font-variation-settings: var(--md-sys-typescale-label-large-variation);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 @utility m3-label-medium {

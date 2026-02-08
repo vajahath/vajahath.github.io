@@ -1,0 +1,95 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, TAGS, type TagKey } from "../../consts";
+
+const posts = await getCollection("blog");
+
+// Get all unique tags and their posts
+const tags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
+const tagsWithPosts = tags
+    .map((tag) => {
+        return {
+            name: tag,
+            posts: posts
+                .filter((post) => post.data.tags?.includes(tag))
+                .sort(
+                    (a, b) =>
+                        b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+                )
+                .slice(0, 3),
+        };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <BaseHead
+            title={`All Tags | ${SITE_TITLE}`}
+            description={SITE_DESCRIPTION}
+        />
+    </head>
+    <body
+        class="bg-white text-black dark:bg-black dark:text-gray-100 transition-colors duration-200"
+    >
+        <Header />
+        <main class="max-w-7xl mx-auto px-4 py-12">
+            <section
+                class="border-b-4 border-black dark:border-white pb-12 mb-12"
+            >
+                <h1 class="m3-display-large italic leading-none">All Tags</h1>
+                <p
+                    class="m3-label-medium text-gray-400 mt-4 uppercase tracking-[0.4em]"
+                >
+                    Signal_Classification_System
+                </p>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                {
+                    tagsWithPosts.map((tagData) => {
+                        const metadata = TAGS[tagData.name as TagKey] || {
+                            color: "#000",
+                            textColor: "#fff",
+                        };
+                        return (
+                            <div class="flex flex-col border-2 border-black dark:border-white p-8 hover:bg-gray-50 dark:hover:bg-zinc-950 transition-colors">
+                                <h2
+                                    class="inline-block self-start px-4 py-1 m3-headline-large mb-8 border-2 border-black/10"
+                                    style={`background-color: ${metadata.color}; color: ${metadata.textColor};`}
+                                >
+                                    {tagData.name}
+                                </h2>
+                                <ul class="space-y-4 mb-8 flex-1">
+                                    {tagData.posts.map((post) => (
+                                        <li class="border-b border-black/10 dark:border-white/10 pb-2">
+                                            <a
+                                                href={`/blog/${post.id}/`}
+                                                class="m3-title-large text-lg hover:text-brand-blue transition-colors line-clamp-2"
+                                            >
+                                                {post.data.title}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <a
+                                    href={`/tags/${tagData.name
+                                        .toLowerCase()
+                                        .replace(/\s+/g, "-")}/`}
+                                    class="m3-label-large text-brand-blue font-black border-2 border-brand-blue px-6 py-2 self-start hover:bg-brand-blue hover:text-white transition-all"
+                                >
+                                    LOAD MORE FROM {tagData.name} →
+                                </a>
+                            </div>
+                        );
+                    })
+                }
+            </div>
+        </main>
+        <Footer />
+    </body>
+</html>

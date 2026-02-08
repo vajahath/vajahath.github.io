@@ -3,6 +3,7 @@ title: 'The Modern News Architecture: A Comprehensive Style Guide and Technical 
 description: 'Exploring the full capabilities of our news portal styling with a deep dive into Markdown and MDX features.'
 pubDate: 'Feb 09 2026'
 heroImage: '../../assets/blog-placeholder-5.jpg'
+tags: ['AI & TECH', 'NODE JS', 'DESIGN', 'UX', 'FASHION', 'RANT', 'PERSONAL BLOG']
 ---
 
 Welcome to the ultimate technical demonstration of our news portal's rendering capabilities. This post serves as both a style guide and a stress test for our CSS and Markdown processing engine.

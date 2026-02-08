@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import FormattedDate from "./FormattedDate.astro";
+import { TAGS, type TagKey } from "../consts";
 
 interface Props {
     post: any;
@@ -19,6 +20,11 @@ function toTitleCase(str: string) {
 }
 
 const title = toTitleCase(post.data.title);
+const tags = post.data.tags || [];
+const tagMetadata = tags.map(
+    (t: string) =>
+        TAGS[t as TagKey] || { label: t, color: "#000", textColor: "#fff" }
+);
 ---
 
 {
@@ -31,13 +37,26 @@ const title = toTitleCase(post.data.title);
             <div class="grid md:grid-cols-2 gap-8 items-start">
                 <div class="order-2 md:order-1">
                     <a href={`/blog/${post.id}/`} class="group m3-touch-target">
-                        <h2 class="m3-display-large mb-4 group-hover:text-brand-blue transition-colors text-black dark:text-white">
+                        <h2 class="m3-display-large mb-4 text-black dark:text-white">
                             {title}
                         </h2>
                     </a>
                     <p class="m3-body-large text-gray-700 dark:text-gray-300 mb-6 line-clamp-3">
                         {post.data.description}
                     </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        {tagMetadata.map((tag: any) => (
+                            <a
+                                href={`/tags/${tag.label
+                                    .toLowerCase()
+                                    .replace(/\s+/g, "-")}`}
+                                class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80"
+                                style={`background-color: ${tag.color}; color: ${tag.textColor};`}
+                            >
+                                {tag.label}
+                            </a>
+                        ))}
+                    </div>
                     <div class="flex items-center gap-4 m3-label-medium text-gray-500 dark:text-gray-400">
                         <span class="font-bold">By Author Name</span>
                         <span class="text-gray-300 dark:text-gray-700">•</span>
@@ -70,16 +89,24 @@ const title = toTitleCase(post.data.title);
         >
             <div class="flex flex-col md:flex-row gap-6">
                 <div class="flex-1">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span class="tag-accent">
-                            {post.data.category || "Solar"}
-                        </span>
-                        <span class="m3-label-medium text-gray-500 dark:text-gray-400">
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                        {tagMetadata.map((tag: any) => (
+                            <a
+                                href={`/tags/${tag.label
+                                    .toLowerCase()
+                                    .replace(/\s+/g, "-")}`}
+                                class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80"
+                                style={`background-color: ${tag.color}; color: ${tag.textColor};`}
+                            >
+                                {tag.label}
+                            </a>
+                        ))}
+                        <span class="m3-label-medium text-gray-500 dark:text-gray-400 ml-1">
                             <FormattedDate date={post.data.pubDate} />
                         </span>
                     </div>
                     <a href={`/blog/${post.id}/`} class="m3-touch-target">
-                        <h4 class="m3-headline-large mb-3 group-hover:text-brand-blue transition-colors text-black dark:text-white">
+                        <h4 class="m3-headline-large mb-3 text-black dark:text-white">
                             {title}
                         </h4>
                     </a>
@@ -120,7 +147,7 @@ const title = toTitleCase(post.data.title);
             </span>
             <a
                 href={`/blog/${post.id}/`}
-                class="m3-touch-target m3-title-large text-base hover:underline text-black dark:text-white hover:text-brand-blue dark:hover:text-brand-blue block"
+                class="m3-touch-target m3-title-large text-base text-black dark:text-white block"
             >
                 {title}
             </a>

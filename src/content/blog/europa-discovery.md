@@ -3,6 +3,7 @@ title: 'Habitable Lakes Detected on Europa'
 description: 'Clipper 2 mission reveals stunning evidence of warm liquid water beneath the icy moon.'
 pubDate: 'Feb 04 2026'
 heroImage: '../../assets/blog-placeholder-about.jpg'
+tags: ['TRAVEL', 'DESIGN']
 ---
 
 The IEA has released high-resolution images showing "chaos terrains" on Jupiter's moon Europa. These regions suggest active hydrothermal activity.

@@ -61,24 +61,27 @@ const isHome = pathname === "/";
 					{SITE_TITLE}
 				</h1>
 			</a>
+
+			{
+				isHome && (
+					<p class="m3-label-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest block md:hidden">
+						Late Discoveries & Probably Wrong Takes
+					</p>
+				)
+			}
+
 			<nav
 				class="flex flex-wrap gap-x-6 gap-y-2 m3-label-large text-black dark:text-white md:pb-1"
 			>
-				<HeaderLink href="/" class="hover:underline text-brand-blue"
-					>Technology</HeaderLink
-				>
-				<HeaderLink href="/blog" class="hover:underline"
-					>Solar</HeaderLink
-				>
-				<HeaderLink href="/about" class="hover:underline"
-					>Gaming</HeaderLink
-				>
-				<a href="#" class="hover:underline">Design</a>
+				<HeaderLink href="/tags/ai-&-tech">AI & TECH</HeaderLink>
+				<HeaderLink href="/tags/travel">TRAVEL</HeaderLink>
+				<HeaderLink href="/tags/personal-blog">BLOG</HeaderLink>
+				<HeaderLink href="/tags">ALL TAGS</HeaderLink>
 			</nav>
 		</div>
 		{
 			isHome && (
-				<p class="m3-label-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest shrink-0">
+				<p class="m3-label-medium text-gray-500 dark:text-gray-400 uppercase tracking-widest shrink-0 hidden md:block">
 					Late Discoveries & Probably Wrong Takes
 				</p>
 			)

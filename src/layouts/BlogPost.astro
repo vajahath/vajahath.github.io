@@ -6,11 +6,23 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 
+import { TAGS, type TagKey } from "../consts";
+
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	tags = [],
+} = Astro.props;
+const tagMetadata = tags.map(
+	(t: string) =>
+		TAGS[t as TagKey] || { label: t, color: "#000", textColor: "#fff" }
+);
 
-// Use the title as-is (letting CSS handle casing for Capital Case/Uppercase)
 const displayTitle = title;
 ---
 
@@ -29,9 +41,23 @@ const displayTitle = title;
 			<article class="max-w-2xl mx-auto flex flex-col gap-6">
 				{/* Top Meta */}
 				<div
-					class="flex items-center gap-4 m3-label-medium text-gray-500 dark:text-gray-400"
+					class="flex flex-wrap items-center gap-4 m3-label-medium text-gray-500 dark:text-gray-400"
 				>
-					<span class="tag-accent">Report</span>
+					<div class="flex flex-wrap gap-2">
+						{
+							tagMetadata.map((tag: any) => (
+								<a
+									href={`/tags/${tag.label
+										.toLowerCase()
+										.replace(/\s+/g, "-")}`}
+									class="px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80 border border-black/10"
+									style={`background-color: ${tag.color}; color: ${tag.textColor};`}
+								>
+									{tag.label}
+								</a>
+							))
+						}
+					</div>
 					<span><FormattedDate date={pubDate} /></span>
 					{
 						updatedDate && (
