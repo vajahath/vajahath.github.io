@@ -92,6 +92,12 @@
     --md-sys-typescale-label-medium-weight: 700;
     --md-sys-typescale-label-medium-variation: "opsz" 12, "wght" 700, "XTRA" 500;
 
+    /* Lede (Article Description) */
+    --md-sys-typescale-lede-size: 1.5rem;
+    --md-sys-typescale-lede-line-height: 1.3;
+    --md-sys-typescale-lede-weight: 300;
+    --md-sys-typescale-lede-variation: "opsz" 24, "wght" 300, "slnt" -8, "XTRA" 468;
+
     /* --- SHAPE & ELEVATION --- */
     --md-sys-shape-corner-none: 0;
     --md-sys-shape-corner-small: 4px;
@@ -217,6 +223,24 @@
     overflow-wrap: break-word;
     word-break: break-word;
     text-wrap: balance;
+}
+
+@utility m3-lede {
+    font-family: var(--md-sys-typescale-font-family);
+    font-size: var(--md-sys-typescale-lede-size);
+    line-height: var(--md-sys-typescale-lede-line-height);
+    font-weight: var(--md-sys-typescale-lede-weight);
+    font-variation-settings: var(--md-sys-typescale-lede-variation);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+@utility news-signal-highlight {
+    @apply p-6 pr-10 bg-zinc-50 dark:bg-zinc-900/50 border-l-4 border-live-red relative overflow-hidden;
+
+    &::before {
+        content: "SIGNAL";
+        @apply absolute -right-6 -top-6 text-9xl font-black opacity-[0.04] italic tracking-tighter select-none pointer-events-none;
+    }
 }
 
 @utility m3-touch-target {

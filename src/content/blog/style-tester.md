@@ -18,7 +18,17 @@ Headings at this level provide sub-section context for complex reports.
 #### Level 4 Heading: Technical Specifics
 Even at lower levels, we maintain a strict black-weight aesthetic for consistency.
 
----
+## Material Design 3 Typography Roles
+Below are the core typography roles defined in our design system for various high-density reporting needs.
+
+<p class="m3-display-large">Display Large: Brand Impact</p>
+<p class="m3-headline-large">Headline Large: Breaking News Titles</p>
+<p class="m3-focus-title">Focus Title: Highlighted Analysis Statements</p>
+<p class="m3-lede">Lede Text: A thin, slanted, large-scale introduction for articles.</p>
+<p class="m3-title-large">Title Large: Mid-level Section Headers</p>
+<p class="m3-body-large">Body Large: Standard journalistic text at 17px for long-form reading.</p>
+<p class="m3-label-large">Label Large: High-emphasis Metadata</p>
+<p class="m3-label-medium">Label Medium: Standard Metadata and Captions</p>
 
 ## Standard Text Elements
 Normal text is balanced at 18px for maximum legibility. We support standard formatting like **Bold Text** for emphasis, *Italic Text* for citations, and even ~~Strikethrough~~ for corrected reports.
@@ -35,8 +45,6 @@ This section is hidden by default. It contains raw data, checksums, and architec
 - Node ID: 8829-X
 - Protocol: HTTPS/3
 </details>
-
----
 
 ## Technical Documentation
 Our portal is built for the modern age, featuring advanced code highlighting and data presentation.
@@ -65,14 +73,10 @@ Tables are essential for economic reports and scientific data.
 | Digital Asset Volume | $4.2T | 📈 Up |
 | Neural Mesh Reliability | 99.9% | ↔ Steady |
 
----
-
 ## Citations and Quotes
 > "The future of information delivery lies in the balance between high-density data and high-speed delivery. Our portal is the first step toward that synthesis."
 > 
 > — Lead Architect, Faint Signals Project
-
----
 
 ## Action Items and Multimedia
 - [x] Implement Global CSS variables
@@ -82,8 +86,6 @@ Tables are essential for economic reports and scientific data.
 ### Visual Evidence
 ![Satellite view of Europa surface](../../assets/blog-placeholder-5.jpg)
 *Fig 1.1: High-resolution capture of the Europa chaos terrain showing potential subsurface lakes.*
-
----
 
 ## Conclusion
 This post confirms that our design system handles complex Markdown structures without sacrificing the premium, high-contrast news aesthetic we've built.
