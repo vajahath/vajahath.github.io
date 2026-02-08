@@ -20,7 +20,7 @@ const posts = (await getCollection("blog")).sort(
 function toTitleCase(str: string) {
 	return str.replace(
 		/\w\S*/g,
-		(txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+		(txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()
 	);
 }
 
@@ -44,14 +44,13 @@ const focusTitle = focusPost ? toTitleCase(focusPost.data.title) : "";
 
 // 3. Hot Takes Logic
 const hotTakesList = posts
-	.filter((p) => p.data.hotTakes && p.data.hotTakes.length > 0)
-	.flatMap((p) => {
-		const takes = p.data.hotTakes || [];
-		return takes.map((take) => ({
+	.filter((p) => Array.isArray(p.data.hotTakes) && p.data.hotTakes.length > 0)
+	.flatMap((p) =>
+		(p.data.hotTakes || []).map((take) => ({
 			text: take,
 			postId: p.id,
-		}));
-	})
+		}))
+	)
 	.sort(() => Math.random() - 0.5)
 	.slice(0, HOT_TAKES_COUNT);
 ---
@@ -70,7 +69,7 @@ const hotTakesList = posts
 		<Header />
 
 		<main class="max-w-7xl mx-auto px-4 py-8">
-			{/* Spotlight Hero Section */}
+			<!-- Spotlight Hero Section -->
 			{
 				spotlightPost && (
 					<section class="pb-10 mb-10 border-b-2 border-black dark:border-white">
@@ -80,7 +79,7 @@ const hotTakesList = posts
 			}
 
 			<div class="grid lg:grid-cols-3 gap-12">
-				{/* Main Content Feed (2/3) */}
+				<!-- Main Content Feed (2/3) -->
 				<div class="lg:col-span-2 flex flex-col">
 					<h3
 						class="m3-label-medium text-black dark:text-white mb-6 flex items-center gap-2 uppercase tracking-[0.2em]"
@@ -97,11 +96,11 @@ const hotTakesList = posts
 					</div>
 				</div>
 
-				{/* Sidebar Content (1/3) */}
+				<!-- Sidebar Content (1/3) -->
 				<aside
 					class="space-y-12 border-t lg:border-t-0 lg:border-l-2 border-black/10 dark:border-white/10 lg:pl-10 pt-10 lg:pt-0"
 				>
-					{/* Hot Takes Feed */}
+					<!-- Hot Takes Feed -->
 					<section>
 						<h3
 							class="m3-label-medium mb-6 flex items-center gap-2 uppercase tracking-[0.2em]"
@@ -129,7 +128,7 @@ const hotTakesList = posts
 						</div>
 					</section>
 
-					{/* Focus Section */}
+					<!-- Focus Section -->
 					{
 						focusPost && (
 							<section class="bg-gray-50 dark:bg-zinc-950 border-2 border-black dark:border-white overflow-hidden">
