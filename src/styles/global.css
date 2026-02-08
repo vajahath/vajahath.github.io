@@ -87,12 +87,21 @@
     @apply bg-black text-white dark:bg-white dark:text-black font-black uppercase tracking-widest text-xs;
   }
 
-  code {
-    @apply bg-gray-100 dark:bg-zinc-800 px-1.5 py-0.5 font-bold text-sm border-b-2 border-brand-blue;
+  code,
+  .prose code {
+    @apply bg-zinc-100 dark:bg-zinc-900 px-1.5 py-0.5 font-bold text-[0.85em] border border-black/10 dark:border-white/10;
   }
 
-  pre code {
-    @apply bg-transparent px-0 py-0 border-0;
+  code::before,
+  code::after,
+  .prose code::before,
+  .prose code::after {
+    content: none !important;
+  }
+
+  pre code,
+  .prose pre code {
+    @apply bg-transparent px-0 py-0 border-0 font-normal text-inherit;
   }
 
   hr {
