@@ -1,9 +1,9 @@
 /* 
   Material Design 3 (M3) Design System for Faint Signals
-  Based on Roboto Flex Variable Font
+  Font Pairing: Noto Serif (Body) & Roboto Condensed (Display/UI)
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     /* --- COLOR TOKENS (System Roles) --- */
@@ -42,61 +42,65 @@
     /* High contrast outline for news vibe */
     --md-sys-color-outline-variant: #e5e7eb;
 
-    /* --- TYPOGRAPHY TOKENS (Roboto Flex) --- */
-    --md-sys-typescale-font-family: "Roboto Flex", sans-serif;
+    /* --- TYPOGRAPHY TOKENS --- */
+    --md-sys-typescale-font-family-serif: "Noto Serif", serif;
+    --md-sys-typescale-font-family-condensed: "Roboto Condensed", sans-serif;
 
-    /* Variation Settings Base - using simple opsz + wght only for better readability */
-    --md-sys-font-variation-base: "opsz" auto;
+    /* Base Font family (defaulting to condensed for UI) */
+    --md-sys-typescale-font-family: var(--md-sys-typescale-font-family-condensed);
+
+    /* Variation Settings Base */
+    --md-sys-font-variation-base: "wght" 400, "wdth" 100;
 
     /* Display Large (Hero Headlines) */
     --md-sys-typescale-display-large-size: 3.5rem;
     --md-sys-typescale-display-large-line-height: 1.05;
-    --md-sys-typescale-display-large-weight: 820;
-    --md-sys-typescale-display-large-variation: "opsz" 144, "wght" 820;
+    --md-sys-typescale-display-large-weight: 900;
+    --md-sys-typescale-display-large-variation: "wght" 900, "wdth" 100;
 
     /* Headline Large (Article Titles) */
     --md-sys-typescale-headline-large-size: 2rem;
     --md-sys-typescale-headline-large-line-height: 1.15;
-    --md-sys-typescale-headline-large-weight: 780;
-    --md-sys-typescale-headline-large-variation: "opsz" 32, "wght" 780;
+    --md-sys-typescale-headline-large-weight: 800;
+    --md-sys-typescale-headline-large-variation: "wght" 800, "wdth" 100;
 
 
     /* Title Large (Section Headers) */
     --md-sys-typescale-title-large-size: 1.375rem;
     --md-sys-typescale-title-large-line-height: 1.25;
     --md-sys-typescale-title-large-weight: 700;
-    --md-sys-typescale-title-large-variation: "opsz" 22, "wght" 700;
+    --md-sys-typescale-title-large-variation: "wght" 700, "wdth" 100;
 
     /* Focus Title (Special Callouts) */
     --md-sys-typescale-focus-title-size: 1.75rem;
     --md-sys-typescale-focus-title-line-height: 1.1;
-    --md-sys-typescale-focus-title-weight: 700;
-    --md-sys-typescale-focus-title-variation: "opsz" 28, "wght" 700;
+    --md-sys-typescale-focus-title-weight: 800;
+    --md-sys-typescale-focus-title-variation: "wght" 800, "wdth" 100;
 
     /* Body Large (Main Text) */
     --md-sys-typescale-body-large-size: 1.125rem;
     /* 18px for news readability */
     --md-sys-typescale-body-large-line-height: 1.6;
     --md-sys-typescale-body-large-weight: 420;
-    --md-sys-typescale-body-large-variation: "opsz" 18, "wght" 420;
+    --md-sys-typescale-body-large-variation: "wght" 420, "wdth" 100;
 
     /* Label Large */
     --md-sys-typescale-label-large-size: 0.875rem;
     --md-sys-typescale-label-large-line-height: 1.25;
     --md-sys-typescale-label-large-weight: 700;
-    --md-sys-typescale-label-large-variation: "opsz" 14, "wght" 700;
+    --md-sys-typescale-label-large-variation: "wght" 700, "wdth" 100;
 
     /* Label Medium (Metadata) */
     --md-sys-typescale-label-medium-size: 0.75rem;
     --md-sys-typescale-label-medium-line-height: 1;
     --md-sys-typescale-label-medium-weight: 700;
-    --md-sys-typescale-label-medium-variation: "opsz" 12, "wght" 700;
+    --md-sys-typescale-label-medium-variation: "wght" 700, "wdth" 100;
 
     /* Lede (Article Description) */
     --md-sys-typescale-lede-size: 1.5rem;
     --md-sys-typescale-lede-line-height: 1.3;
     --md-sys-typescale-lede-weight: 400;
-    --md-sys-typescale-lede-variation: "opsz" 24, "wght" 400;
+    --md-sys-typescale-lede-variation: "wght" 400, "wdth" 100;
 
     /* --- SHAPE & ELEVATION --- */
     --md-sys-shape-corner-none: 0;
@@ -128,7 +132,7 @@
 
         /* Reduce weight slightly for dark mode to prevent "glow" bloom */
         --md-sys-typescale-body-large-weight: 420;
-        --md-sys-typescale-body-large-variation: "opsz" 18, "wght" 420;
+        --md-sys-typescale-body-large-variation: "wght" 420, "wdth" 100;
     }
 }
 
@@ -147,12 +151,12 @@
 
     /* Reduce weight slightly for dark mode to prevent "glow" bloom */
     --md-sys-typescale-body-large-weight: 420;
-    --md-sys-typescale-body-large-variation: "opsz" 18, "wght" 420;
+    --md-sys-typescale-body-large-variation: "wght" 420, "wdth" 100;
 }
 
 
 @utility m3-display-large {
-    font-family: var(--md-sys-typescale-font-family);
+    font-family: var(--md-sys-typescale-font-family-condensed);
     font-size: var(--md-sys-typescale-display-large-size);
     line-height: var(--md-sys-typescale-display-large-line-height);
     font-weight: var(--md-sys-typescale-display-large-weight);
@@ -165,7 +169,7 @@
 }
 
 @utility m3-headline-large {
-    font-family: var(--md-sys-typescale-font-family);
+    font-family: var(--md-sys-typescale-font-family-condensed);
     font-size: var(--md-sys-typescale-headline-large-size);
     line-height: var(--md-sys-typescale-headline-large-line-height);
     font-weight: var(--md-sys-typescale-headline-large-weight);
@@ -177,7 +181,7 @@
 }
 
 @utility m3-title-large {
-    font-family: var(--md-sys-typescale-font-family);
+    font-family: var(--md-sys-typescale-font-family-condensed);
     font-size: var(--md-sys-typescale-title-large-size);
     line-height: var(--md-sys-typescale-title-large-line-height);
     font-weight: var(--md-sys-typescale-title-large-weight);
@@ -185,16 +189,17 @@
 }
 
 @utility m3-body-large {
-    font-family: var(--md-sys-typescale-font-family);
+    font-family: var(--md-sys-typescale-font-family-serif);
     font-size: var(--md-sys-typescale-body-large-size);
     line-height: var(--md-sys-typescale-body-large-line-height);
     font-weight: var(--md-sys-typescale-body-large-weight);
     font-variation-settings: var(--md-sys-typescale-body-large-variation);
     color: var(--md-sys-color-on-surface);
+    font-optical-sizing: auto;
 }
 
 @utility m3-label-large {
-    font-family: var(--md-sys-typescale-font-family);
+    font-family: var(--md-sys-typescale-font-family-condensed);
     font-size: var(--md-sys-typescale-label-large-size);
     line-height: var(--md-sys-typescale-label-large-line-height);
     font-weight: var(--md-sys-typescale-label-large-weight);
@@ -204,7 +209,7 @@
 }
 
 @utility m3-label-medium {
-    font-family: var(--md-sys-typescale-font-family);
+    font-family: var(--md-sys-typescale-font-family-condensed);
     font-size: var(--md-sys-typescale-label-medium-size);
     line-height: var(--md-sys-typescale-label-medium-line-height);
     font-weight: var(--md-sys-typescale-label-medium-weight);
@@ -214,7 +219,7 @@
 }
 
 @utility m3-focus-title {
-    font-family: var(--md-sys-typescale-font-family);
+    font-family: var(--md-sys-typescale-font-family-condensed);
     font-size: var(--md-sys-typescale-focus-title-size);
     line-height: var(--md-sys-typescale-focus-title-line-height);
     font-weight: var(--md-sys-typescale-focus-title-weight);
@@ -227,12 +232,13 @@
 }
 
 @utility m3-lede {
-    font-family: var(--md-sys-typescale-font-family);
+    font-family: var(--md-sys-typescale-font-family-serif);
     font-size: var(--md-sys-typescale-lede-size);
     line-height: var(--md-sys-typescale-lede-line-height);
     font-weight: var(--md-sys-typescale-lede-weight);
     font-variation-settings: var(--md-sys-typescale-lede-variation);
     color: var(--md-sys-color-on-surface);
+    font-optical-sizing: auto;
 }
 
 @utility news-signal-highlight {
