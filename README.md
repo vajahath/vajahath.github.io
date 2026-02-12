@@ -1,62 +1,66 @@
-# Astro Starter Kit: Blog
+# Faint Signals
 
-```sh
-npm create astro@latest -- --template blog
-```
+Welcome to **Faint Signals**, a personal blog for capturing wandering thoughts, late discoveries, and probably wrong takes.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+> [!NOTE]
+> This is a personal blog. Opinions are our own (and often subject to change as we learn more).
 
-Features:
+Built with a high-density, high-contrast "live news" aesthetic, this platform is a playground for exploring the intersection of technology, design, and erratic signals from the noise.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## 🚀 Getting Started
 
-## 🚀 Project Structure
+To get the lab running on your local machine:
 
-Inside of your Astro project, you'll see the following folders and files:
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/vajahath/faint-signals.git
+    cd faint-signals
+    ```
+2.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Launch the Workspace**:
+    ```bash
+    npm run dev
+    ```
+    Open `http://localhost:4321` to see the transmission.
 
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+## 🛠 Internals
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+`faint-signals` is built for speed and visual impact:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Framework**: [Astro 5](https://astro.build/) - Content-first fast site generation.
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) - Utilizing the latest `@utility` engine.
+- **Design System**: **Material Design 3 (M3)** - Using semantic tonal palettes and high-density layouts.
+- **Typography**: **Roboto Flex** - A universal variable font face that adapts its thickness (`XOPQ`), width (`XTRA`), and optical size (`opsz`) for a punchy broadcast look.
+- **High Density**: The UI is optimized for information density without sacrificing touch targets or accessibility.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## 📝 How to Add / Submit a Post
 
-Any static assets, like images, can be placed in the `public/` directory.
+We embrace the open-source spirit. If you have a signal you'd like to amplify, feel free to submit a Pull Request.
 
-## 🧞 Commands
+### Steps to Participate:
+1.  **Navigate to content**: Go to `src/content/blog/`.
+2.  **Create a file**: Add a new `.md` or `.mdx` file. The filename becomes the URL slug.
+3.  **Add Frontmatter**:
+    ```markdown
+    ---
+    title: "Your Explosive Headline"
+    description: "A punchy summary of your take."
+    pubDate: "Feb 12 2026"
+    heroImage: "../../assets/blog-placeholder-1.jpg"
+    tags: ["TECH", "UX"]
+    ---
 
-All commands are run from the root of the project, from a terminal:
+    Your story starts here...
+    ```
+4.  **Submit**: Open a PR with your changes!
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 👩‍💻 Developer Notes
 
-## 👀 Want to learn more?
+- **Design Tokens**: Centralized in `src/styles/design-system.css`. Use CSS variables for M3 colors (e.g., `--md-sys-color-primary`).
+- **Typography Roles**: Avoid hardcoding font sizes. Use `@apply m3-headline-large` or `@apply m3-body-large`.
+- **Responsive Handling**: All headlines use `text-wrap: balance` to ensure visual symmetry on mobile screens.
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+*Signals are faint. Stay tuned. Built with Antigravity and Gemini*
