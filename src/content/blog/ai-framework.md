@@ -2,7 +2,7 @@
 title: 'Global AI Ethical Framework Ratified'
 description: 'Nations and tech giants sign a historic agreement to ensure transparent AI development.'
 pubDate: 'Feb 08 2026'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: '../../assets/blog-placeholder-2.jpg'
 tags: ['AI & TECH', 'DESIGN']
 hotTakes: ['AI interpretability is the new privacy battleground.', 'Regulation is just a moat for big tech.']
 ---

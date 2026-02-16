@@ -49,7 +49,7 @@ We embrace the open-source spirit. If you have a signal you'd like to amplify, f
     title: "Your Explosive Headline"
     description: "A punchy summary of your take."
     pubDate: "Feb 12 2026"
-    heroImage: "../../assets/blog-placeholder-1.jpg"
+    heroImage: "../../assets/blog-placeholder-2.jpg"
     tags: ["TECH", "UX"]
     ---
 
