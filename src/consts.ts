@@ -13,6 +13,8 @@ export const TAGS = {
     'FASHION': { label: 'FASHION', color: '#000000', textColor: '#ffffff' }, // Pure Black
     'RANT': { label: 'RANT', color: '#991b1b', textColor: '#ffffff' }, // Deep Blood Red
     'PERSONAL BLOG': { label: 'PERSONAL BLOG', color: '#4338ca', textColor: '#ffffff' }, // Deep Indigo
+    'DEVLOG': { label: 'DEVLOG', color: '#374151', textColor: '#ffffff' }, // Charcoal
+    'SERIES': { label: 'SERIES', color: '#ef4444', textColor: '#ffffff' }, // Live Red
 } as const;
 
 export type TagKey = keyof typeof TAGS;

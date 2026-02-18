@@ -47,7 +47,8 @@ seriesOrder: 1
 2. **Create the Folder**: Initialize the directory `src/content/blog/[series-slug]/`.
 3. **Add the Metadata**: Create `src/content/series/[series-slug].yaml`.
 4. **Link the Post**: Move/Create the first post in the series directory and ensure `seriesOrder: 1` is present.
-5. **Verify**: Ensure the image paths in the deeply nested `.md` files use correct relative paths (usually `../../../assets/image.jpg`).
+5. **Tag Verification**: Ensure all tags in the post frontmatter exist in `src/consts.ts`. If not, **YOU MUST** add them with appropriate M3-style colors before proceeding.
+6. **Verify Assets**: Ensure the image paths in the deeply nested `.md` files use correct relative paths (usually `../../../assets/image.jpg`).
 
 ## Navigation Features
 The system automatically renders:
