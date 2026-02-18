@@ -57,11 +57,35 @@
     --md-sys-typescale-display-large-weight: 800;
     --md-sys-typescale-display-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 144;
 
-    /* Headline Large (Article Titles) */
+    /* Display Medium */
+    --md-sys-typescale-display-medium-size: 2.75rem;
+    --md-sys-typescale-display-medium-line-height: 1.1;
+    --md-sys-typescale-display-medium-weight: 800;
+    --md-sys-typescale-display-medium-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 72;
+
+    /* Display Small */
+    --md-sys-typescale-display-small-size: 2.25rem;
+    --md-sys-typescale-display-small-line-height: 1.1;
+    --md-sys-typescale-display-small-weight: 800;
+    --md-sys-typescale-display-small-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 48;
+
+    /* Headline Large (Primary Section Titles) */
     --md-sys-typescale-headline-large-size: 2rem;
     --md-sys-typescale-headline-large-line-height: 1.15;
     --md-sys-typescale-headline-large-weight: 800;
-    --md-sys-typescale-headline-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 72;
+    --md-sys-typescale-headline-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 32;
+
+    /* Headline Medium (Sub-sections) */
+    --md-sys-typescale-headline-medium-size: 1.75rem;
+    --md-sys-typescale-headline-medium-line-height: 1.15;
+    --md-sys-typescale-headline-medium-weight: 700;
+    --md-sys-typescale-headline-medium-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 32;
+
+    /* Headline Small (Minor Titles) */
+    --md-sys-typescale-headline-small-size: 1.5rem;
+    --md-sys-typescale-headline-small-line-height: 1.2;
+    --md-sys-typescale-headline-small-weight: 700;
+    --md-sys-typescale-headline-small-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 24;
 
 
     /* Title Large (Section Headers) */
@@ -147,6 +171,28 @@
     text-wrap: balance;
 }
 
+@utility m3-display-medium {
+    font-family: var(--md-sys-typescale-font-family-flex);
+    font-size: var(--md-sys-typescale-display-medium-size);
+    line-height: var(--md-sys-typescale-display-medium-line-height);
+    font-weight: var(--md-sys-typescale-display-medium-weight);
+    font-variation-settings: var(--md-sys-typescale-display-medium-variation);
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+@utility m3-display-small {
+    font-family: var(--md-sys-typescale-font-family-flex);
+    font-size: var(--md-sys-typescale-display-small-size);
+    line-height: var(--md-sys-typescale-display-small-line-height);
+    font-weight: var(--md-sys-typescale-display-small-weight);
+    font-variation-settings: var(--md-sys-typescale-display-small-variation);
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
 @utility m3-headline-large {
     font-family: var(--md-sys-typescale-font-family-flex);
     font-size: var(--md-sys-typescale-headline-large-size);
@@ -156,6 +202,26 @@
     letter-spacing: 0;
     overflow-wrap: break-word;
     word-break: break-word;
+    text-wrap: balance;
+}
+
+@utility m3-headline-medium {
+    font-family: var(--md-sys-typescale-font-family-flex);
+    font-size: var(--md-sys-typescale-headline-medium-size);
+    line-height: var(--md-sys-typescale-headline-medium-line-height);
+    font-weight: var(--md-sys-typescale-headline-medium-weight);
+    font-variation-settings: var(--md-sys-typescale-headline-medium-variation);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+@utility m3-headline-small {
+    font-family: var(--md-sys-typescale-font-family-flex);
+    font-size: var(--md-sys-typescale-headline-small-size);
+    line-height: var(--md-sys-typescale-headline-small-line-height);
+    font-weight: var(--md-sys-typescale-headline-small-weight);
+    font-variation-settings: var(--md-sys-typescale-headline-small-variation);
+    letter-spacing: -0.01em;
     text-wrap: balance;
 }
 
