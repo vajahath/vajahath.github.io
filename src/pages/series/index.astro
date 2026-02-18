@@ -1,0 +1,104 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { Image } from "astro:assets";
+
+const seriesList = await getCollection("series");
+const posts = await getCollection("blog");
+
+const seriesWithCount = await Promise.all(
+    seriesList.map(async (s) => {
+        const seriesPosts = posts.filter(
+            (p) => p.id.startsWith(s.id + "/") && p.data.seriesOrder != null,
+        );
+        return {
+            ...s,
+            postCount: seriesPosts.length,
+        };
+    }),
+);
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead
+            title={`${SITE_TITLE} | Series`}
+            description={SITE_DESCRIPTION}
+        />
+    </head>
+    <body
+        class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-200"
+    >
+        <Header />
+        <main class="max-w-7xl mx-auto px-4 py-12">
+            <section
+                class="border-b-4 border-black dark:border-white pb-12 mb-12"
+            >
+                <h1
+                    class="text-6xl md:text-9xl font-black uppercase tracking-tighter italic leading-none"
+                >
+                    Series
+                </h1>
+                <p
+                    class="text-sm font-bold uppercase tracking-[0.4em] mt-4 text-black dark:text-white"
+                >
+                    Chained_Signal_Narratives
+                </p>
+            </section>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                {
+                    seriesWithCount.map((series) => (
+                        <a
+                            href={`/series/${series.id}/`}
+                            class="group border-2 border-black dark:border-white p-6 hover:bg-brand-blue/5 transition-colors flex flex-col gap-6"
+                        >
+                            {series.data.coverImage && (
+                                <div class="aspect-video overflow-hidden border border-black/10 dark:border-white/10">
+                                    <Image
+                                        src={series.data.coverImage}
+                                        alt={series.data.title}
+                                        width={800}
+                                        height={450}
+                                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                    />
+                                </div>
+                            )}
+                            <div class="flex flex-col gap-3">
+                                <div class="flex justify-between items-baseline">
+                                    <h2 class="m3-headline-large group-hover:text-brand-blue group-hover:underline decoration-4 underline-offset-4">
+                                        {series.data.title}
+                                    </h2>
+                                    <span class="m3-label-medium text-live-red font-black">
+                                        {series.postCount} PARTS
+                                    </span>
+                                </div>
+                                <p class="m3-body-large line-clamp-2 italic">
+                                    {series.data.description}
+                                </p>
+                                <span class="m3-label-medium mt-2 font-black tracking-widest group-hover:text-brand-blue">
+                                    OPEN NARRATIVE →
+                                </span>
+                            </div>
+                        </a>
+                    ))
+                }
+            </div>
+
+            {
+                seriesWithCount.length === 0 && (
+                    <div class="py-20 text-center border-2 border-dashed border-black/20 dark:border-white/20">
+                        <p class="m3-headline-large opacity-50 uppercase tracking-tighter italic">
+                            No active series found
+                        </p>
+                    </div>
+                )
+            }
+        </main>
+        <Footer />
+    </body>
+</html>

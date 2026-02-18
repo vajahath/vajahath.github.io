@@ -17,7 +17,19 @@ const blog = defineCollection({
 			isSpotlight: z.boolean().optional().default(false),
 			isFocus: z.boolean().optional().default(false),
 			hotTakes: z.array(z.string()).optional(),
+			seriesOrder: z.number().int().positive().optional(),
 		}),
 });
 
-export const collections = { blog };
+const series = defineCollection({
+	loader: glob({ base: './src/content/series', pattern: '**/*.{yaml,yml}' }),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			coverImage: image().optional(),
+			startedAt: z.coerce.date().optional(),
+		}),
+});
+
+export const collections = { blog, series };

@@ -15,7 +15,7 @@ const { post, type = "standard", className = "" } = Astro.props;
 function toTitleCase(str: string) {
     return str.replace(
         /\w\S*/g,
-        (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()
+        (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase(),
     );
 }
 
@@ -23,8 +23,13 @@ const title = toTitleCase(post.data.title);
 const tags = post.data.tags || [];
 const tagMetadata = tags.map(
     (t: string) =>
-        TAGS[t as TagKey] || { label: t, color: "#000", textColor: "#fff" }
+        TAGS[t as TagKey] || { label: t, color: "#000", textColor: "#fff" },
 );
+
+// Series Logic
+const segments = post.id.split("/");
+const isInSeries = segments.length > 1 && post.data.seriesOrder != null;
+const seriesOrder = post.data.seriesOrder;
 ---
 
 {
@@ -58,12 +63,17 @@ const tagMetadata = tags.map(
                                 href={`/tags/${tag.label
                                     .toLowerCase()
                                     .replace(/\s+/g, "-")}`}
-                                class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80"
+                                class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80 border border-black/10"
                                 style={`background-color: ${tag.color}; color: ${tag.textColor};`}
                             >
                                 {tag.label}
                             </a>
                         ))}
+                        {isInSeries && (
+                            <span class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider bg-live-red text-white border border-black/10">
+                                Series · Part {seriesOrder}
+                            </span>
+                        )}
                     </div>
                     <div class="flex items-center gap-4 m3-label-medium text-black dark:text-white">
                         <span class="font-bold">By Author Name</span>
@@ -103,12 +113,17 @@ const tagMetadata = tags.map(
                                 href={`/tags/${tag.label
                                     .toLowerCase()
                                     .replace(/\s+/g, "-")}`}
-                                class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80"
+                                class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80 border border-black/10"
                                 style={`background-color: ${tag.color}; color: ${tag.textColor};`}
                             >
                                 {tag.label}
                             </a>
                         ))}
+                        {isInSeries && (
+                            <span class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider bg-live-red text-white border border-black/10">
+                                Series · Part {seriesOrder}
+                            </span>
+                        )}
                         <span class="m3-label-medium text-black dark:text-white ml-1">
                             <FormattedDate date={post.data.pubDate} />
                         </span>

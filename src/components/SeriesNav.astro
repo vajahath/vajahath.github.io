@@ -1,0 +1,97 @@
+---
+interface Props {
+    title: string;
+    slug: string;
+    currentOrder: number;
+    totalParts: number;
+    prevPost?: { id: string; title: string };
+    nextPost?: { id: string; title: string };
+}
+
+const { title, slug, currentOrder, totalParts, prevPost, nextPost } =
+    Astro.props;
+---
+
+<nav class="mt-12 border-2 border-black dark:border-white overflow-hidden">
+    {/* Top Bar: Series Metadata */}
+    <div
+        class="bg-black text-white dark:bg-white dark:text-black p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
+    >
+        <div class="flex flex-col gap-1">
+            <span class="m3-label-medium text-inherit opacity-70"
+                >Part of the series</span
+            >
+            <h1 class="m3-label-large text-inherit font-black tracking-widest">
+                {title}
+            </h1>
+        </div>
+        <div class="flex flex-col sm:items-end gap-1">
+            <span class="m3-label-medium text-inherit font-black"
+                >Part {currentOrder} of {totalParts}</span
+            >
+            <a
+                href={`/series/${slug}/`}
+                class="text-xs uppercase font-black hover:underline underline-offset-4 decoration-2"
+            >
+                View all parts →
+            </a>
+        </div>
+    </div>
+
+    {/* Bottom Row: Prev/Next Post Navigation */}
+    <div
+        class="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-black dark:divide-white bg-white dark:bg-black"
+    >
+        <div class="flex flex-col">
+            {
+                prevPost ? (
+                    <a
+                        href={`/blog/${prevPost.id}/`}
+                        class="group p-6 h-full flex flex-col gap-3 hover:bg-brand-blue/5 transition-colors"
+                    >
+                        <span class="m3-label-medium text-live-red font-black">
+                            ← Previous
+                        </span>
+                        <span class="m3-title-large text-black dark:text-white group-hover:text-brand-blue group-hover:underline decoration-2 underline-offset-4 leading-tight">
+                            {prevPost.title}
+                        </span>
+                    </a>
+                ) : (
+                    <div class="p-6 h-full opacity-20 select-none flex flex-col gap-3">
+                        <span class="m3-label-medium font-black">
+                            ← Previous
+                        </span>
+                        <span class="m3-title-large text-black dark:text-white leading-tight italic">
+                            This is the first part
+                        </span>
+                    </div>
+                )
+            }
+        </div>
+
+        <div class="flex flex-col">
+            {
+                nextPost ? (
+                    <a
+                        href={`/blog/${nextPost.id}/`}
+                        class="group p-6 h-full flex flex-col gap-3 sm:items-end sm:text-right hover:bg-brand-blue/5 transition-colors"
+                    >
+                        <span class="m3-label-medium text-live-red font-black">
+                            Next →
+                        </span>
+                        <span class="m3-title-large text-black dark:text-white group-hover:text-brand-blue group-hover:underline decoration-2 underline-offset-4 leading-tight">
+                            {nextPost.title}
+                        </span>
+                    </a>
+                ) : (
+                    <div class="p-6 h-full opacity-20 select-none flex flex-col gap-3 sm:items-end sm:text-right">
+                        <span class="m3-label-medium font-black">Next →</span>
+                        <span class="m3-title-large text-black dark:text-white leading-tight italic">
+                            End of series
+                        </span>
+                    </div>
+                )
+            }
+        </div>
+    </div>
+</nav>
