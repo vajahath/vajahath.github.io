@@ -7,7 +7,9 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 function rehypeWsrvImages() {
+  /** @param {any} tree */
   return (tree) => {
+    /** @param {any} node */
     function walk(node) {
       if (node.tagName === 'img') {
         const src = node.properties?.src;
