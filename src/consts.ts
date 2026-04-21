@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'faint signals';
-export const SITE_DESCRIPTION = 'Late Discoveries & Probably Wrong Takes';
+export const SITE_DESCRIPTION = 'Late Discoveries & Probably Wrong Takes: A Personal Signal Feed.';
 
 export const TAGS = {
     'AI & TECH': { label: 'AI & TECH', color: '#1e40af', textColor: '#ffffff' }, // Deep Blue
