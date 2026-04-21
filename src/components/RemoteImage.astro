@@ -10,6 +10,7 @@ interface Props {
 	class?: string;
 	loading?: 'lazy' | 'eager';
 	widths?: number[];
+	natural?: boolean;
 }
 
 const {
@@ -21,38 +22,81 @@ const {
 	class: className = '',
 	loading = 'lazy',
 	widths = [400, 800, 1200, 1600],
+	natural = false,
 } = Astro.props;
 
 const isRemote = src.startsWith('http');
 const activeWidths = widths.filter((w) => w <= width * 2);
 const webpSrcset = isRemote ? wsrvSrcset(src, activeWidths) : '';
-const fallbackSrc = isRemote ? wsrv(src, { w: width, h: height, output: 'jpeg' }) : src;
+const fallbackSrc = isRemote
+	? wsrv(src, { w: width, ...(natural ? {} : { h: height }), output: 'jpeg' })
+	: src;
 ---
 
 {isRemote ? (
-	<div class="relative w-full h-full">
-		<video
-			autoplay
-			loop
-			muted
-			playsinline
-			aria-hidden="true"
-			class={`absolute inset-0 w-full h-full object-cover ${className}`}
-		>
-			<source src="/loading.webm" type="video/webm" />
-		</video>
-		<picture class="absolute inset-0 w-full h-full block">
-			<source type="image/webp" srcset={webpSrcset} sizes={sizes} />
-			<img
-				src={fallbackSrc}
-				alt={alt}
-				width={width}
-				height={height}
-				loading={loading}
-				decoding="async"
-				class={`w-full h-full opacity-0 transition-opacity duration-700 ${className}`}
-				onload="this.style.opacity='1';this.closest('div').querySelector('video')?.remove();"
-			/>
-		</picture>
-	</div>
-) : null}
+	natural ? (
+		<div class="relative w-full">
+			<video
+				autoplay
+				loop
+				muted
+				playsinline
+				aria-hidden="true"
+				class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+			>
+				<source src="/loading.webm" type="video/webm" />
+			</video>
+			<picture class="block w-full">
+				<source type="image/webp" srcset={webpSrcset} sizes={sizes} />
+				<img
+					src={fallbackSrc}
+					alt={alt}
+					width={width}
+					height={height}
+					loading={loading}
+					decoding="async"
+					class="w-full h-auto block opacity-0 transition-opacity duration-700"
+					onload="this.style.opacity='1';this.closest('div').querySelector('video')?.remove();"
+				/>
+			</picture>
+		</div>
+	) : (
+		<div class="relative w-full h-full">
+			<video
+				autoplay
+				loop
+				muted
+				playsinline
+				aria-hidden="true"
+				class={`absolute inset-0 w-full h-full object-cover ${className}`}
+			>
+				<source src="/loading.webm" type="video/webm" />
+			</video>
+			<picture class="absolute inset-0 w-full h-full block">
+				<source type="image/webp" srcset={webpSrcset} sizes={sizes} />
+				<img
+					src={fallbackSrc}
+					alt={alt}
+					width={width}
+					height={height}
+					loading={loading}
+					decoding="async"
+					class={`w-full h-full opacity-0 transition-opacity duration-700 ${className}`}
+					onload="this.style.opacity='1';this.closest('div').querySelector('video')?.remove();"
+				/>
+			</picture>
+		</div>
+	)
+) : (
+	<img
+		src={src}
+		alt={alt}
+		width={width}
+		height={height}
+		loading={loading}
+		decoding="async"
+		class={natural
+			? `w-full h-auto block ${className}`
+			: `w-full h-full ${className}`}
+	/>
+)}

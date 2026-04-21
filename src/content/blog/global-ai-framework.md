@@ -2,7 +2,7 @@
 title: 'Global Artificial Intelligence Consortium Announces Landmark Framework for Ethical Deployment and Regulatory Oversight'
 description: 'A group of leading nations and tech giants have signed a historic agreement to ensure the safe and transparent development of artificial intelligence.'
 pubDate: 'Feb 08 2026'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: '/blog-placeholder-2.jpg'
 tags: ['AI & TECH', 'DESIGN']
 isFocus: true
 ---

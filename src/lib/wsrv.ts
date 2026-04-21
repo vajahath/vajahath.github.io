@@ -23,3 +23,17 @@ export function wsrvSrcset(
 ): string {
 	return widths.map((w) => `${wsrv(sourceUrl, { ...opts, w })} ${w}w`).join(', ');
 }
+
+export function parseDimensionsFromUrl(url: string): { width?: number; height?: number } {
+	try {
+		const params = new URL(url).searchParams;
+		const w = params.get('width');
+		const h = params.get('height');
+		return {
+			width: w ? parseInt(w, 10) : undefined,
+			height: h ? parseInt(h, 10) : undefined,
+		};
+	} catch {
+		return {};
+	}
+}

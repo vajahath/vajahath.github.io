@@ -2,7 +2,7 @@
 title: "Narrative Chains: Implementing the Series Feature"
 description: "Why we built a way to group posts and how it enhances the long-form reading experience."
 pubDate: "Feb 18 2026"
-heroImage: "../../../assets/blog-placeholder-2.jpg"
+heroImage: "/blog-placeholder-2.jpg"
 tags: ["DEVLOG", "SERIES"]
 seriesOrder: 1
 ---

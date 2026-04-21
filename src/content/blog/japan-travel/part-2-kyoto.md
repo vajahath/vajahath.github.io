@@ -2,7 +2,7 @@
 title: 'Kyoto — First Impressions: Zen and the Art of Walking'
 description: 'Trading the neon of Tokyo for the temples of Kyoto.'
 pubDate: 'Mar 10 2026'
-heroImage: '../../../assets/blog-placeholder-4.jpg'
+heroImage: '/blog-placeholder-4.jpg'
 tags: ['TRAVEL']
 seriesOrder: 2
 ---

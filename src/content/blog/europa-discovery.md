@@ -2,7 +2,7 @@
 title: 'Habitable Lakes Detected on Europa'
 description: 'Clipper 2 mission reveals stunning evidence of warm liquid water beneath the icy moon.'
 pubDate: 'Feb 04 2026'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: '/blog-placeholder-3.jpg'
 tags: ['TRAVEL', 'DESIGN']
 ---
 

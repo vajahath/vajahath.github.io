@@ -2,7 +2,7 @@
 title: 'Nano-Implant Restores Human Touch'
 description: 'A revolutionary neural device bypasses nerve damage to transmit signals to the brain.'
 pubDate: 'Feb 05 2026'
-heroImage: '../../assets/blog-placeholder-4.jpg'
+heroImage: '/blog-placeholder-4.jpg'
 tags: ['AI & TECH', 'DESIGN', 'UX']
 ---
 

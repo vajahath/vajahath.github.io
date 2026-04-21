@@ -2,7 +2,7 @@
 title: 'Arctic Underwater Ecosystem Found'
 description: 'Marine biologists uncover a thriving colony of unknown species beneath the ice.'
 pubDate: 'Feb 07 2026'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: '/blog-placeholder-2.jpg'
 tags: ['TRAVEL', 'AI & TECH']
 hotTakes: ['The Arctic is the last unexplored frontier on Earth.', 'Bioluminescence is the internet of the deep sea.']
 ---

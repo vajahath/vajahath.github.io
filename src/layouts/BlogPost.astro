@@ -1,5 +1,6 @@
 ---
 import RemoteImage from "../components/RemoteImage.astro";
+import { parseDimensionsFromUrl } from "../lib/wsrv";
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
@@ -30,6 +31,8 @@ const {
 	hotTakes = [],
 	series,
 } = Astro.props;
+const imageDims = heroImage ? parseDimensionsFromUrl(heroImage) : {};
+const hasImageDims = imageDims.width !== undefined && imageDims.height !== undefined;
 const tagMetadata = tags.map(
 	(t: string) =>
 		TAGS[t as TagKey] || { label: t, color: "#000", textColor: "#fff" },
@@ -130,23 +133,40 @@ const displayTitle = title;
 				{/* Hero Image */}
 				{
 					heroImage && (
-						<div class="w-full aspect-video overflow-hidden bg-gray-100 dark:bg-zinc-800">
-							<RemoteImage
-								src={heroImage}
-								alt={title}
-								width={1200}
-								height={675}
-								loading="eager"
-								sizes="(max-width: 768px) 100vw, 1200px"
-								class="w-full h-full object-cover"
-							/>
-						</div>
+						hasImageDims ? (
+							<div
+								class="w-full overflow-hidden bg-gray-100 dark:bg-zinc-800"
+								style={`aspect-ratio: ${imageDims.width} / ${imageDims.height};`}
+							>
+								<RemoteImage
+									src={heroImage}
+									alt={title}
+									width={imageDims.width!}
+									height={imageDims.height!}
+									loading="eager"
+									sizes="(max-width: 768px) 100vw, 1200px"
+									class="w-full h-full object-cover"
+								/>
+							</div>
+						) : (
+							<div class="w-full overflow-hidden bg-gray-100 dark:bg-zinc-800">
+								<RemoteImage
+									src={heroImage}
+									alt={title}
+									width={1200}
+									height={675}
+									loading="eager"
+									sizes="(max-width: 768px) 100vw, 1200px"
+									natural={true}
+								/>
+							</div>
+						)
 					)
 				}
 
 				{/* Article Body */}
 				<div
-					class="prose prose-neutral dark:prose-invert max-w-none m3-body-large [&>p]:mb-6 [&>h1]:m3-display-small [&>h1]:mt-12 [&>h1]:mb-6 [&>h2]:m3-headline-medium [&>h2]:mt-10 [&>h2]:mb-4 [&>h2]:border-b-2 [&>h2]:border-black dark:[&>h2]:border-white [&>h2]:pb-1 [&>h3]:m3-headline-small [&>h3]:mt-8 [&>h3]:mb-3 [&>blockquote]:border-l-4 [&>blockquote]:border-brand-blue [&>blockquote]:bg-gray-50 dark:[&>blockquote]:bg-zinc-950 [&>blockquote]:p-6 [&>blockquote]:italic [&>blockquote]:font-bold [&>blockquote]:text-xl [&>pre]:rounded-none [&>pre]:border [&>pre]:border-black dark:[&>pre]:border-white [&>pre]:p-6 [&>ul]:list-square [&>li]:mb-2 [&>img]:border-0"
+					class="prose prose-neutral dark:prose-invert max-w-none m3-body-large [&>p]:mb-6 [&>h1]:m3-display-small [&>h1]:mt-12 [&>h1]:mb-6 [&>h2]:m3-headline-medium [&>h2]:mt-10 [&>h2]:mb-4 [&>h2]:border-b-2 [&>h2]:border-black dark:[&>h2]:border-white [&>h2]:pb-1 [&>h3]:m3-headline-small [&>h3]:mt-8 [&>h3]:mb-3 [&>blockquote]:border-l-4 [&>blockquote]:border-brand-blue [&>blockquote]:bg-gray-50 dark:[&>blockquote]:bg-zinc-950 [&>blockquote]:p-6 [&>blockquote]:italic [&>blockquote]:font-bold [&>blockquote]:text-xl [&>pre]:rounded-none [&>pre]:border [&>pre]:border-black dark:[&>pre]:border-white [&>pre]:p-6 [&>ul]:list-square [&>li]:mb-2 [&>img]:border-0 [&>img]:h-auto [&>img]:max-w-full"
 				>
 					<slot />
 				</div>

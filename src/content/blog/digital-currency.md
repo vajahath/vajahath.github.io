@@ -2,7 +2,7 @@
 title: 'Central Banks Pivot to Digital Assets'
 description: 'Financial institutions prepare for a new era of decentralized finance and CBDCs.'
 pubDate: 'Feb 06 2026'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: '/blog-placeholder-3.jpg'
 tags: ['AI & TECH', 'UX']
 ---
 

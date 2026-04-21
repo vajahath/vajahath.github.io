@@ -2,7 +2,7 @@
 title: 'Central Banks Signal Major Shift in Monetary Policy as Digital Currencies Gain Unexpected Momentum in Global Trade'
 description: 'Financial institutions are preparing for a new era of decentralized finance as major economies move toward sovereign digital assets.'
 pubDate: 'Feb 06 2026'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+heroImage: '/blog-placeholder-3.jpg'
 tags: ['AI & TECH', 'DESIGN']
 hotTakes: ['Privacy is the trade-off for financial speed.', 'The bank of the future is an API, not a building.']
 ---

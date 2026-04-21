@@ -2,7 +2,7 @@
 title: 'Ancient Underwater Ecosystem Discovered Beneath Arctic Ice Sheets Defies Previous Biological Assumptions'
 description: 'Marine biologists have uncovered a thriving colony of previously unknown species living in extreme conditions near the seafloor.'
 pubDate: 'Feb 07 2026'
-heroImage: '../../assets/blog-placeholder-2.jpg'
+heroImage: '/blog-placeholder-2.jpg'
 tags: ['TRAVEL', 'AI & TECH']
 isSpotlight: true
 ---
