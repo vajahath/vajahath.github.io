@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import RemoteImage from "../components/RemoteImage.astro";
 import { getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
@@ -134,11 +134,12 @@ const hotTakesList = posts
 							<section class="bg-gray-50 dark:bg-zinc-950 border-2 border-black dark:border-white overflow-hidden">
 								{focusPost.data.heroImage && (
 									<div class="aspect-video w-full overflow-hidden">
-										<Image
+										<RemoteImage
 											src={focusPost.data.heroImage}
 											alt={focusPost.data.title}
 											width={800}
 											height={450}
+											sizes="100vw"
 											class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
 										/>
 									</div>

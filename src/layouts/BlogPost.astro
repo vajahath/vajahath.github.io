@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import RemoteImage from "../components/RemoteImage.astro";
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
@@ -41,7 +41,7 @@ const displayTitle = title;
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={heroImage} />
 	</head>
 
 	<body
@@ -131,13 +131,14 @@ const displayTitle = title;
 				{
 					heroImage && (
 						<div class="w-full aspect-video overflow-hidden bg-gray-100 dark:bg-zinc-800">
-							<Image
-								width={1200}
-								height={675}
+							<RemoteImage
 								src={heroImage}
 								alt={title}
-								class="w-full h-full object-cover grayscale brightness-110 contrast-125 dark:grayscale-0 dark:brightness-90"
+								width={1200}
+								height={675}
 								loading="eager"
+								sizes="(max-width: 768px) 100vw, 1200px"
+								class="w-full h-full object-cover grayscale brightness-110 contrast-125 dark:grayscale-0 dark:brightness-90"
 							/>
 						</div>
 					)

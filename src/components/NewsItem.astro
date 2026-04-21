@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import RemoteImage from "./RemoteImage.astro";
 import FormattedDate from "./FormattedDate.astro";
 import { TAGS, type TagKey } from "../consts";
 
@@ -83,11 +83,12 @@ const seriesOrder = post.data.seriesOrder;
                 </div>
                 {post.data.heroImage && (
                     <div class="order-1 @[600px]/hero:order-2 aspect-video bg-gray-100 dark:bg-zinc-800 overflow-hidden">
-                        <Image
+                        <RemoteImage
                             src={post.data.heroImage}
                             alt={post.data.title}
                             width={1200}
                             height={675}
+                            sizes="(max-width: 600px) 100vw, 600px"
                             class="w-full h-full object-cover grayscale brightness-110 contrast-125 dark:grayscale-0 dark:brightness-90 transition-transform duration-500 hover:scale-105"
                         />
                     </div>
@@ -139,11 +140,12 @@ const seriesOrder = post.data.seriesOrder;
                 </div>
                 {post.data.heroImage && (
                     <div class="w-full @[500px]:w-48 aspect-video @[500px]:aspect-square bg-gray-100 dark:bg-zinc-800 overflow-hidden shrink-0 order-1 @[500px]:order-2">
-                        <Image
+                        <RemoteImage
                             src={post.data.heroImage}
                             alt={post.data.title}
                             width={400}
                             height={400}
+                            sizes="(max-width: 500px) 100vw, 192px"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                         />
                     </div>

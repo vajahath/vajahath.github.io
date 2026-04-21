@@ -5,7 +5,7 @@ import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import { SITE_TITLE } from "../../consts";
-import { Image } from "astro:assets";
+import RemoteImage from "../../components/RemoteImage.astro";
 
 export async function getStaticPaths() {
     const series = await getCollection("series");
@@ -67,11 +67,12 @@ const seriesPosts = posts
                 {
                     series.data.coverImage && (
                         <div class="aspect-video bg-gray-100 dark:bg-zinc-800 overflow-hidden border-2 border-black dark:border-white">
-                            <Image
+                            <RemoteImage
                                 src={series.data.coverImage}
                                 alt={series.data.title}
                                 width={1200}
                                 height={675}
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                                 class="w-full h-full object-cover grayscale brightness-110 contrast-125 dark:grayscale-0 dark:brightness-90"
                             />
                         </div>
