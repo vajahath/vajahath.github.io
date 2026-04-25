@@ -4,6 +4,7 @@ description: 'Trading the neon of Tokyo for the temples of Kyoto.'
 pubDate: 'Mar 10 2026'
 heroImage: '/blog-placeholder-4.jpg'
 tags: ['TRAVEL']
+seriesId: japan-travel
 seriesOrder: 2
 ---
 

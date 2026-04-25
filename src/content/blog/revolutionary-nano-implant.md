@@ -3,6 +3,7 @@ title: 'Revolutionary Nano-Implant Restores Full Sensory Perception to Patient w
 description: 'Scientists at the Institute of Neural Engineering have successfully tested a device that bypasses damaged nerves to transmit signals directly to the brain.'
 pubDate: 'Feb 05 2026'
 heroImage: '/blog-placeholder-4.jpg'
+tags: ['SCIENCE', 'MEDICAL', 'TECHNOLOGY']
 ---
 
 In a landmark clinical trial, a 34-year-old patient who had lost all sensation in his hands following a severe spinal injury has regained full tactile perception thanks to a revolutionary nano-implant. The device, developed by a multi-disciplinary team at the Institute of Neural Engineering, uses a microscopic mesh of sensors to bridge the gap in the patient's nervous system.

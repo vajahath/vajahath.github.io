@@ -26,15 +26,17 @@ isFocus: true                # Optional boolean (Default: false). Flags this pos
 hotTakes:                    # Optional array of strings. Displayed on the homepage "Hot Takes" sidebar.
   - "Take 1"
   - "Take 2"
-# seriesOrder: 1             # Only added if part of a series
+# seriesId: "series-slug"    # Required if part of a series (must match a YAML file in src/content/series/)
+# seriesOrder: 1             # Required if part of a series
 ---
 ```
 
 ## Creating or Modifying a Blog Post
 
-- **Standalone Post**: Create the file directly in `src/content/blog/[post-slug].md` with the standard frontmatter. Make sure to omit `seriesOrder`.
+- **Standalone Post**: Create the file anywhere in `src/content/blog/` (e.g. `src/content/blog/life/2026/[post-slug].md`) with the standard frontmatter. Make sure to omit `seriesId` and `seriesOrder`.
 - **Change Post Date**: Update the `pubDate` property in the frontmatter. Changing this will reflect its layout across the site.
 - **Labels/Tags**: Modify the `tags: ['TAG1', 'TAG2']` array. **IMPORTANT**: Every new tag used must be registered in `src/consts.ts` with appropriate M3-style colors or else the styling will break.
+- **Validation**: After making changes, ALWAYS run `pnpm post:validate` to ensure all frontmatter fields and series references are correct.
 
 ## Homepage Highlight Mechanisms
 
@@ -66,12 +68,12 @@ startedAt: "YYYY-MM-DD"
 ```
 
 ### 2. Series Post Organization
-Posts belonging to a series **MUST** be stored in a dedicated subdirectory to stay isolated and organized.
-- **Location**: `src/content/blog/[series-slug]/[post-slug].md`
-- **Ordering**: The `seriesOrder` frontmatter field is required for correct sequencing.
+Posts belonging to a series can be stored anywhere in `src/content/blog/`, but it's recommended to keep them in a dedicated subdirectory (e.g., `src/content/blog/[series-slug]/[post-slug].md`) for better organization.
+- **Linkage**: The `seriesId` and `seriesOrder` frontmatter fields are **REQUIRED** for the post to be linked and sequenced correctly within the series.
 ```markdown
 ---
 title: "Part Title"
+seriesId: "series-slug"
 seriesOrder: 1
 # ... other standard fields (pubDate, tags, heroImage, etc.)
 ---
@@ -82,5 +84,6 @@ seriesOrder: 1
 1. **Verify Information**: Check if you have the title, description, and at least one post ready. If not, **YOU MUST ASK** the user for them (including an optional but recommended Cover Image).
 2. **Create the Folder**: Initialize the directory `src/content/blog/[series-slug]/`.
 3. **Add the Metadata**: Create `src/content/series/[series-slug].yaml`.
-4. **Link the Post**: Move/Create the first post in the series directory (`src/content/blog/[series-slug]/[post-slug].md`) and ensure `seriesOrder: 1` is present in the frontmatter.
+4. **Link the Post**: Move/Create the first post in the series directory (`src/content/blog/[series-slug]/[post-slug].md`) and ensure `seriesId: "[series-slug]"` and `seriesOrder: 1` are present in the frontmatter.
 5. **Tag Verification**: Ensure all tags in the post frontmatter exist in `src/consts.ts`. If not, **YOU MUST** add them with appropriate M3-style colors before proceeding.
+6. **Validation**: Run `pnpm post:validate` to ensure all metadata is correctly formatted and series references are intact.

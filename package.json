@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "post:validate": "tsx scripts/validate-posts.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
@@ -21,6 +22,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.21.0",
     "typescript": "^6.0.3"
   }
 }

@@ -19,8 +19,8 @@ type Props = CollectionEntry<"blog">;
 const post = Astro.props;
 
 // Series Logic
-const [seriesSlug, ...rest] = post.id.split("/");
-const isInSeries = rest.length > 0 && post.data.seriesOrder != null;
+const seriesId = post.data.seriesId;
+const isInSeries = seriesId != null && post.data.seriesOrder != null;
 
 let seriesData: any = undefined;
 if (isInSeries) {
@@ -28,7 +28,7 @@ if (isInSeries) {
 	const seriesPosts = allPosts
 		.filter(
 			(p) =>
-				p.id.startsWith(seriesSlug + "/") && p.data.seriesOrder != null,
+				p.data.seriesId === seriesId && p.data.seriesOrder != null,
 		)
 		.sort((a, b) => (a.data.seriesOrder || 0) - (b.data.seriesOrder || 0));
 
@@ -39,12 +39,12 @@ if (isInSeries) {
 			? seriesPosts[currentIndex + 1]
 			: null;
 
-	const seriesMeta = await getEntry("series", seriesSlug);
+	const seriesMeta = await getEntry("series", seriesId);
 
 	if (seriesMeta) {
 		seriesData = {
 			title: seriesMeta.data.title,
-			slug: seriesSlug,
+			slug: seriesId,
 			currentOrder: post.data.seriesOrder!,
 			totalParts: seriesPosts.length,
 			prevPost: prevPost

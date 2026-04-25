@@ -4,6 +4,7 @@ description: "Why we built a way to group posts and how it enhances the long-for
 pubDate: "Feb 18 2026"
 heroImage: "/blog-placeholder-2.jpg"
 tags: ["DEVLOG", "SERIES"]
+seriesId: building-faint-signals
 seriesOrder: 1
 ---
 

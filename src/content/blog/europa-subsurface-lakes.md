@@ -3,6 +3,7 @@ title: 'Interplanetary Exploration Agency Reveals High-Resolution Images of Pote
 description: 'Data from the latest flyby mission suggests that Jupiter''s moon Europa may harbor vast liquid water reservoirs beneath its icy crust.'
 pubDate: 'Feb 04 2026'
 heroImage: '/blog-placeholder-5.jpg'
+tags: ['SCIENCE', 'SPACE']
 ---
 
 The Interplanetary Exploration Agency (IEA) released a series of stunning high-resolution images and sensor data today from the *Europa Clipper 2* mission. The data provides the most compelling evidence yet for the existence of massive, liquid-water lakes trapped just a few kilometers beneath the moon's fractured ice surface.

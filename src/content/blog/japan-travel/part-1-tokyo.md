@@ -4,6 +4,7 @@ description: "Arrival in Shinjuku and the search for the perfect ramen."
 pubDate: "Mar 02 2026"
 heroImage: "https://1drv.ms/i/c/604400cd54aac350/IQQw-DM4FRpWTLquxYb2Ja5gAVAl8qunSiNfKXujvuD4NMI"
 tags: ["TRAVEL"]
+seriesId: japan-travel
 seriesOrder: 1
 ---
 
