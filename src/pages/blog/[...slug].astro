@@ -57,9 +57,9 @@ if (isInSeries) {
 	}
 }
 
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
-<BlogPost {...post.data} series={seriesData}>
+<BlogPost {...post.data} series={seriesData} headings={headings}>
 	<Content />
 </BlogPost>

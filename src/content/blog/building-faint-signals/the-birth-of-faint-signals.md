@@ -1,8 +1,9 @@
 ---
 title: "The Birth of Faint Signals: Building a Different Kind of Blog"
-description: "Architecting a high-performance digital environment optimized for extreme information density and variable typography."
+description: "The sharp, high-contrast pulse of a digital record, engineered for high-voltage clarity and a 'live' broadcast energy."
 pubDate: "2026-04-26"
 tags: ["DEVLOG", "DESIGN"]
+toc: show
 seriesId: "building-faint-signals"
 seriesOrder: 1
 hotTakes:

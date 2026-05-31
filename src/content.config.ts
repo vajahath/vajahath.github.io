@@ -14,6 +14,7 @@ const blog = defineCollection({
 		isSpotlight: z.boolean().optional().default(false),
 		isFocus: z.boolean().optional().default(false),
 		hotTakes: z.array(z.string()).optional(),
+		toc: z.union([z.literal('show'), z.boolean()]).optional(),
 		seriesId: z.string().optional(),
 		seriesOrder: z.number().int().positive().optional(),
 	}),

@@ -2,11 +2,13 @@
 import RemoteImage from "../components/RemoteImage.astro";
 import { parseDimensionsFromUrl } from "../lib/wsrv";
 import type { CollectionEntry } from "astro:content";
+import type { MarkdownHeading } from "astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 import SeriesNav from "../components/SeriesNav.astro";
+import TableOfContents from "../components/TableOfContents.astro";
 
 import { TAGS, type TagKey } from "../consts";
 
@@ -19,6 +21,7 @@ type Props = CollectionEntry<"blog">["data"] & {
 		prevPost?: { id: string; title: string };
 		nextPost?: { id: string; title: string };
 	};
+	headings?: MarkdownHeading[];
 };
 
 const {
@@ -29,8 +32,12 @@ const {
 	heroImage,
 	tags = [],
 	hotTakes = [],
+	toc,
 	series,
+	headings = [],
 } = Astro.props;
+
+const showToc = (toc === true || toc === "show") && headings.length > 0;
 const imageDims = heroImage ? parseDimensionsFromUrl(heroImage) : {};
 const hasImageDims = imageDims.width !== undefined && imageDims.height !== undefined;
 const tagMetadata = tags.map(
@@ -53,7 +60,8 @@ const displayTitle = title;
 		<Header />
 
 		<main class="max-w-7xl mx-auto px-4 py-8">
-			<article class="max-w-2xl mx-auto flex flex-col gap-6">
+			<div class={showToc ? "flex items-start gap-12 justify-center" : ""}>
+			<article class={showToc ? "max-w-2xl w-full flex flex-col gap-6 min-w-0" : "max-w-2xl mx-auto flex flex-col gap-6"}>
 				{/* Top Meta */}
 				<div
 					class="flex flex-wrap items-center gap-4 m3-label-medium text-black dark:text-white"
@@ -173,6 +181,8 @@ const displayTitle = title;
 
 				{series && <SeriesNav {...series} />}
 			</article>
+			{showToc && <TableOfContents headings={headings} />}
+			</div>
 		</main>
 
 		<Footer />
@@ -189,6 +199,33 @@ const displayTitle = title;
 					"wdth" 100;
 				font-weight: 900;
 			}
+
+			.prose .heading-anchor {
+				opacity: 0;
+				margin-left: 0.4em;
+				font-size: 0.75em;
+				font-weight: 400;
+				text-decoration: none;
+				color: var(--color-brand-blue);
+				transition: opacity 0.15s;
+				vertical-align: middle;
+			}
+
+			.prose h2:hover .heading-anchor,
+			.prose h3:hover .heading-anchor,
+			.prose h4:hover .heading-anchor {
+				opacity: 1;
+			}
 		</style>
+		<script>
+			document.querySelectorAll<HTMLHeadingElement>('.prose h2[id], .prose h3[id], .prose h4[id]').forEach((heading) => {
+				const anchor = document.createElement('a');
+				anchor.href = `#${heading.id}`;
+				anchor.className = 'heading-anchor';
+				anchor.setAttribute('aria-label', 'Link to this section');
+				anchor.textContent = '#';
+				heading.appendChild(anchor);
+			});
+		</script>
 	</body>
 </html>
