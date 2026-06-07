@@ -8,7 +8,7 @@ tags: ["DESIGN", "UX", "DEVLOG", "CASE STUDY"]
 
 # The Vision: Beyond the Bracket
 
-Building [Warzone Kerala](https://warzonekerala.com/) wasn't just about making another tournament site. It was about solving the **Coordinators Paradox**: the more successful a community becomes, the more manual work it creates for the organizers. 
+Building [Warzone Kerala](https://warzonekerala.com/) ([warzonekerala.com](https://warzonekerala.com/)) wasn't just about making another tournament site. It was about solving the **Coordinators Paradox**: the more successful a community becomes, the more manual work it creates for the organizers. 
 
 Our goal was to build an "Autonomous Arena"—a platform where tournaments could effectively run themselves.
 
@@ -38,4 +38,4 @@ The heart of the site is the **Tournament Planner**. Unlike traditional systems 
 
 ## What's Next?
 
-In future posts, we'll dive into the specific algorithms used for the planner and how we handled the "Wait vs. Play" friction in organized gaming.
+In future posts, when needed, we'll dive into the specific algorithms used for the planner and how we handled the "Wait vs. Play" friction in organized gaming.
