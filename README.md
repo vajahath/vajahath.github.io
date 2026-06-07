@@ -1,6 +1,8 @@
-# Faint Signals
+# Faint Signals [![Deploy to GitHub Pages](https://github.com/vajahath/vajahath.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/vajahath/vajahath.github.io/actions/workflows/deploy.yml)
 
 Welcome to **Faint Signals**, a personal blog for capturing wandering thoughts, late discoveries, and probably wrong takes.
+
+**Live site**: [https://vajahath.github.io/](https://vajahath.github.io/)
 
 > [!NOTE]
 > This is a personal blog. Opinions are our own (and often subject to change as we learn more).
@@ -13,8 +15,8 @@ To get the lab running on your local machine:
 
 1.  **Clone the Repository**:
     ```bash
-    git clone https://github.com/vajahath/faint-signals.git
-    cd faint-signals
+    git clone https://github.com/vajahath/vajahath.github.io.git
+    cd vajahath.github.io
     ```
 2.  **Install Dependencies**:
     ```bash
@@ -25,6 +27,7 @@ To get the lab running on your local machine:
     npm run dev
     ```
     Open `http://localhost:4321` to see the transmission.
+
 
 ## 🛠 Internals
 
@@ -64,3 +67,8 @@ We embrace the open-source spirit. If you have a signal you'd like to amplify, f
 - **Responsive Handling**: All headlines use `text-wrap: balance` to ensure visual symmetry on mobile screens.
 
 *Signals are faint. Stay tuned. Built with Antigravity and Gemini*
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
