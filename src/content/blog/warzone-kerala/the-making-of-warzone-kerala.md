@@ -2,7 +2,7 @@
 title: "The Making of Warzone Kerala: Architecture of an Autonomous Arena"
 description: "How we built a zero-friction tournament coordination engine using Material Design 3 and asynchronous orchestration."
 pubDate: "Apr 07 2026"
-heroImage: "/blog-placeholder-about.jpg"
+heroImage: "/blog-placeholder-2.jpg"
 tags: ["DESIGN", "UX", "DEVLOG", "CASE STUDY"]
 ---
 
