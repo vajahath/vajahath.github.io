@@ -10,6 +10,7 @@ const blog = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
+		author: z.string().default('Vajahath Ahmed'),
 		tags: z.array(z.string()).default(['PERSONAL BLOG']),
 		isSpotlight: z.boolean().optional().default(false),
 		isFocus: z.boolean().optional().default(false),

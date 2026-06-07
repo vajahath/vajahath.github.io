@@ -20,6 +20,7 @@ description: "Brief overview."
 pubDate: "YYYY-MM-DD"        # Standard date, dictates main chronological order
 updatedDate: "YYYY-MM-DD"    # Optional, used if changing the date a post was last updated
 heroImage: "/path/to/image.jpg" # Optional
+author: "Author Name"        # Optional, defaults to 'Vajahath Ahmed'
 tags: ["TECHNOLOGY", "AI"]    # Array of strings, defaults to ['PERSONAL BLOG']. Registration in consts.ts required.
 isSpotlight: true            # Optional boolean (Default: false). Exclusively highlights this as the Spotlight post.
 isFocus: true                # Optional boolean (Default: false). Flags this post as the Focus Analysis.

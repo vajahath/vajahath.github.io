@@ -79,9 +79,9 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
                         )}
                     </div>
                     <div class="flex items-center gap-4 m3-label-medium text-black dark:text-white">
-                        <span class="font-bold">By Author Name</span>
+                        <span class="font-bold">By {post.data.author}</span>
                         <span class="text-black/30 dark:text-white/30">•</span>
-                        <span class="font-bold">12m ago</span>
+                        <span class="font-bold"><FormattedDate date={post.data.pubDate} /></span>
                     </div>
                 </div>
                 {post.data.heroImage && (

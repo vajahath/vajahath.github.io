@@ -9,7 +9,6 @@ seriesOrder: 1
 hotTakes:
   - "Information density is an accessibility feature, not a bug, when used correctly."
   - "Performance is a design requirement, not a technical afterthought."
-  - "Static sites are the only logical choice for persistent digital records."
 ---
 
 I’ve wanted to build my own blog site for a long time. My goal was pretty straightforward: I needed something fast, performant, and easy to maintain, but with a look that didn’t just feel like another WordPress or Blogger template. I wanted a design that felt fresh and unique—something that matched how I actually wanted to record my thoughts and projects.

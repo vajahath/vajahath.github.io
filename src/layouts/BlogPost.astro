@@ -30,6 +30,7 @@ const {
 	pubDate,
 	updatedDate,
 	heroImage,
+	author,
 	tags = [],
 	hotTakes = [],
 	toc,
@@ -91,6 +92,8 @@ const displayTitle = title;
 							)
 						}
 					</div>
+					<span>By {author}</span>
+					<span class="text-black/30 dark:text-white/30">•</span>
 					<span><FormattedDate date={pubDate} /></span>
 					{
 						updatedDate && (
