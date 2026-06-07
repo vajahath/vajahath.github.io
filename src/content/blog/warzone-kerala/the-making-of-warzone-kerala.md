@@ -4,8 +4,6 @@ description: "How we built a zero-friction tournament coordination engine using 
 pubDate: "Apr 07 2026"
 heroImage: "/blog-placeholder-about.jpg"
 tags: ["DESIGN", "UX", "DEVLOG", "CASE STUDY"]
-seriesId: warzone-kerala
-seriesOrder: 1
 ---
 
 # The Vision: Beyond the Bracket
@@ -40,6 +38,4 @@ The heart of the site is the **Tournament Planner**. Unlike traditional systems 
 
 ## What's Next?
 
-In the subsequent parts of this series, we'll dive into the specific algorithms used for the planner and how we handled the "Wait vs. Play" friction in organized gaming.
-
-*This is Part 1 of the Warzone Kerala series.*
+In future posts, we'll dive into the specific algorithms used for the planner and how we handled the "Wait vs. Play" friction in organized gaming.
