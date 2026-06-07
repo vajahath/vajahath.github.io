@@ -1,13 +1,13 @@
 ---
-title: 'The Modern News Architecture: A Comprehensive Style Guide and Technical Overview'
-description: 'Exploring the full capabilities of our news portal styling with a deep dive into Markdown and MDX features.'
+title: 'Style Sandbox: Typography and Layout Reference'
+description: 'A dedicated sandbox to test design tokens, Material Design 3 (M3) components, and Markdown layout rendering.'
 pubDate: 'Feb 09 2026'
 heroImage: '/blog-placeholder-5.jpg'
 tags: ['AI & TECH', 'NODE JS', 'DESIGN', 'UX', 'FASHION', 'RANT', 'PERSONAL BLOG']
 hotTakes: ['Good design is invisible, but bad design is an act of violence.', 'Markdown is the vinyl of the digital publishing world.']
 ---
 
-Welcome to the ultimate technical demonstration of our news portal's rendering capabilities. This post serves as both a style guide and a stress test for our CSS and Markdown processing engine.
+Welcome to the style sandbox and design system playground for Faint Signals. This post is used to visually test typography scaling, component spacing, and Markdown rendering under the Material Design 3 (M3) specifications.
 
 ## The Typography Hierarchy
 Headings are the backbone of news storytelling. They should be bold, balanced, and punchy.
