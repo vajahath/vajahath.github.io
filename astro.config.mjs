@@ -45,7 +45,7 @@ function rehypeWsrvImages() {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://vajahath.github.io',
   integrations: [
     mdx({ rehypePlugins: [rehypeWsrvImages] }),
     sitemap(),
