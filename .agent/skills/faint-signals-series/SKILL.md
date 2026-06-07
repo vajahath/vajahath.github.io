@@ -37,7 +37,7 @@ hotTakes:                    # Optional array of strings. Displayed on the homep
 - **Standalone Post**: Create the file anywhere in `src/content/blog/` (e.g. `src/content/blog/life/2026/[post-slug].md`) with the standard frontmatter. Make sure to omit `seriesId` and `seriesOrder`.
 - **Change Post Date**: Update the `pubDate` property in the frontmatter. Changing this will reflect its layout across the site.
 - **Labels/Tags**: Modify the `tags: ['TAG1', 'TAG2']` array. **IMPORTANT**: Every new tag used must be registered in `src/consts.ts` with appropriate M3-style colors or else the styling will break.
-- **Validation**: After making changes, ALWAYS run `pnpm post:validate` to ensure all frontmatter fields and series references are correct.
+- **Validation**: After making changes, ALWAYS run `pnpm run typecheck` and `pnpm run post:validate` (or run `pnpm run build` which runs both automatically) to ensure all frontmatter fields, series references, and TypeScript types are correct.
 
 ## Homepage Highlight Mechanisms
 
@@ -87,4 +87,4 @@ seriesOrder: 1
 3. **Add the Metadata**: Create `src/content/series/[series-slug].yaml`.
 4. **Link the Post**: Move/Create the first post in the series directory (`src/content/blog/[series-slug]/[post-slug].md`) and ensure `seriesId: "[series-slug]"` and `seriesOrder: 1` are present in the frontmatter.
 5. **Tag Verification**: Ensure all tags in the post frontmatter exist in `src/consts.ts`. If not, **YOU MUST** add them with appropriate M3-style colors before proceeding.
-6. **Validation**: Run `pnpm post:validate` to ensure all metadata is correctly formatted and series references are intact.
+6. **Validation**: Run `pnpm run typecheck` and `pnpm run post:validate` (or run `pnpm run build` which runs both automatically) to ensure all metadata is correctly formatted, series references are intact, and TypeScript types check out.

@@ -50,6 +50,10 @@ Styles are managed via tokens in `src/styles/design-system.css` and applied thro
 ### Layout & Alignment
 - **Baseline Symmetry**: When aligning massive display text with smaller labels (e.g., in the Header), use **`items-baseline`** on the flex container. Ensure the large text has a tight `line-height` (e.g., `leading-[0.8]`) to bring the visual baseline into alignment with smaller UI elements.
 
+### CI/CD, Build & Validation
+- **Local & CI Validation**: The `build` script (`pnpm run build`) automatically executes both type checking (`pnpm run typecheck`) and post/content verification (`pnpm run post:validate`) prior to running the actual Astro build. This ensures no invalid code, broken post frontmatter, or untracked/missing series dependencies are ever deployed.
+- **GitHub Actions**: The auto-deployment CI/CD pipeline runs `pnpm run build` on pull requests to verify changes, and on pushes/manual triggers on the `main` branch to verify and deploy to GitHub Pages.
+
 ---
 *Note: This documentation is subject to change as the "signals" evolve.*
 
