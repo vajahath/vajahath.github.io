@@ -7,6 +7,37 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import { unified } from '@astrojs/markdown-remark';
 
+/**
+ * GitHub-style task lists render bare `<input type="checkbox">` with no
+ * accessible name, which axe flags as a critical violation. Label each one
+ * with the text of its own list item.
+ */
+function rehypeLabelTaskListItems() {
+  /** @param {any} tree */
+  return (tree) => {
+    /** @param {any} node @returns {string} */
+    function textOf(node) {
+      if (node.type === 'text') return node.value;
+      return (node.children ?? []).map(textOf).join('');
+    }
+    /** @param {any} node */
+    function walk(node) {
+      if (node.tagName === 'li') {
+        const box = (node.children ?? []).find(
+          /** @param {any} c */
+          (c) => c.tagName === 'input' && c.properties?.type === 'checkbox',
+        );
+        if (box) {
+          const label = textOf(node).trim();
+          if (label) box.properties['aria-label'] = label;
+        }
+      }
+      for (const child of node.children ?? []) walk(child);
+    }
+    walk(tree);
+  };
+}
+
 function rehypeWsrvImages() {
   /** @param {any} tree */
   return (tree) => {
@@ -48,12 +79,12 @@ function rehypeWsrvImages() {
 export default defineConfig({
   site: 'https://vajahath.github.io',
   integrations: [
-    mdx({ processor: unified({ rehypePlugins: [rehypeWsrvImages] }) }),
+    mdx({ processor: unified({ rehypePlugins: [rehypeWsrvImages, rehypeLabelTaskListItems] }) }),
     sitemap(),
   ],
 
   markdown: {
-    processor: unified({ rehypePlugins: [rehypeWsrvImages] }),
+    processor: unified({ rehypePlugins: [rehypeWsrvImages, rehypeLabelTaskListItems] }),
   },
 
   vite: {

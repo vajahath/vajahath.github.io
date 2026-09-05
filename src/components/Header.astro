@@ -21,6 +21,10 @@ const randomHotTake =
 	allHotTakes.length > 0
 		? allHotTakes[Math.floor(Math.random() * allHotTakes.length)]
 		: { text: "Faint signals detected in the deep noise...", postId: "" };
+
+// Elsewhere the page supplies its own <h1>, so the wordmark steps down to
+// avoid a second top-level heading.
+const Wordmark = isHome ? 'h1' : 'div';
 ---
 
 {/* Top Utility & Ticker Row */}
@@ -72,7 +76,7 @@ const randomHotTake =
 			class="flex flex-col md:flex-row md:items-baseline justify-between gap-4"
 		>
 			<a href="/" class="hover:opacity-90 transition-opacity block">
-				<h1
+				<Wordmark
 					class:list={[
 						"italic leading-none m-0 p-0",
 						isHome ? "m3-display-large" : "m3-headline-large",
@@ -82,7 +86,7 @@ const randomHotTake =
 						: ""}
 				>
 					{SITE_TITLE}
-				</h1>
+				</Wordmark>
 			</a>
 
 			{

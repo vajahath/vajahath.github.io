@@ -101,6 +101,8 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
                                 width={imageDims.width!}
                                 height={imageDims.height!}
                                 sizes="(max-width: 600px) 100vw, 600px"
+                                loading="eager"
+                                fetchpriority="high"
                                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                             />
                         </div>
@@ -112,6 +114,8 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
                                 width={1200}
                                 height={675}
                                 sizes="(max-width: 600px) 100vw, 600px"
+                                loading="eager"
+                                fetchpriority="high"
                                 natural={true}
                             />
                         </div>

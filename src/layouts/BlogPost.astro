@@ -118,9 +118,9 @@ const displayTitle = title;
 					{
 						hotTakes.length > 0 && (
 							<div class="news-signal-highlight">
-								<h3 class="m3-label-medium mb-3 uppercase tracking-[0.3em] text-live-red font-black">
+								<h2 class="m3-label-medium mb-3 uppercase tracking-[0.3em] text-live-red font-black">
 									Signal Highlights
-								</h3>
+								</h2>
 								<ul class="list-none space-y-2.5">
 									{hotTakes.map((take: string) => (
 										<li class="m3-body-large flex gap-4 items-start">
@@ -156,6 +156,8 @@ const displayTitle = title;
 									height={imageDims.height!}
 									loading="eager"
 									sizes="(max-width: 768px) 100vw, 1200px"
+									loading="eager"
+									fetchpriority="high"
 									class="w-full h-full object-cover"
 								/>
 							</div>
@@ -168,6 +170,8 @@ const displayTitle = title;
 									height={675}
 									loading="eager"
 									sizes="(max-width: 768px) 100vw, 1200px"
+									loading="eager"
+									fetchpriority="high"
 									natural={true}
 								/>
 							</div>
