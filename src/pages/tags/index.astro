@@ -80,9 +80,10 @@ const tagsWithPosts = tags
                                     href={`/tags/${tagData.name
                                         .toLowerCase()
                                         .replace(/\s+/g, "-")}/`}
-                                    class="m3-label-large text-brand-blue font-black border-2 border-brand-blue px-6 py-2 self-start hover:bg-brand-blue hover:text-white transition-all"
+                                    class="m3-touch-target m3-label-large text-brand-blue font-black border-2 border-brand-blue px-6 py-2 self-start whitespace-nowrap hover:bg-brand-blue hover:text-white transition-all"
+                                    aria-label={`Load more from ${tagData.name}`}
                                 >
-                                    LOAD MORE FROM {tagData.name} →
+                                    LOAD MORE →
                                 </a>
                             </div>
                         );
