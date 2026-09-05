@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
+import { unified } from '@astrojs/markdown-remark';
 
 function rehypeWsrvImages() {
   /** @param {any} tree */
@@ -47,12 +48,12 @@ function rehypeWsrvImages() {
 export default defineConfig({
   site: 'https://vajahath.github.io',
   integrations: [
-    mdx({ rehypePlugins: [rehypeWsrvImages] }),
+    mdx({ processor: unified({ rehypePlugins: [rehypeWsrvImages] }) }),
     sitemap(),
   ],
 
   markdown: {
-    rehypePlugins: [rehypeWsrvImages],
+    processor: unified({ rehypePlugins: [rehypeWsrvImages] }),
   },
 
   vite: {
