@@ -1,74 +1,53 @@
 # Faint Signals [![Deploy to GitHub Pages](https://github.com/vajahath/vajahath.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/vajahath/vajahath.github.io/actions/workflows/deploy.yml)
 
-Welcome to **Faint Signals**, a personal blog for capturing wandering thoughts, late discoveries, and probably wrong takes.
+A personal blog for wandering thoughts, late discoveries, and probably wrong takes.
 
-**Live site**: [https://vajahath.github.io/](https://vajahath.github.io/)
+**Live site**: https://vajahath.github.io/
 
 > [!NOTE]
-> This is a personal blog. Opinions are our own (and often subject to change as we learn more).
+> Personal blog. Opinions are my own, and subject to change as I learn more.
 
-Built with a high-density, high-contrast "live news" aesthetic, this platform is a playground for exploring the intersection of technology, design, and erratic signals from the noise.
+## Stack
 
-## 🚀 Getting Started
+- [Astro 7](https://astro.build/) — content-first static site generation
+- [Tailwind CSS 4](https://tailwindcss.com/) — via `@tailwindcss/vite`, `@utility` engine
+- **Material Design 3** — semantic tonal tokens, high-density outlined layouts
+- **Roboto Flex** — variable axes (`wght`, `opsz`, `XOPQ`, `XTRA`) for a broadcast look
 
-To get the lab running on your local machine:
+## Run it
 
-1.  **Clone the Repository**:
-    ```bash
-    git clone https://github.com/vajahath/vajahath.github.io.git
-    cd vajahath.github.io
-    ```
-2.  **Install Dependencies**:
-    ```bash
-    npm install
-    ```
-3.  **Launch the Workspace**:
-    ```bash
-    npm run dev
-    ```
-    Open `http://localhost:4321` to see the transmission.
+Requires Node 24 and pnpm 11.
 
+```bash
+git clone https://github.com/vajahath/vajahath.github.io.git
+cd vajahath.github.io
+pnpm install
+pnpm dev       # http://localhost:4321
+```
 
-## 🛠 Internals
+`pnpm build` type-checks, validates post frontmatter, then builds.
 
-`faint-signals` is built for speed and visual impact:
+## Add a post
 
-- **Framework**: [Astro 5](https://astro.build/) - Content-first fast site generation.
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) - Utilizing the latest `@utility` engine.
-- **Design System**: **Material Design 3 (M3)** - Using semantic tonal palettes and high-density layouts.
-- **Typography**: **Roboto Flex** - A universal variable font face that adapts its thickness (`XOPQ`), width (`XTRA`), and optical size (`opsz`) for a punchy broadcast look.
-- **High Density**: The UI is optimized for information density without sacrificing touch targets or accessibility.
+Drop a `.md` or `.mdx` file under `src/content/blog/` — the path becomes the URL slug.
 
-## 📝 How to Add / Submit a Post
+```markdown
+---
+title: "Your Explosive Headline"
+description: "A punchy summary of your take."
+pubDate: "2026-02-12"
+heroImage: "../../assets/blog-placeholder-2.jpg"
+tags: ["DESIGN", "UX"]
+---
 
-We embrace the open-source spirit. If you have a signal you'd like to amplify, feel free to submit a Pull Request.
+Your story starts here...
+```
 
-### Steps to Participate:
-1.  **Navigate to content**: Go to `src/content/blog/`.
-2.  **Create a file**: Add a new `.md` or `.mdx` file. The filename becomes the URL slug.
-3.  **Add Frontmatter**:
-    ```markdown
-    ---
-    title: "Your Explosive Headline"
-    description: "A punchy summary of your take."
-    pubDate: "Feb 12 2026"
-    heroImage: "../../assets/blog-placeholder-2.jpg"
-    tags: ["TECH", "UX"]
-    ---
+Tags must be registered in `src/consts.ts`. Full conventions live in
+`CLAUDE.md` and `.claude/skills/faint-signals-series/SKILL.md`.
 
-    Your story starts here...
-    ```
-4.  **Submit**: Open a PR with your changes!
+PRs welcome if you have a signal worth amplifying.
 
-## 👩‍💻 Developer Notes
+## License
 
-- **Design Tokens**: Centralized in `src/styles/design-system.css`. Use CSS variables for M3 colors (e.g., `--md-sys-color-primary`).
-- **Typography Roles**: Avoid hardcoding font sizes. Use `@apply m3-headline-large` or `@apply m3-body-large`.
-- **Responsive Handling**: All headlines use `text-wrap: balance` to ensure visual symmetry on mobile screens.
-
-*Signals are faint. Stay tuned. Built with Antigravity and Gemini*
-
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE).
-
+[MIT](LICENSE)
