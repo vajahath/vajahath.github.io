@@ -35,7 +35,7 @@ const Wordmark = isHome ? 'h1' : 'div';
 		class="flex-1 flex items-center gap-4 px-4 py-2 overflow-hidden border-r border-gray-800"
 	>
 		<span
-			class="m3-label-medium bg-live-red-text px-1.5 py-0.5 shrink-0 text-white font-black"
+			class="m3-label-medium bg-live-red-fill px-1.5 py-0.5 shrink-0 text-white font-black"
 		>
 			{">>>"}
 		</span>
@@ -78,7 +78,7 @@ const Wordmark = isHome ? 'h1' : 'div';
 			<a href="/" class="hover:opacity-90 transition-opacity block">
 				<Wordmark
 					class:list={[
-						"italic leading-none m-0 p-0",
+						"uppercase italic leading-none m-0 p-0",
 						isHome ? "m3-display-large" : "m3-headline-large",
 					]}
 					style={isHome

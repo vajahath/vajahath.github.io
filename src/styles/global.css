@@ -5,6 +5,7 @@
   --color-brand-blue: var(--md-sys-color-primary);
   --color-live-red: var(--md-sys-color-error);
   --color-live-red-text: var(--md-sys-color-error-text);
+  --color-live-red-fill: var(--md-sys-color-error-fill);
   --color-brand-blue-text: var(--md-sys-color-primary-text);
   --color-live-green: var(--md-sys-color-tertiary);
 

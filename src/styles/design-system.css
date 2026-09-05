@@ -35,6 +35,9 @@
        clear AA, so the dark theme maps these straight back. */
     --md-sys-color-error-text: #dc2626;
     --md-sys-color-primary-text: #1d4ed8;
+    /* Fills that carry white text; theme-independent, since the white sits on
+       the fill rather than on the page surface. */
+    --md-sys-color-error-fill: #dc2626;
     --md-sys-color-on-error: #ffffff;
     --md-sys-color-error-container: #fee2e2;
     --md-sys-color-on-error-container: #991b1b;
@@ -148,6 +151,8 @@
 .dark {
     --md-sys-color-error-text: var(--md-sys-color-error);
     --md-sys-color-primary-text: var(--md-sys-color-primary);
+    /* --md-sys-color-error-fill deliberately not remapped: white-on-red needs
+       the dark step in either theme. */
 
     --md-sys-color-primary: #60a5fa;
     --md-sys-color-on-primary: #000000;
