@@ -71,7 +71,7 @@
 
     /* Headline Large (Primary Section Titles) */
     --md-sys-typescale-headline-large-size: 2rem;
-    --md-sys-typescale-headline-large-line-height: 1.15;
+    --md-sys-typescale-headline-large-line-height: 1.2;
     --md-sys-typescale-headline-large-weight: 800;
     --md-sys-typescale-headline-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 32;
 
@@ -120,10 +120,10 @@
     --md-sys-typescale-label-medium-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 10;
 
     /* Lede (Article Description) */
-    --md-sys-typescale-lede-size: 1.5rem;
+    --md-sys-typescale-lede-size: 1.75rem;
     --md-sys-typescale-lede-line-height: 1.3;
     --md-sys-typescale-lede-weight: 450;
-    --md-sys-typescale-lede-variation: var(--md-sys-font-variation-base), "wght" 450, "opsz" 24;
+    --md-sys-typescale-lede-variation: var(--md-sys-font-variation-base), "wght" 450, "opsz" 28;
 
     /* --- SHAPE & ELEVATION --- */
     --md-sys-shape-corner-none: 0;

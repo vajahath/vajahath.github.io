@@ -23,12 +23,15 @@ const blog = defineCollection({
 
 const series = defineCollection({
 	loader: glob({ base: './src/content/series', pattern: '**/*.{yaml,yml}' }),
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		coverImage: z.string().optional(),
-		startedAt: z.coerce.date().optional(),
-	}),
+	// `image()` resolves relative paths against the YAML file and hands back
+	// real ImageMetadata; a plain string is still allowed for remote covers.
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			coverImage: z.union([image(), z.url()]).optional(),
+			startedAt: z.coerce.date().optional(),
+		}),
 });
 
 export const collections = { blog, series };

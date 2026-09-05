@@ -2,7 +2,7 @@
 import { wsrv, wsrvSrcset } from '../lib/wsrv';
 
 interface Props {
-	src: string;
+	src: string | ImageMetadata;
 	alt: string;
 	width: number;
 	height: number;
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const {
-	src,
+	src: rawSrc,
 	alt,
 	width,
 	height,
@@ -25,6 +25,8 @@ const {
 	natural = false,
 } = Astro.props;
 
+// Local assets arrive as ImageMetadata; unwrap to the emitted asset URL.
+const src = typeof rawSrc === 'string' ? rawSrc : rawSrc.src;
 const isRemote = src.startsWith('http');
 const activeWidths = widths.filter((w) => w <= width * 2);
 const webpSrcset = isRemote ? wsrvSrcset(src, activeWidths) : '';
