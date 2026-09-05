@@ -44,6 +44,12 @@ These hold; don't drift from them.
 - **Baseline alignment**: when huge display text sits next to small labels, use
   `items-baseline` with tight `leading-*` on the large text.
 
+- **Don't rely on a bare-tag rule for a visual property.** `h1` gets
+  `m3-display-large` from a base rule, and that is where its `uppercase` comes
+  from — so changing an element's tag (for heading hierarchy, say) can silently
+  drop styling the component never declared. Put anything that matters on the
+  element.
+
 ### Type roles
 
 `m3-display-large|medium|small`, `m3-headline-large|medium|small`,
