@@ -26,6 +26,12 @@ These hold; don't drift from them.
 - **Typography is Roboto Flex everywhere**, driven hard through its variable
   axes (`wght`, `opsz`, `XOPQ`, `XTRA`, `YTAS`/`YTDE`) for a broadcast look.
   Axis values live in the `--md-sys-typescale-*-variation` tokens.
+- **Text shades differ from fill shades.** The bright `--md-sys-color-primary`
+  / `error` are for fills, dots, borders and large display type; small text on
+  a light surface (and any fill carrying white text) uses the darker
+  `--md-sys-color-primary-text` / `error-text` steps, which clear WCAG AA. The
+  dark theme maps the text steps back to the bright shades, which already pass
+  on black.
 - **Outlines over shadows.** `border-2` and `--md-sys-color-outline` separate
   containers. Elevation/shadow is visual noise here.
 - **Density without cost.** Tighten vertical rhythm freely, but interactive

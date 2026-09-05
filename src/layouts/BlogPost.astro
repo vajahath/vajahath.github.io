@@ -85,7 +85,7 @@ const displayTitle = title;
 							series && (
 								<a
 									href={`/series/${series.slug}/`}
-									class="px-2 py-0.5 font-black uppercase tracking-wider bg-live-red text-white transition-opacity hover:opacity-80 border border-black/10"
+									class="px-2 py-0.5 font-black uppercase tracking-wider bg-live-red-text text-white transition-opacity hover:opacity-80 border border-black/10"
 								>
 									Series · Part {series.currentOrder}
 								</a>
@@ -97,7 +97,7 @@ const displayTitle = title;
 					<span><FormattedDate date={pubDate} /></span>
 					{
 						updatedDate && (
-							<span class="italic text-live-red">
+							<span class="italic text-live-red-text">
 								Updated <FormattedDate date={updatedDate} />
 							</span>
 						)
@@ -118,13 +118,13 @@ const displayTitle = title;
 					{
 						hotTakes.length > 0 && (
 							<div class="news-signal-highlight">
-								<h2 class="m3-label-medium mb-3 uppercase tracking-[0.3em] text-live-red font-black">
+								<h2 class="m3-label-medium mb-3 uppercase tracking-[0.3em] text-live-red-text font-black">
 									Signal Highlights
 								</h2>
 								<ul class="list-none space-y-2.5">
 									{hotTakes.map((take: string) => (
 										<li class="m3-body-large flex gap-4 items-start">
-											<span class="text-live-red text-xl leading-none mt-0.5">
+											<span class="text-live-red-text text-xl leading-none mt-0.5">
 												/
 											</span>
 											<span class="font-medium">
@@ -197,7 +197,7 @@ const displayTitle = title;
 			@reference "../styles/global.css";
 
 			.prose a {
-				@apply text-brand-blue font-black underline decoration-2 underline-offset-4 hover:bg-brand-blue hover:text-white transition-all;
+				@apply text-brand-blue-text font-black underline decoration-2 underline-offset-4 hover:bg-brand-blue-text hover:text-white transition-all;
 			}
 
 			.prose strong {

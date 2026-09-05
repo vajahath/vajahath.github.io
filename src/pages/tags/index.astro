@@ -69,7 +69,7 @@ const tagsWithPosts = tags
                                         <li class="border-b border-black/10 dark:border-white/10 pb-2">
                                             <a
                                                 href={`/blog/${post.id}/`}
-                                                class="m3-title-large text-lg hover:text-brand-blue transition-colors line-clamp-2"
+                                                class="m3-title-large text-lg hover:text-brand-blue-text transition-colors line-clamp-2"
                                             >
                                                 {post.data.title}
                                             </a>
@@ -80,7 +80,7 @@ const tagsWithPosts = tags
                                     href={`/tags/${tagData.name
                                         .toLowerCase()
                                         .replace(/\s+/g, "-")}/`}
-                                    class="m3-touch-target m3-label-large text-brand-blue font-black border-2 border-brand-blue px-6 py-2 self-start whitespace-nowrap hover:bg-brand-blue hover:text-white transition-all"
+                                    class="m3-touch-target m3-label-large text-brand-blue-text font-black border-2 border-brand-blue-text px-6 py-2 self-start whitespace-nowrap hover:bg-brand-blue-text hover:text-white transition-all"
                                     aria-label={`Load more from ${tagData.name}`}
                                 >
                                     LOAD MORE →

@@ -45,7 +45,7 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
         <div class:list={["flex flex-col gap-6 @container/hero", className]}>
             <div class="flex items-center gap-2">
                 <span class="inline-block w-2.5 h-2.5 bg-live-red rounded-full" />
-                <span class="m3-label-medium text-live-red font-black tracking-widest uppercase">
+                <span class="m3-label-medium text-live-red-text font-black tracking-widest uppercase">
                     Spotlight
                 </span>
             </div>
@@ -78,7 +78,7 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
                             </a>
                         ))}
                         {isInSeries && (
-                            <span class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider bg-live-red text-white border border-black/10">
+                            <span class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider bg-live-red-text text-white border border-black/10">
                                 Series · Part {seriesOrder}
                             </span>
                         )}
@@ -154,7 +154,7 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
                             </span>
                         )}
                         {isInSeries && (
-                            <span class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider bg-live-red text-white border border-black/10 shrink-0">
+                            <span class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider bg-live-red-text text-white border border-black/10 shrink-0">
                                 Series · Part {seriesOrder}
                             </span>
                         )}

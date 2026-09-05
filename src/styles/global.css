@@ -4,6 +4,8 @@
 @theme {
   --color-brand-blue: var(--md-sys-color-primary);
   --color-live-red: var(--md-sys-color-error);
+  --color-live-red-text: var(--md-sys-color-error-text);
+  --color-brand-blue-text: var(--md-sys-color-primary-text);
   --color-live-green: var(--md-sys-color-tertiary);
 
   --font-sans: var(--md-sys-typescale-font-family);
@@ -99,6 +101,13 @@
     content: none !important;
   }
 
+  /* Shiki's github-dark comment token is #6A737D, only 3.05:1 on its own
+     background. Lift it to the same grey at 4.77:1 rather than swapping the
+     whole syntax theme. */
+  .astro-code span[style*="#6A737D"] {
+    color: #8b949e !important;
+  }
+
   pre code,
   .prose pre code {
     @apply bg-transparent px-0 py-0 border-0 font-normal text-inherit;
@@ -118,7 +127,7 @@
 
   summary::before {
     content: "▶";
-    @apply text-brand-blue text-xs transition-transform duration-200;
+    @apply text-brand-blue-text text-xs transition-transform duration-200;
   }
 
   details[open] summary::before {
@@ -126,11 +135,11 @@
   }
 
   sup {
-    @apply text-xs text-brand-blue font-bold align-super;
+    @apply text-xs text-brand-blue-text font-bold align-super;
   }
 
   sub {
-    @apply text-xs text-live-red font-bold align-sub;
+    @apply text-xs text-live-red-text font-bold align-sub;
   }
 }
 

@@ -35,7 +35,7 @@ const Wordmark = isHome ? 'h1' : 'div';
 		class="flex-1 flex items-center gap-4 px-4 py-2 overflow-hidden border-r border-gray-800"
 	>
 		<span
-			class="m3-label-medium bg-live-red px-1.5 py-0.5 shrink-0 text-white font-black"
+			class="m3-label-medium bg-live-red-text px-1.5 py-0.5 shrink-0 text-white font-black"
 		>
 			{">>>"}
 		</span>
@@ -46,7 +46,7 @@ const Wordmark = isHome ? 'h1' : 'div';
 				href={randomHotTake.postId
 					? `/blog/${randomHotTake.postId}/`
 					: "#"}
-				class="flex items-center gap-4 max-w-full opacity-0 hover:text-live-red transition-colors animate-ticker-entry"
+				class="flex items-center gap-4 max-w-full opacity-0 hover:text-live-red-text transition-colors animate-ticker-entry"
 			>
 				<span class="truncate">{randomHotTake.text}</span>
 				<span

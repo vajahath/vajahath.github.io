@@ -29,6 +29,12 @@
 
     /* Error: Live/Breaking Status */
     --md-sys-color-error: #ef4444;
+    /* Bright error/primary are fill shades: they miss WCAG AA as small text on
+       a light surface (3.8:1 / 3.7:1). These darker steps are for text and for
+       fills that carry white text. On a dark surface the bright shades already
+       clear AA, so the dark theme maps these straight back. */
+    --md-sys-color-error-text: #dc2626;
+    --md-sys-color-primary-text: #1d4ed8;
     --md-sys-color-on-error: #ffffff;
     --md-sys-color-error-container: #fee2e2;
     --md-sys-color-on-error-container: #991b1b;
@@ -140,6 +146,9 @@
 
 
 .dark {
+    --md-sys-color-error-text: var(--md-sys-color-error);
+    --md-sys-color-primary-text: var(--md-sys-color-primary);
+
     --md-sys-color-primary: #60a5fa;
     --md-sys-color-on-primary: #000000;
     --md-sys-color-primary-container: #1e3a8a;

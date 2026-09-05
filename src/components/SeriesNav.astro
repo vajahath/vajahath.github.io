@@ -49,10 +49,10 @@ const { title, slug, currentOrder, totalParts, prevPost, nextPost } =
                         href={`/blog/${prevPost.id}/`}
                         class="group p-6 h-full flex flex-col gap-3 hover:bg-brand-blue/5 transition-colors"
                     >
-                        <span class="m3-label-medium text-live-red font-black">
+                        <span class="m3-label-medium text-live-red-text font-black">
                             ← Previous
                         </span>
-                        <span class="m3-title-large text-black dark:text-white group-hover:text-brand-blue group-hover:underline decoration-2 underline-offset-4 leading-tight">
+                        <span class="m3-title-large text-black dark:text-white group-hover:text-brand-blue-text group-hover:underline decoration-2 underline-offset-4 leading-tight">
                             {prevPost.title}
                         </span>
                     </a>
@@ -76,10 +76,10 @@ const { title, slug, currentOrder, totalParts, prevPost, nextPost } =
                         href={`/blog/${nextPost.id}/`}
                         class="group p-6 h-full flex flex-col gap-3 sm:items-end sm:text-right hover:bg-brand-blue/5 transition-colors"
                     >
-                        <span class="m3-label-medium text-live-red font-black">
+                        <span class="m3-label-medium text-live-red-text font-black">
                             Next →
                         </span>
-                        <span class="m3-title-large text-black dark:text-white group-hover:text-brand-blue group-hover:underline decoration-2 underline-offset-4 leading-tight">
+                        <span class="m3-title-large text-black dark:text-white group-hover:text-brand-blue-text group-hover:underline decoration-2 underline-offset-4 leading-tight">
                             {nextPost.title}
                         </span>
                     </a>

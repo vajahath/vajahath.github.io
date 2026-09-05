@@ -71,17 +71,17 @@ const seriesWithCount = await Promise.all(
                             )}
                             <div class="flex flex-col gap-3">
                                 <div class="flex justify-between items-baseline">
-                                    <h2 class="m3-headline-large group-hover:text-brand-blue group-hover:underline decoration-4 underline-offset-4">
+                                    <h2 class="m3-headline-large group-hover:text-brand-blue-text group-hover:underline decoration-4 underline-offset-4">
                                         {series.data.title}
                                     </h2>
-                                    <span class="m3-label-medium text-live-red font-black">
+                                    <span class="m3-label-medium text-live-red-text font-black">
                                         {series.postCount} PARTS
                                     </span>
                                 </div>
                                 <p class="m3-body-large line-clamp-2 italic">
                                     {series.data.description}
                                 </p>
-                                <span class="m3-label-medium mt-2 font-black tracking-widest group-hover:text-brand-blue">
+                                <span class="m3-label-medium mt-2 font-black tracking-widest group-hover:text-brand-blue-text">
                                     OPEN NARRATIVE →
                                 </span>
                             </div>
