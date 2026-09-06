@@ -18,6 +18,9 @@ const { class: className = '' } = Astro.props;
 >
 	<span class="byline-kicker">By</span>
 	<span class="byline-name">Vajahath</span>
-	<span aria-hidden="true" class="byline-kicker">//</span>
-	<span>Late discoveries &amp; probably wrong takes</span>
+	<!-- divider stays glued to the tagline so it never wraps alone -->
+	<span>
+		<span aria-hidden="true" class="byline-kicker">//</span> Late discoveries
+		&amp; probably wrong takes
+	</span>
 </p>
