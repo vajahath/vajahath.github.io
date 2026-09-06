@@ -25,12 +25,24 @@ isFocus: true                  # optional homepage sidebar analysis
 hotTakes: ["One-liner"]        # optional homepage sidebar takes
 seriesId: "series-slug"        # required for series posts
 seriesOrder: 1                 # required for series posts
+draft: true                    # optional; dev-only, never built for production
 ---
 ```
 
 Every tag must exist in `TAGS` in `src/consts.ts` (label + color + textColor) or
 its styling breaks. Add new ones there first, using M3-style deep, high-contrast
 colors.
+
+## Drafts
+
+`draft: true` keeps a post (or a series YAML) visible under `pnpm dev` and out
+of the production build completely — no listing, no homepage slot, no tag or
+archive entry, no RSS item, no sitemap entry, no page of its own. Pages must
+read content via `getVisiblePosts()` / `getVisibleSeries()` from
+`src/lib/content.ts` rather than `getCollection`, or drafts leak.
+
+`src/content/blog/style-tester.md` is a permanent draft that exercises every
+rendering case; check design changes against it.
 
 ## Posts
 

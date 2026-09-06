@@ -74,6 +74,14 @@ Schema of record is `src/content.config.ts`. Detailed authoring workflow lives i
   `seriesId` + `seriesOrder`.
 - Every tag used must be registered in `src/consts.ts` or its styling breaks.
 - Homepage slots are frontmatter-driven: `isSpotlight`, `isFocus`, `hotTakes`.
+- **Drafts**: `draft: true` on a post or series keeps it visible under
+  `pnpm dev` and out of production entirely — listings, homepage slots, series,
+  tags, archives, RSS, sitemap and its own page. Read content through
+  `getVisiblePosts()` / `getVisibleSeries()` in `src/lib/content.ts`, never
+  `getCollection` directly, or the new surface leaks drafts.
+- `src/content/blog/style-tester.md` is a permanent draft covering every
+  rendering case (headings H2–H4, portrait/landscape/remote images, table,
+  code, blockquote, task list, long tag list). Check design changes against it.
 
 ## Working rules
 

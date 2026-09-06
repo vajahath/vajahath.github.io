@@ -4,7 +4,9 @@ description: 'A dedicated sandbox to test design tokens, Material Design 3 (M3) 
 pubDate: 'Feb 09 2026'
 draft: true
 heroImage: '/blog-placeholder-5.jpg'
-tags: ['AI & TECH', 'NODE JS', 'DESIGN', 'UX', 'FASHION', 'RANT', 'PERSONAL BLOG']
+tags: ['AI & TECH', 'NODE JS', 'DESIGN', 'UX', 'FASHION', 'RANT', 'PERSONAL BLOG', 'SERIES', 'CASE STUDY']
+seriesId: 'design-sandbox'
+seriesOrder: 1
 hotTakes: ['Good design is invisible, but bad design is an act of violence.', 'Markdown is the vinyl of the digital publishing world.']
 ---
 
@@ -87,6 +89,34 @@ Tables are essential for economic reports and scientific data.
 ### Visual Evidence
 ![Satellite view of Europa surface](../../assets/blog-placeholder-5.jpg)
 *Fig 1.1: High-resolution capture of the Europa chaos terrain showing potential subsurface lakes.*
+
+## Imagery
+
+Three shapes have to survive the same rules: capped at 75vh, outlined, and
+centred, with no horizontal scroll at any width.
+
+### Tall portrait
+
+Taller than the viewport at its natural size, so this is the case that proves
+the height cap. It should sit centred and fully visible without scrolling.
+
+![Portrait test card, a vertical gradient from near-black through violet to red](../../assets/design-portrait.jpg)
+*Fig 2.1: 900 × 1600. Constrained by height, not width.*
+
+### Wide landscape
+
+The opposite case: width-constrained, so the cap should not engage at all.
+
+![Landscape test card, a horizontal gradient from deep teal through blue to green](../../assets/design-landscape.jpg)
+*Fig 2.2: 1920 × 720. Constrained by width, not height.*
+
+### Remote image through the wsrv proxy
+
+Remote sources are rewritten to the wsrv.nl proxy with a WebP srcset, so this
+exercises a different code path from the two local assets above.
+
+![Remote portrait photograph loaded through the wsrv.nl image proxy](https://1drv.ms/i/c/604400cd54aac350/IQQw-DM4FRpWTLquxYb2Ja5gAVAl8qunSiNfKXujvuD4NMI)
+*Fig 2.3: Remote source. Should be proxied, responsive, and capped like the rest.*
 
 ## Conclusion
 This post confirms that our design system handles complex Markdown structures without sacrificing the premium, high-contrast news aesthetic we've built.
