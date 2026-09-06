@@ -60,7 +60,7 @@ const fallbackSrc = isRemote
 					loading={loading}
 					fetchpriority={fetchpriority}
 					decoding="async"
-					class="w-full h-auto block opacity-0 transition-opacity duration-700"
+					class="media-cap block opacity-0 transition-opacity duration-700"
 					onload="this.style.opacity='1';this.closest('div').querySelector('video')?.remove();"
 				/>
 			</picture>
@@ -103,7 +103,7 @@ const fallbackSrc = isRemote
 					fetchpriority={fetchpriority}
 		decoding="async"
 		class={natural
-			? `w-full h-auto block ${className}`
+			? `media-cap block ${className}`
 			: `w-full h-full ${className}`}
 	/>
 )}

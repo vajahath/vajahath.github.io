@@ -309,6 +309,18 @@
     }
 }
 
+/* Images whose intrinsic size drives the layout (article heroes, markdown
+   figures) must never run taller than the viewport, or the reader has to
+   scroll to see one picture. Width stays auto so the aspect ratio holds. */
+@utility media-cap {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 75vh;
+    margin-inline: auto;
+    object-fit: contain;
+}
+
 @utility m3-touch-target {
     min-width: var(--md-sys-accessibility-touch-target);
     min-height: var(--md-sys-accessibility-touch-target);
