@@ -330,12 +330,16 @@
 }
 
 @utility media-cap {
+    display: block;
     width: auto;
     height: auto;
     max-width: 100%;
     max-height: 75vh;
     margin-inline: auto;
     object-fit: contain;
+    /* Outlined on the page ground rather than sat on a grey mat: an untreated
+       grey field reads as an image that failed to fill its box. */
+    border: 2px solid var(--md-sys-color-outline);
 }
 
 @utility m3-touch-target {

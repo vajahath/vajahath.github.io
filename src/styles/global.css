@@ -117,12 +117,14 @@
   /* Markdown images render inside a <p>, so the layout's [&>img] rules don't
      reach them. Cap them the same way heroes are capped. */
   .prose img {
+    display: block;
     width: auto;
     height: auto;
     max-width: 100%;
     max-height: 75vh;
     margin-inline: auto;
     object-fit: contain;
+    border: 2px solid var(--md-sys-color-outline);
   }
 
   hr {
