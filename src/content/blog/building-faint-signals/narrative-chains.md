@@ -7,7 +7,7 @@ seriesId: "building-faint-signals"
 seriesOrder: 2
 ---
 
-# The Problem with Static Feeds
+## The Problem with Static Feeds
 
 Most blogs are chronological streams. While this works for daily updates, it fails for complex topics that require multiple parts to explain. Readers often get lost or lose track of the sequence when they land on "Part 3" from a search engine.
 

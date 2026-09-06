@@ -27,13 +27,49 @@ if (fs.existsSync(SERIES_DIR)) {
 
 const validSeriesIds = seriesFiles.map(f => path.basename(f, path.extname(f)));
 
+/**
+ * Body headings must start at H2 and step down one level at a time.
+ *
+ * The page title is the H1, so a heading in the body that jumps to H3 (or
+ * introduces a second H1) breaks the document outline and picks up the wrong
+ * prose styling. Fenced code is skipped so shell comments aren't mistaken for
+ * ATX headings.
+ */
+function headingErrors(body: string, lineOffset: number): string[] {
+  const errors: string[] = [];
+  let inFence = false;
+  let previous = 1; // the rendered page supplies the H1
+  body.split(/\r?\n/).forEach((line, i) => {
+    if (/^\s*(```|~~~)/.test(line)) {
+      inFence = !inFence;
+      return;
+    }
+    if (inFence) return;
+    const match = /^(#{1,6})\s+(.*)$/.exec(line);
+    if (!match) return;
+    const level = match[1].length;
+    const lineNo = i + 1 + lineOffset;
+    if (level === 1) {
+      errors.push(
+        `Line ${lineNo}: "${match[2].trim()}" is an H1; the post title is already the page H1, so body headings start at H2`,
+      );
+    } else if (level > previous + 1) {
+      errors.push(
+        `Line ${lineNo}: "${match[2].trim()}" jumps from H${previous} to H${level}; headings may only step down one level`,
+      );
+    }
+    previous = Math.max(level, 2);
+  });
+  return errors;
+}
+
 let hasErrors = false;
 
 console.log(`Validating ${blogFiles.length} posts...`);
 
 blogFiles.forEach(file => {
   const fileContent = fs.readFileSync(file, 'utf8');
-  const { data: frontmatter } = matter(fileContent);
+  const { data: frontmatter, content: body } = matter(fileContent);
   const relativePath = path.relative(BLOG_DIR, file);
 
   const errors: string[] = [];
@@ -56,6 +92,11 @@ blogFiles.forEach(file => {
       errors.push(`References unknown seriesId: "${frontmatter.seriesId}"`);
     }
   }
+
+  // gray-matter strips the frontmatter, so add it back to report real line numbers.
+  const bodyStart = fileContent.length - body.length;
+  const lineOffset = fileContent.slice(0, bodyStart).split(/\r?\n/).length - 1;
+  errors.push(...headingErrors(body, lineOffset));
 
   if (errors.length > 0) {
     hasErrors = true;

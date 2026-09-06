@@ -68,7 +68,7 @@ const metadata = TAGS[tagName as TagKey] || {
                         posts
                             .slice(0, Math.ceil(posts.length * 0.6))
                             .map((post: any) => (
-                                <NewsItem post={post} type="standard" />
+                                <NewsItem post={post} type="standard" headingLevel={2} />
                             ))
                     }
                 </div>
@@ -81,7 +81,7 @@ const metadata = TAGS[tagName as TagKey] || {
                         posts
                             .slice(Math.ceil(posts.length * 0.6))
                             .map((post: any) => (
-                                <NewsItem post={post} type="standard" />
+                                <NewsItem post={post} type="standard" headingLevel={2} />
                             ))
                     }
                 </aside>

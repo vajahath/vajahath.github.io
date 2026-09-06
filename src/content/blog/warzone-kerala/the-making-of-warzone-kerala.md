@@ -6,7 +6,7 @@ heroImage: "/blog-placeholder-2.jpg"
 tags: ["DESIGN", "UX", "DEVLOG", "CASE STUDY"]
 ---
 
-# The Vision: Beyond the Bracket
+## The Vision: Beyond the Bracket
 
 Building [Warzone Kerala](https://warzonekerala.com/) ([warzonekerala.com](https://warzonekerala.com/)) wasn't just about making another tournament site. It was about solving the **Coordinators Paradox**: the more successful a community becomes, the more manual work it creates for the organizers. 
 

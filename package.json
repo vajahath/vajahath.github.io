@@ -5,11 +5,12 @@
   "packageManager": "pnpm@11.25.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "pnpm run typecheck && pnpm run post:validate && astro build",
+    "build": "pnpm run typecheck && pnpm run post:validate && astro build && pnpm run lint:headings",
     "preview": "astro preview",
     "astro": "astro",
     "typecheck": "astro check",
-    "post:validate": "tsx scripts/validate-posts.ts"
+    "post:validate": "tsx scripts/validate-posts.ts",
+    "lint:headings": "tsx scripts/check-headings.ts"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.0",

@@ -8,9 +8,18 @@ interface Props {
     post: any;
     type?: "hero" | "standard" | "sidebar-item";
     className?: string;
+    /** Row title level. Must sit exactly one below the section heading above
+     *  it, or the page outline skips a level. */
+    headingLevel?: 2 | 3 | 4;
 }
 
-const { post, type = "standard", className = "" } = Astro.props;
+const {
+    post,
+    type = "standard",
+    className = "",
+    headingLevel = 3,
+} = Astro.props;
+const RowHeading = `h${headingLevel}` as const;
 
 // Function to convert string to Title Case
 function toTitleCase(str: string) {
@@ -163,9 +172,9 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
                         </span>
                     </div>
                     <a href={`/blog/${post.id}/`} class="m3-touch-target">
-                        <h4 class="m3-headline-large mb-2.5 text-black dark:text-white">
+                        <RowHeading class="m3-headline-large mb-2.5 text-black dark:text-white">
                             {title}
-                        </h4>
+                        </RowHeading>
                     </a>
                     <p class="m3-body-large text-black dark:text-white line-clamp-3">
                         {post.data.description}

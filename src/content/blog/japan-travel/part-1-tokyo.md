@@ -10,11 +10,11 @@ seriesOrder: 1
 
 Tokyo is overwhelming in the best way possible. From the moment I stepped off the Narita Express at Shinjuku Station, the scale of everything hit me.
 
-### The First Impression
+## The First Impression
 
 It's not just the buildings; it's the density. Every square meter of space is utilized. Vending machines tucked into corners, tiny bars stacked vertically in narrow buildings, and a sea of people moving with surgical precision.
 
-### The Mission: Ramen
+## The Mission: Ramen
 
 After dropping my bags, I headed straight for Omoide Yokocho (Memory Lane). The smell of grilled yakitori and simmering broth is intoxicating. I found a tiny shop with just six seats.
 
