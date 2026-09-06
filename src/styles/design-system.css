@@ -312,6 +312,23 @@
 /* Images whose intrinsic size drives the layout (article heroes, markdown
    figures) must never run taller than the viewport, or the reader has to
    scroll to see one picture. Width stays auto so the aspect ratio holds. */
+/* Masthead byline. Roboto Flex ignores font-weight once
+   font-variation-settings is set, so the emphasis has to come from the wght
+   axis; XTRA widens the counters so the name reads as a small wordmark. */
+@utility byline-name {
+    font-weight: 900;
+    font-variation-settings: var(--md-sys-font-variation-base), "wght" 900,
+        "XTRA" 500, "opsz" 10;
+    letter-spacing: 0.16em;
+    color: var(--md-sys-color-primary-text);
+}
+
+@utility byline-kicker {
+    font-variation-settings: var(--md-sys-font-variation-base), "wght" 500,
+        "opsz" 10;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
 @utility media-cap {
     width: auto;
     height: auto;

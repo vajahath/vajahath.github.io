@@ -1,0 +1,23 @@
+---
+/**
+ * Masthead byline. The point is that the reader registers whose takes these
+ * are, so the name carries a heavier Roboto Flex weight and the brand text
+ * shade while the rest of the line stays quiet metadata.
+ */
+interface Props {
+	class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<p
+	class:list={[
+		'm3-label-medium uppercase tracking-widest text-black dark:text-white flex items-baseline gap-x-2 gap-y-1 flex-wrap',
+		className,
+	]}
+>
+	<span class="byline-kicker">By</span>
+	<span class="byline-name">Vajahath</span>
+	<span aria-hidden="true" class="byline-kicker">//</span>
+	<span>Late discoveries &amp; probably wrong takes</span>
+</p>

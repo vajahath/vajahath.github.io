@@ -25,6 +25,7 @@ const randomHotTake =
 // Elsewhere the page supplies its own <h1>, so the wordmark steps down to
 // avoid a second top-level heading.
 const Wordmark = isHome ? 'h1' : 'div';
+import SiteByline from './SiteByline.astro';
 ---
 
 {/* Top Utility & Ticker Row */}
@@ -91,9 +92,7 @@ const Wordmark = isHome ? 'h1' : 'div';
 
 			{
 				isHome && (
-					<p class="m3-label-medium text-black dark:text-white uppercase tracking-widest block md:hidden">
-						Vajahath's Signal Feed // Late Discoveries & Probably Wrong Takes
-					</p>
+					<SiteByline class="block md:hidden" />
 				)
 			}
 
@@ -108,9 +107,7 @@ const Wordmark = isHome ? 'h1' : 'div';
 		</div>
 		{
 			isHome && (
-				<p class="m3-label-medium text-black dark:text-white uppercase tracking-widest shrink-0 hidden md:block">
-					Vajahath's Signal Feed // Late Discoveries & Probably Wrong Takes
-				</p>
+				<SiteByline class="shrink-0 hidden md:flex" />
 			)
 		}
 	</div>
