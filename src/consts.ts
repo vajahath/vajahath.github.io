@@ -7,7 +7,6 @@ export const SITE_DESCRIPTION = 'Late Discoveries & Probably Wrong Takes: A Pers
 export const TAGS = {
     'AI & TECH': { label: 'AI & TECH', color: '#1e40af', textColor: '#ffffff' }, // Deep Blue
     'NODE JS': { label: 'NODE JS', color: '#065f46', textColor: '#ffffff' }, // Deep Teal
-    'TRAVEL': { label: 'TRAVEL', color: '#f59e0b', textColor: '#000000' }, // Amber (Black text for legibility)
     'DESIGN': { label: 'DESIGN', color: '#6d28d9', textColor: '#ffffff' }, // Deep Violet
     'UX': { label: 'UX', color: '#be185d', textColor: '#ffffff' }, // Deep Pink
     'FASHION': { label: 'FASHION', color: '#000000', textColor: '#ffffff' }, // Pure Black

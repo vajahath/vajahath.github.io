@@ -18,6 +18,8 @@ const blog = defineCollection({
 		toc: z.union([z.literal('show'), z.boolean()]).optional(),
 		seriesId: z.string().optional(),
 		seriesOrder: z.number().int().positive().optional(),
+		/** Visible in `pnpm dev`, excluded from production builds entirely. */
+		draft: z.boolean().default(false),
 	}),
 });
 
@@ -31,6 +33,7 @@ const series = defineCollection({
 			description: z.string(),
 			coverImage: z.union([image(), z.url()]).optional(),
 			startedAt: z.coerce.date().optional(),
+			draft: z.boolean().default(false),
 		}),
 });
 

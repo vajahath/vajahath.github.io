@@ -4,6 +4,10 @@ description: "How we built a zero-friction tournament coordination engine using 
 pubDate: "Apr 07 2026"
 heroImage: "/blog-placeholder-2.jpg"
 tags: ["DESIGN", "UX", "DEVLOG", "CASE STUDY"]
+isFocus: true
+hotTakes:
+  - "Good design is invisible; bad design is an act of violence."
+  - "A tournament bracket is a state machine wearing a costume."
 ---
 
 ## The Vision: Beyond the Bracket

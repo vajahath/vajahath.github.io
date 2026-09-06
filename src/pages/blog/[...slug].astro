@@ -1,14 +1,14 @@
 ---
+import { getVisiblePosts } from "../../lib/content";
 import {
 	type CollectionEntry,
-	getCollection,
 	getEntry,
 	render,
 } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("blog");
+	const posts = await getVisiblePosts();
 	return posts.map((post) => ({
 		params: { slug: post.id },
 		props: post,
@@ -24,7 +24,7 @@ const isInSeries = seriesId != null && post.data.seriesOrder != null;
 
 let seriesData: any = undefined;
 if (isInSeries) {
-	const allPosts = await getCollection("blog");
+	const allPosts = await getVisiblePosts();
 	const seriesPosts = allPosts
 		.filter(
 			(p) =>

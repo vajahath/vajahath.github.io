@@ -5,6 +5,10 @@ pubDate: "Feb 18 2026"
 tags: ["DEVLOG", "SERIES"]
 seriesId: "building-faint-signals"
 seriesOrder: 2
+hotTakes:
+  - "A series is just a linked list that respects your attention."
+  - "Markdown is the vinyl of the digital publishing world."
+
 ---
 
 ## The Problem with Static Feeds

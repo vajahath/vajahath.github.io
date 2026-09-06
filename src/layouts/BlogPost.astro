@@ -41,10 +41,12 @@ const {
 const showToc = (toc === true || toc === "show") && headings.length > 0;
 const imageDims = heroImage ? parseDimensionsFromUrl(heroImage) : {};
 const hasImageDims = imageDims.width !== undefined && imageDims.height !== undefined;
-const tagMetadata = tags.map(
-	(t: string) =>
-		TAGS[t as TagKey] || { label: t, color: "#000", textColor: "#fff" },
-);
+// A tag only gets a link if it's registered; unregistered ones have no tag
+// page to point at, so they render as plain chips instead of dead links.
+const tagMetadata = tags.map((t: string) => ({
+	...(TAGS[t as TagKey] ?? { label: t, color: "#000", textColor: "#fff" }),
+	registered: t in TAGS,
+}));
 
 const displayTitle = title;
 ---
@@ -69,17 +71,24 @@ const displayTitle = title;
 				>
 					<div class="flex flex-wrap gap-2">
 						{
-							tagMetadata.map((tag: any) => (
-								<a
-									href={`/tags/${tag.label
-										.toLowerCase()
-										.replace(/\s+/g, "-")}`}
-									class="px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80 border border-black/10"
-									style={`background-color: ${tag.color}; color: ${tag.textColor};`}
-								>
-									{tag.label}
-								</a>
-							))
+							tagMetadata.map((tag: any) => {
+								const Chip = tag.registered ? "a" : "span";
+								return (
+									<Chip
+										href={
+											tag.registered
+												? `/tags/${tag.label
+														.toLowerCase()
+														.replace(/\s+/g, "-")}`
+												: undefined
+										}
+										class="px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80 border border-black/10"
+										style={`background-color: ${tag.color}; color: ${tag.textColor};`}
+									>
+										{tag.label}
+									</Chip>
+								);
+							})
 						}
 						{
 							series && (

@@ -1,7 +1,7 @@
 ---
 import RemoteImage from "../components/RemoteImage.astro";
 import { parseDimensionsFromUrl } from "../lib/wsrv";
-import { getCollection } from "astro:content";
+import { getVisiblePosts } from "../lib/content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -13,7 +13,7 @@ const FEED_POSTS_COUNT = 6;
 const HOT_TAKES_COUNT = 5;
 // ---------------------
 
-const posts = (await getCollection("blog")).sort(
+const posts = (await getVisiblePosts()).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 

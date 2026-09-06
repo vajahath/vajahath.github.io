@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getVisiblePosts } from "../lib/content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -8,7 +8,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 const RECENT_POSTS_LIMIT = 20;
 
-const posts = (await getCollection("blog")).sort(
+const posts = (await getVisiblePosts()).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 

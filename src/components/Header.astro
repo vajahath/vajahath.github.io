@@ -1,12 +1,12 @@
 ---
-import { getCollection } from "astro:content";
+import { getVisiblePosts } from "../lib/content";
 import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
 const isHome = pathname === "/";
 
-const posts = await getCollection("blog");
+const posts = await getVisiblePosts();
 const allHotTakes = posts
 	.filter((p) => p.data.hotTakes && p.data.hotTakes.length > 0)
 	.flatMap((p) => {
@@ -99,9 +99,9 @@ import SiteByline from './SiteByline.astro';
 			<nav
 				class="flex flex-wrap gap-x-6 gap-y-2 m3-label-large text-black dark:text-white md:pb-1"
 			>
-				<HeaderLink href="/tags/ai-&-tech">AI & TECH</HeaderLink>
-				<HeaderLink href="/tags/travel">TRAVEL</HeaderLink>
-				<HeaderLink href="/tags/personal-blog">BLOG</HeaderLink>
+				<HeaderLink href="/tags/devlog">DEVLOG</HeaderLink>
+				<HeaderLink href="/tags/design">DESIGN</HeaderLink>
+				<HeaderLink href="/tags/case-study">CASE STUDY</HeaderLink>
 				<HeaderLink href="/tags">ALL TAGS</HeaderLink>
 			</nav>
 		</div>
