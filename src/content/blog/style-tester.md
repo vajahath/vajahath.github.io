@@ -118,6 +118,22 @@ exercises a different code path from the two local assets above.
 ![Remote portrait photograph loaded through the wsrv.nl image proxy](https://1drv.ms/i/c/604400cd54aac350/IQQw-DM4FRpWTLquxYb2Ja5gAVAl8qunSiNfKXujvuD4NMI)
 *Fig 2.3: Remote source. Should be proxied, responsive, and capped like the rest.*
 
+## Halftone
+
+A dot screen masked out of a colour gradient. Pure CSS, so it stays sharp at
+any size and recolours by rotating the hue. Always decorative, always behind
+content, never carrying text.
+
+<div style="position:relative;height:140px;margin-bottom:1.5rem;overflow:hidden;border:1px solid rgba(0,0,0,.12)"><div class="halftone" style="--halftone-cell:11px;width:100%;height:100%"></div></div>
+
+Coarser, and hue-rotated so repeated fields do not read as the same image:
+
+<div style="position:relative;height:140px;margin-bottom:1.5rem;overflow:hidden;border:1px solid rgba(0,0,0,.12)"><div class="halftone" style="--halftone-cell:18px;filter:hue-rotate(140deg);width:100%;height:100%"></div></div>
+
+Faded out at the rim, which is how it sits behind real content:
+
+<div class="halftone-fade-radial" style="position:relative;height:140px;margin-bottom:1.5rem;overflow:hidden"><div class="halftone" style="--halftone-cell:13px;filter:hue-rotate(-40deg);width:100%;height:100%"></div></div>
+
 ## Marker ink
 
 One ink, two shapes. Both have to stay legible in either theme and survive a

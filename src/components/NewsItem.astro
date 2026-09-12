@@ -5,6 +5,7 @@ import FormattedDate from "./FormattedDate.astro";
 import { TAGS, type TagKey } from "../consts";
 import TagChip from "./TagChip.astro";
 import SignalMark from "./SignalMark.astro";
+import HalftoneField from "./HalftoneField.astro";
 import { splitOnHighlight } from "../lib/highlight";
 
 interface Props {
@@ -55,6 +56,11 @@ const isInSeries = segments.length > 1 && post.data.seriesOrder != null;
 const seriesOrder = post.data.seriesOrder;
 const imageDims = post.data.heroImage ? parseDimensionsFromUrl(post.data.heroImage) : {};
 const hasImageDims = imageDims.width !== undefined && imageDims.height !== undefined;
+
+// Deterministic hue per post, so a row looks the same on every build but no
+// two rows in a feed look alike.
+const slugHue =
+    ([...post.id].reduce((h: number, c: string) => (h * 31 + c.charCodeAt(0)) | 0, 7) % 360 + 360) % 360;
 
 // A spotlight with no hero image leaves half the page empty. The post's own
 // loudest line fills that better than a placeholder image would.
@@ -206,6 +212,17 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
                         {post.data.description}
                     </p>
                 </div>
+                {!post.data.heroImage && (
+                    <div class="w-full @[500px]:w-56 aspect-video overflow-hidden shrink-0 order-1 @[500px]:order-2 border border-black/12 dark:border-white/15">
+                        <HalftoneField
+                            class="w-full h-full"
+                            cell={9}
+                            fade="none"
+                            hue={slugHue}
+                            opacity={80}
+                        />
+                    </div>
+                )}
                 {post.data.heroImage && (
                     <div class="w-full @[500px]:w-56 aspect-video overflow-hidden shrink-0 order-1 @[500px]:order-2 border border-black/12 dark:border-white/15">
                         <RemoteImage

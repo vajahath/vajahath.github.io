@@ -150,6 +150,11 @@
     --mark-underline-signal: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
     --mark-underline-signal-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
 
+    /* Halftone spectrum. Starts on the site accent and sweeps through the
+       band a radio dial would — the one place the palette is allowed to be
+       colourful, and it is always behind content, never carrying text. */
+    --halftone-spectrum: linear-gradient(115deg, #FF6A1F 0%, #F0356E 32%, #9A3FD1 62%, #2D7FF0 100%);
+
     /* Touch Target Minimum */
     --md-sys-accessibility-touch-target: 48px;
 }
@@ -363,6 +368,43 @@
 @utility mark-signal {
     --mark-fill: var(--mark-swipe-signal);
     --mark-fill-under: var(--mark-underline-signal);
+}
+
+/* --- HALFTONE ---------------------------------------------------------
+   A printed dot screen over a colour gradient: the gradient is the paint, the
+   dot grid is a mask punched through it. Pure CSS, so it stays sharp at any
+   size, costs no image request and no layout, and recolours with a token.
+
+   The falloff is a separate element wrapping this one (see HalftoneField),
+   because one mask per element composites reliably everywhere, while
+   mask-composite does not. */
+
+@utility halftone {
+    background-image: var(--halftone-ink, var(--halftone-spectrum));
+    background-size: cover;
+    -webkit-mask-image: radial-gradient(circle at center, #000 38%, transparent 39%);
+    mask-image: radial-gradient(circle at center, #000 38%, transparent 39%);
+    -webkit-mask-size: var(--halftone-cell, 11px) var(--halftone-cell, 11px);
+    mask-size: var(--halftone-cell, 11px) var(--halftone-cell, 11px);
+    -webkit-mask-repeat: repeat;
+    mask-repeat: repeat;
+}
+
+/* Fades the screen out rather than cutting it off at a hard edge, the way a
+   halftone blob thins toward its rim. */
+@utility halftone-fade-radial {
+    -webkit-mask-image: radial-gradient(ellipse 78% 68% at 42% 45%, #000 18%, transparent 72%);
+    mask-image: radial-gradient(ellipse 78% 68% at 42% 45%, #000 18%, transparent 72%);
+}
+
+@utility halftone-fade-down {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 88%);
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 88%);
+}
+
+@utility halftone-fade-up {
+    -webkit-mask-image: linear-gradient(to top, #000 12%, transparent 86%);
+    mask-image: linear-gradient(to top, #000 12%, transparent 86%);
 }
 
 @utility m3-touch-target {

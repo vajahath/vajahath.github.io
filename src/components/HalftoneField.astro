@@ -1,0 +1,49 @@
+---
+/**
+ * A halftone dot screen over a colour gradient, used as atmosphere behind
+ * content. Two nested elements on purpose: the inner one carries the dot mask,
+ * the outer one carries the falloff. One mask per element composites reliably
+ * in every browser; stacking both on one element needs mask-composite, which
+ * does not.
+ *
+ * Always decorative and never behind body copy at a strength that would eat
+ * contrast — it sits under headings and in empty space.
+ */
+interface Props {
+	class?: string;
+	/** Dot pitch. Larger reads as coarser, more printed. */
+	cell?: number;
+	/** How the screen thins out at its edges. */
+	fade?: 'radial' | 'down' | 'up' | 'none';
+	/** Degrees to rotate the spectrum, so repeated fields are not identical. */
+	hue?: number;
+	/** 0–100. Kept low wherever text sits nearby. */
+	opacity?: number;
+}
+const {
+	class: className = '',
+	cell = 11,
+	fade = 'radial',
+	hue = 0,
+	opacity = 100,
+} = Astro.props;
+
+const fadeClass = {
+	radial: 'halftone-fade-radial',
+	down: 'halftone-fade-down',
+	up: 'halftone-fade-up',
+	none: '',
+}[fade];
+---
+
+<div
+	class:list={['pointer-events-none overflow-hidden', fadeClass, className]}
+	aria-hidden="true"
+	style={`opacity: ${opacity / 100};`}
+>
+	<div
+		class="halftone w-full h-full"
+		style={`--halftone-cell: ${cell}px;${hue ? ` filter: hue-rotate(${hue}deg);` : ''}`}
+	>
+	</div>
+</div>

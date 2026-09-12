@@ -6,6 +6,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import SignalMark from "../components/SignalMark.astro";
+import HalftoneField from "../components/HalftoneField.astro";
 import NewsItem from "../components/NewsItem.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
@@ -95,9 +96,16 @@ const hotTakesList = posts
 				spotlightPost && (
 					<section class="pb-8 mb-8">
 						<NewsItem post={spotlightPost} type="hero" />
-						<div class="flex items-center mt-12" aria-hidden="true">
-							<span class="h-[3px] w-20 bg-signal"></span>
-							<span class="h-px flex-1 bg-black/12 dark:bg-white/15"></span>
+						<div class="relative mt-12" aria-hidden="true">
+							<HalftoneField
+								class="absolute inset-x-0 -top-10 h-24"
+								cell={14}
+								opacity={52}
+							/>
+							<div class="relative flex items-center">
+								<span class="h-[3px] w-20 bg-signal"></span>
+								<span class="h-px flex-1 bg-black/12 dark:bg-white/15"></span>
+							</div>
 						</div>
 					</section>
 				)
@@ -170,7 +178,14 @@ const hotTakesList = posts
 					<!-- Focus Section -->
 					{
 						focusPost && (
-							<section class="bg-gray-50 dark:bg-zinc-950 border border-black/12 dark:border-white/15 overflow-hidden">
+							<section class="relative bg-gray-50 dark:bg-zinc-950 border border-black/12 dark:border-white/15 overflow-hidden">
+								<HalftoneField
+									class="absolute inset-x-0 bottom-0 h-56"
+									cell={10}
+									fade="up"
+									hue={-25}
+									opacity={34}
+								/>
 								{focusPost.data.heroImage && (
 									focusHasDims ? (
 										<div
@@ -199,7 +214,7 @@ const hotTakesList = posts
 										</div>
 									)
 								)}
-								<div class="p-8">
+								<div class="relative p-8">
 									<h3 class="m3-label-medium mb-6 uppercase tracking-[0.25em] text-signal-text flex items-center gap-2.5">
 										<SignalMark strength={2} />
 										Focus Analysis
