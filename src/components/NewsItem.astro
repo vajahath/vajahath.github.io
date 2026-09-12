@@ -5,7 +5,7 @@ import FormattedDate from "./FormattedDate.astro";
 import { TAGS, type TagKey } from "../consts";
 import TagChip from "./TagChip.astro";
 import HalftoneField from "./HalftoneField.astro";
-import { splitOnHighlight } from "../lib/highlight";
+import { splitOnHighlight, markInkClass } from "../lib/highlight";
 
 interface Props {
     post: any;
@@ -35,6 +35,7 @@ function toTitleCase(str: string) {
 const title = toTitleCase(post.data.title);
 // Title-casing rewrites the string, so the fragment has to be matched after it.
 const titleParts = splitOnHighlight(title, post.data.titleHighlight);
+const titleInk = markInkClass(post.data.titleHighlightColor);
 const tags = post.data.tags || [];
 const tagMetadata = tags.map(
     (t: string) =>
@@ -83,7 +84,7 @@ const slugHue =
                         <h2 class="m3-display-medium mb-4 text-black dark:text-white">
                             {titleParts.before}
                             {titleParts.marked && (
-                                <span class="mark mark-signal">{titleParts.match}</span>
+                                <span class:list={["mark", titleInk]}>{titleParts.match}</span>
                             )}
                             {titleParts.after}
                         </h2>

@@ -26,6 +26,8 @@ heroImage: "../../assets/x.jpg" # optional; local path or remote URL
 author: "Author Name"           # optional, defaults to Vajahath Ahmed
 tags: ["AI & TECH"]             # optional, defaults to ["PERSONAL BLOG"]
 toc: "show"                     # optional, renders table of contents
+titleHighlight: "two words"     # optional; marks that phrase in the title
+titleHighlightColor: yellow     # optional ink for it; defaults to the accent
 isSpotlight: true               # optional homepage hero
 isFocus: true                   # optional homepage sidebar analysis
 hotTakes: ["One-liner"]         # optional; also from faint-signals-post
@@ -41,6 +43,43 @@ colors.
 
 `pubDate` is ISO (`2026-04-26`). Some older posts use `Apr 07 2026`; the schema
 coerces both, but normalise to ISO when touching a post.
+
+## Highlighting
+
+Two separate things, one kit.
+
+**In a title**, `titleHighlight` names a phrase to mark. It is matched
+case-insensitively *after* title-casing, and the build fails if the phrase is
+not in the title — a silent miss would just render an unmarked headline. Keep
+it to a couple of words; a marked full headline is a solid block of colour.
+
+```yaml
+title: "Building a Different Kind of Blog"
+titleHighlight: "Different Kind"
+titleHighlightColor: sky        # optional
+```
+
+**In prose**, write `<mark>` directly in the Markdown:
+
+```markdown
+This is <mark>the accent</mark>, this is <mark data-color="lime">lime</mark>,
+and this is <mark data-style="underline">underlined instead</mark>.
+```
+
+Inks: `orange` (the site accent, and the default), `yellow`, `lime`, `sky`,
+`pink`, `violet`. Anything else falls through to the accent.
+
+Each ink is a *different colour* in each theme — a wash tuned to carry black
+text on paper is far too bright under white text — and all twelve clear WCAG AA
+for body text. Do not add an ink without checking both themes; the generator
+and the contrast notes are in `src/styles/design-system.css`.
+
+Attributes, not classes: an attribute selector cannot be dropped by a purge
+pass, so a colour used in one post years from now still renders. `data-color`
+rather than `color`, which is not a valid attribute on `<mark>`.
+
+Use it sparingly. One or two marks in a post reads as emphasis; a page of them
+reads as a mess.
 
 ## Heading rule — this fails the build
 

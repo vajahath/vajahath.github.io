@@ -91,6 +91,11 @@ blogFiles.forEach(file => {
     }
   }
 
+  // A colour with nothing to colour is a typo, not a style.
+  if (frontmatter.titleHighlightColor && !frontmatter.titleHighlight) {
+    errors.push('Has "titleHighlightColor" but no "titleHighlight" to apply it to');
+  }
+
   // Series check
   if (frontmatter.seriesOrder != null) {
     if (!frontmatter.seriesId) {

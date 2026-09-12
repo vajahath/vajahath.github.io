@@ -145,30 +145,49 @@ a post with no hero image:
 
 <div style="position:relative;height:120px;margin-bottom:1.5rem;overflow:hidden"><div class="halftone" style="--halftone-cell:9px;filter:hue-rotate(-60deg);width:100%;height:100%"></div></div>
 
-## Marker ink
+## Highlighting
 
-One ink, two shapes. Both have to stay legible in either theme and survive a
-line wrap without breaking the grid.
+Prose highlights are written as `<mark>` in markdown. A bare one takes the site
+accent; `data-color` picks an ink and `data-style="underline"` swaps the shape.
+Attributes rather than classes, because an attribute selector cannot be dropped
+by a purge pass — a colour used in one post years from now still works.
 
-<p><span class="mark mark-signal">Accent swipe</span> &middot; <span class="mark-under mark-signal">accent underline</span></p>
+<p><mark>the accent, no attributes</mark></p>
 
-### Across a line wrap
+<p>
+<mark data-color="yellow">yellow</mark>
+<mark data-color="lime">lime</mark>
+<mark data-color="sky">sky</mark>
+<mark data-color="pink">pink</mark>
+<mark data-color="violet">violet</mark>
+<mark data-color="orange">orange</mark>
+</p>
 
-The next mark is long on purpose, because the failure mode worth catching is a
-highlight that breaks into two disconnected boxes or spills past its column:
-<span class="mark mark-signal">a marked phrase that has to run past the end of
-one line and pick itself up cleanly on the next one without leaving a gap or a
-hard edge where the wrap happened</span>. It should read as one continuous
-sweep of the pen.
+Each ink is a different colour in each theme — a wash tuned to carry black text
+on paper is far too bright under white text. Every one clears WCAG AA for body
+text in its own theme at full double-pass strength; the worst of the twelve is
+6.7:1. Check both themes here before adding another.
+
+An unknown value falls through to the accent rather than rendering nothing:
+
+<p><mark data-color="chartreuse">not an ink we define</mark></p>
+
+### Underline instead of a swipe
+
+<p><mark data-style="underline">accent underline</mark> &middot; <mark data-style="underline" data-color="sky">sky underline</mark></p>
+
+### In running text, across a line wrap
+
+The failure mode worth catching is a highlight that breaks into two
+disconnected boxes or spills past its column:
+<mark data-color="lime">a marked phrase that has to run past the end of one
+line and pick itself up cleanly on the next one without leaving a gap or a hard
+edge where the wrap happened</mark>. It should read as one continuous sweep of
+the pen.
 
 ### On an uppercase display heading
 
-<p class="m3-display-small"><span class="mark mark-signal">Uppercase</span> display type</p>
-
-### Bare `<mark>` from markdown
-
-A post can reach the kit with no extra classes: <mark>this phrase uses a plain
-mark element</mark> and picks up the accent swipe automatically.
+<p class="m3-display-small"><mark data-color="sky">Uppercase</mark> display type</p>
 
 ## Conclusion
 This post confirms that our design system handles complex Markdown structures without sacrificing the premium, high-contrast news aesthetic we've built.

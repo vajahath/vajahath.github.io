@@ -180,12 +180,49 @@
     @apply rotate-90;
   }
 
-  /* Markdown can reach the marker kit with a bare <mark>. Colour is inherited
-     so the highlight never fights the surrounding text colour. */
+  /* Highlighting from prose.
+   *
+   *   <mark>plain</mark>                        the site accent
+   *   <mark data-color="yellow">…</mark>        any of the six inks
+   *   <mark data-style="underline">…</mark>     a stroke under, not behind
+   *
+   * Attributes rather than classes on purpose: an attribute selector cannot be
+   * dropped by a purge pass, so a colour used in one post a year from now is
+   * still there. `data-color` rather than `color` because `color` is not a
+   * valid attribute on <mark> and would fail validation for nothing.
+   *
+   * Each ink is a different colour per theme — a wash tuned to carry black
+   * text on paper is far too bright under white text. Unknown values fall
+   * through to the accent rather than rendering nothing.
+   *
+   * Colour is inherited so the highlight never fights the surrounding text. */
   mark {
     @apply mark mark-signal;
     color: inherit;
     background-color: transparent;
+  }
+
+  mark[data-color="orange"] {
+    @apply mark-signal;
+  }
+  mark[data-color="yellow"] {
+    @apply mark-yellow;
+  }
+  mark[data-color="lime"] {
+    @apply mark-lime;
+  }
+  mark[data-color="sky"] {
+    @apply mark-sky;
+  }
+  mark[data-color="pink"] {
+    @apply mark-pink;
+  }
+  mark[data-color="violet"] {
+    @apply mark-violet;
+  }
+
+  mark[data-style="underline"] {
+    @apply mark-under;
   }
 
   sup {

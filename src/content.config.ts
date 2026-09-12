@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
+import { MARK_INKS } from './lib/highlight';
 
 const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
@@ -15,6 +16,8 @@ const blog = defineCollection({
 		/** Substring of `title` to wrap in a marker swipe. Matched case-insensitively
 		 *  after title-casing; the build fails if it isn't present in the title. */
 		titleHighlight: z.string().optional(),
+		/** Ink for that highlight. Defaults to the site accent. */
+		titleHighlightColor: z.enum(MARK_INKS).optional(),
 		isSpotlight: z.boolean().optional().default(false),
 		isFocus: z.boolean().optional().default(false),
 		hotTakes: z.array(z.string()).optional(),

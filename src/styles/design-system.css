@@ -146,9 +146,29 @@
        black text, the -dark set for white text; both clear WCAG AA at full
        double-pass opacity. */
     --mark-swipe-signal: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-yellow: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23FFD23F%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23FFD23F%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-lime: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%239BD837%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%239BD837%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-sky: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%2345C4EE%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%2345C4EE%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-pink: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23FF6FAE%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23FF6FAE%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-violet: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23A97BEF%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23A97BEF%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
     --mark-swipe-signal-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-yellow-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%238A6A00%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%238A6A00%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-lime-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%2342630F%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%2342630F%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-sky-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23125A78%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23125A78%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-pink-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%238A2B54%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%238A2B54%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-violet-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%234E3785%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%234E3785%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
     --mark-underline-signal: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-yellow: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23FFD23F%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23FFD23F%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-lime: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%239BD837%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%239BD837%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-sky: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%2345C4EE%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%2345C4EE%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-pink: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23FF6FAE%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23FF6FAE%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-violet: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23A97BEF%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23A97BEF%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
     --mark-underline-signal-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-yellow-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%238A6A00%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%238A6A00%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-lime-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%2342630F%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%2342630F%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-sky-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23125A78%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23125A78%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-pink-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%238A2B54%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%238A2B54%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-violet-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%234E3785%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%234E3785%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
 
     /* Halftone spectrum. Starts on the site accent and sweeps through the
        band a radio dial would — the one place the palette is allowed to be
@@ -188,7 +208,17 @@
     /* Marker ink swaps wholesale: a translucent wash that carries black text
        is unreadable under white text. */
     --mark-swipe-signal: var(--mark-swipe-signal-dark);
+    --mark-swipe-yellow: var(--mark-swipe-yellow-dark);
+    --mark-swipe-lime: var(--mark-swipe-lime-dark);
+    --mark-swipe-sky: var(--mark-swipe-sky-dark);
+    --mark-swipe-pink: var(--mark-swipe-pink-dark);
+    --mark-swipe-violet: var(--mark-swipe-violet-dark);
     --mark-underline-signal: var(--mark-underline-signal-dark);
+    --mark-underline-yellow: var(--mark-underline-yellow-dark);
+    --mark-underline-lime: var(--mark-underline-lime-dark);
+    --mark-underline-sky: var(--mark-underline-sky-dark);
+    --mark-underline-pink: var(--mark-underline-pink-dark);
+    --mark-underline-violet: var(--mark-underline-violet-dark);
 
     /* Reduce weight slightly for dark mode to prevent "glow" bloom */
     --md-sys-typescale-body-large-weight: 460;
@@ -331,11 +361,11 @@
     @apply p-5 pr-8 bg-zinc-50 dark:bg-zinc-900/50 border-l-2 border-signal relative overflow-hidden;
 }
 
-/* Marker utilities. Pair a shape with the ink: `class="mark mark-signal"` or
-   `class="mark-under mark-signal"`. One ink only — a highlighter in four
-   colours was decoration; in the accent alone it is emphasis. Negative inline
-   margin pulls the overshoot back so marked text still sits on the
-   surrounding rhythm. */
+/* Marker utilities. Pair a shape with an ink: `class="mark mark-yellow"` or
+   `class="mark-under mark-signal"`. Prose reaches the same kit through <mark>
+   and its data attributes instead — see global.css. Negative inline margin
+   pulls the overshoot back so marked text still sits on the surrounding
+   rhythm. */
 
 @utility mark {
     display: inline;
@@ -366,6 +396,31 @@
 @utility mark-signal {
     --mark-fill: var(--mark-swipe-signal);
     --mark-fill-under: var(--mark-underline-signal);
+}
+
+@utility mark-yellow {
+    --mark-fill: var(--mark-swipe-yellow);
+    --mark-fill-under: var(--mark-underline-yellow);
+}
+
+@utility mark-lime {
+    --mark-fill: var(--mark-swipe-lime);
+    --mark-fill-under: var(--mark-underline-lime);
+}
+
+@utility mark-sky {
+    --mark-fill: var(--mark-swipe-sky);
+    --mark-fill-under: var(--mark-underline-sky);
+}
+
+@utility mark-pink {
+    --mark-fill: var(--mark-swipe-pink);
+    --mark-fill-under: var(--mark-underline-pink);
+}
+
+@utility mark-violet {
+    --mark-fill: var(--mark-swipe-violet);
+    --mark-fill-under: var(--mark-underline-violet);
 }
 
 /* --- HALFTONE ---------------------------------------------------------

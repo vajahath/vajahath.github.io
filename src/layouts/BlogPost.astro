@@ -12,7 +12,7 @@ import TableOfContents from "../components/TableOfContents.astro";
 
 import { TAGS, type TagKey } from "../consts";
 import TagChip from "../components/TagChip.astro";
-import { splitOnHighlight } from "../lib/highlight";
+import { splitOnHighlight, markInkClass } from "../lib/highlight";
 
 type Props = CollectionEntry<"blog">["data"] & {
 	series?: {
@@ -29,6 +29,7 @@ type Props = CollectionEntry<"blog">["data"] & {
 const {
 	title,
 	titleHighlight,
+	titleHighlightColor,
 	description,
 	pubDate,
 	updatedDate,
@@ -53,6 +54,7 @@ const tagMetadata = tags.map((t: string) => ({
 
 const displayTitle = title;
 const titleParts = splitOnHighlight(displayTitle, titleHighlight);
+const titleInk = markInkClass(titleHighlightColor);
 ---
 
 <!doctype html>
@@ -122,7 +124,7 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 					<h1 class="m3-display-large text-black dark:text-white">
 						{titleParts.before}
 						{titleParts.marked && (
-							<span class="mark mark-signal">{titleParts.match}</span>
+							<span class:list={["mark", titleInk]}>{titleParts.match}</span>
 						)}
 						{titleParts.after}
 					</h1>

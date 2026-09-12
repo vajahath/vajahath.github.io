@@ -27,3 +27,28 @@ export function splitOnHighlight(
 		after: title.slice(at + fragment.length),
 	};
 }
+
+/** The inks a highlight can use. Each renders as a different colour per theme. */
+export const MARK_INKS = ['orange', 'yellow', 'lime', 'sky', 'pink', 'violet'] as const;
+export type MarkInk = (typeof MARK_INKS)[number];
+
+/**
+ * Ink name to utility class.
+ *
+ * Spelled out rather than built as `mark-${ink}`, because Tailwind extracts
+ * class names by scanning source text: an interpolated name is invisible to it
+ * and the utility would never be generated.
+ */
+const INK_CLASS: Record<MarkInk, string> = {
+	orange: 'mark-signal',
+	yellow: 'mark-yellow',
+	lime: 'mark-lime',
+	sky: 'mark-sky',
+	pink: 'mark-pink',
+	violet: 'mark-violet',
+};
+
+/** Class for a highlight ink, falling back to the site accent. */
+export function markInkClass(ink?: string): string {
+	return INK_CLASS[ink as MarkInk] ?? INK_CLASS.orange;
+}
