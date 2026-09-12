@@ -131,6 +131,15 @@ survive a line wrap without breaking the grid.
 
 <p><span class="mark-under mark-yellow">Yellow underline</span> &middot; <span class="mark-under mark-pink">pink underline</span> &middot; <span class="mark-under mark-cyan">cyan underline</span> &middot; <span class="mark-under mark-green">green underline</span></p>
 
+### Pen annotations
+
+Circled labels and a drawn rule, as opposed to the highlighter bands above.
+
+<p><span class="mark-circle mark-green">01</span> <span class="mark-circle mark-pink">No. 07</span> <span class="mark-circle mark-cyan">NEW</span> <span class="mark-circle mark-yellow">A</span></p>
+
+<hr class="mark-rule mark-green" />
+<hr class="mark-rule mark-pink" />
+
 ### Across a line wrap
 
 The next mark is long on purpose, because the failure mode worth catching is a

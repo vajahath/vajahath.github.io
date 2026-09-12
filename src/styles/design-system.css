@@ -166,6 +166,22 @@
     --mark-underline-pink-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23c43f7a%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23c43f7a%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
     --mark-underline-cyan-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%230f7f9e%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%230f7f9e%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
     --mark-underline-green-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%232f8f4f%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%232f8f4f%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
+    --mark-circle-yellow: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%23d9a400%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%23d9a400%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-circle-pink: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%23e0357f%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%23e0357f%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-circle-cyan: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%231195bb%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%231195bb%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-circle-green: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%231f9d56%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%231f9d56%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-circle-yellow-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%23ffd633%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%23ffd633%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-circle-pink-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%23ff5fa8%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%23ff5fa8%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-circle-cyan-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%232cc4ec%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%232cc4ec%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-circle-green-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%2345d977%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%2345d977%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-scribble-yellow: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%23d9a400%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%23d9a400%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-scribble-pink: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%23e0357f%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%23e0357f%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-scribble-cyan: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%231195bb%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%231195bb%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-scribble-green: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%231f9d56%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%231f9d56%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-scribble-yellow-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%23ffd633%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%23ffd633%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-scribble-pink-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%23ff5fa8%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%23ff5fa8%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-scribble-cyan-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%232cc4ec%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%232cc4ec%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-scribble-green-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%2345d977%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%2345d977%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
 
     /* Touch Target Minimum */
     --md-sys-accessibility-touch-target: 48px;
@@ -200,6 +216,14 @@
     --mark-underline-pink: var(--mark-underline-pink-dark);
     --mark-underline-cyan: var(--mark-underline-cyan-dark);
     --mark-underline-green: var(--mark-underline-green-dark);
+    --mark-circle-yellow: var(--mark-circle-yellow-dark);
+    --mark-circle-pink: var(--mark-circle-pink-dark);
+    --mark-circle-cyan: var(--mark-circle-cyan-dark);
+    --mark-circle-green: var(--mark-circle-green-dark);
+    --mark-scribble-yellow: var(--mark-scribble-yellow-dark);
+    --mark-scribble-pink: var(--mark-scribble-pink-dark);
+    --mark-scribble-cyan: var(--mark-scribble-cyan-dark);
+    --mark-scribble-green: var(--mark-scribble-green-dark);
 
     /* Reduce weight slightly for dark mode to prevent "glow" bloom */
     --md-sys-typescale-body-large-weight: 460;
@@ -378,21 +402,55 @@
 @utility mark-yellow {
     --mark-fill: var(--mark-swipe-yellow);
     --mark-fill-under: var(--mark-underline-yellow);
+    --mark-fill-circle: var(--mark-circle-yellow);
+    --mark-fill-scribble: var(--mark-scribble-yellow);
 }
 
 @utility mark-pink {
     --mark-fill: var(--mark-swipe-pink);
     --mark-fill-under: var(--mark-underline-pink);
+    --mark-fill-circle: var(--mark-circle-pink);
+    --mark-fill-scribble: var(--mark-scribble-pink);
 }
 
 @utility mark-cyan {
     --mark-fill: var(--mark-swipe-cyan);
     --mark-fill-under: var(--mark-underline-cyan);
+    --mark-fill-circle: var(--mark-circle-cyan);
+    --mark-fill-scribble: var(--mark-scribble-cyan);
 }
 
 @utility mark-green {
     --mark-fill: var(--mark-swipe-green);
     --mark-fill-under: var(--mark-underline-green);
+    --mark-fill-circle: var(--mark-circle-green);
+    --mark-fill-scribble: var(--mark-scribble-green);
+}
+
+/* Pen annotations rather than highlighter. `mark-circle` rings whatever it
+   wraps, so it needs a block that can carry padding; `mark-rule` replaces a
+   border on an empty element with a drawn line. */
+
+@utility mark-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-image: var(--mark-fill-circle);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    padding: 0.35em 0.7em;
+}
+
+@utility mark-rule {
+    display: block;
+    width: 100%;
+    height: 0.75rem;
+    border: 0;
+    background-image: var(--mark-fill-scribble);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
 }
 
 /* Images whose intrinsic size drives the layout (article heroes, markdown

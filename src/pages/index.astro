@@ -4,6 +4,7 @@ import { parseDimensionsFromUrl } from "../lib/wsrv";
 import { getVisiblePosts } from "../lib/content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
+import Dateline from "../components/Dateline.astro";
 import Header from "../components/Header.astro";
 import NewsItem from "../components/NewsItem.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
@@ -55,6 +56,13 @@ const focusImageDims = focusPost?.data.heroImage ? parseDimensionsFromUrl(focusP
 const focusHasDims = focusImageDims.width !== undefined && focusImageDims.height !== undefined;
 
 // 3. Hot Takes Logic
+// An image-less spotlight pulls its first hot take out as a pull quote, so that
+// one has to leave the sidebar or the same sentence runs twice on one page.
+const spotlightPullQuote =
+	spotlightPost && !spotlightPost.data.heroImage
+		? spotlightPost.data.hotTakes?.[0]
+		: undefined;
+
 const hotTakesList = posts
 	.filter((p) => Array.isArray(p.data.hotTakes) && p.data.hotTakes.length > 0)
 	.flatMap((p) =>
@@ -63,6 +71,7 @@ const hotTakesList = posts
 			postId: p.id,
 		}))
 	)
+	.filter((t) => t.text !== spotlightPullQuote)
 	.sort(() => Math.random() - 0.5)
 	.slice(0, HOT_TAKES_COUNT);
 ---
@@ -79,13 +88,15 @@ const hotTakesList = posts
 		class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-200"
 	>
 		<Header />
+		<Dateline />
 
 		<main class="max-w-7xl mx-auto px-4 pt-8 pb-16">
 			<!-- Spotlight Hero Section -->
 			{
 				spotlightPost && (
-					<section class="pb-10 mb-10 border-b-2 border-black dark:border-white">
+					<section class="pb-8 mb-8">
 						<NewsItem post={spotlightPost} type="hero" />
+						<hr class="mark-rule mark-green mt-10" />
 					</section>
 				)
 			}
@@ -111,8 +122,12 @@ const hotTakesList = posts
 					</h2>
 					<div class="flex flex-col">
 						{
-							feedPosts.map((post) => (
-								<NewsItem post={post} type="standard" />
+							feedPosts.map((post, i) => (
+								<NewsItem
+									post={post}
+									type="standard"
+									index={i + 1}
+								/>
 							))
 						}
 					</div>

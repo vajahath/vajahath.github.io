@@ -12,6 +12,8 @@ interface Props {
     /** Row title level. Must sit exactly one below the section heading above
      *  it, or the page outline skips a level. */
     headingLevel?: 2 | 3 | 4;
+    /** 1-based position in the feed, shown as a circled index. */
+    index?: number;
 }
 
 const {
@@ -19,6 +21,7 @@ const {
     type = "standard",
     className = "",
     headingLevel = 3,
+    index,
 } = Astro.props;
 const RowHeading = `h${headingLevel}` as const;
 
@@ -39,7 +42,10 @@ const tagMetadata = tags.map(
         TAGS[t as TagKey] || { label: t, color: "#000", textColor: "#fff" },
 );
 
-// Row metadata must stay one line tall, so only the first few chips are shown.
+// Row metadata stays one line tall once the row has room, so only the first few
+// chips are shown. Below the 500px container breakpoint it wraps instead —
+// chips plus a nowrap date simply do not fit a phone, and forcing them to
+// scrolled the whole page sideways.
 const MAX_ROW_CHIPS = 3;
 const rowTags = tagMetadata.slice(0, MAX_ROW_CHIPS);
 const overflowTagCount = tagMetadata.length - rowTags.length;
@@ -50,6 +56,14 @@ const isInSeries = segments.length > 1 && post.data.seriesOrder != null;
 const seriesOrder = post.data.seriesOrder;
 const imageDims = post.data.heroImage ? parseDimensionsFromUrl(post.data.heroImage) : {};
 const hasImageDims = imageDims.width !== undefined && imageDims.height !== undefined;
+
+// A spotlight with no hero image leaves half the page empty. The post's own
+// loudest line fills that better than a placeholder image would.
+const pullQuote: string | undefined =
+    !post.data.heroImage && Array.isArray(post.data.hotTakes)
+        ? post.data.hotTakes[0]
+        : undefined;
+const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
 ---
 
 {
@@ -62,7 +76,7 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
             </div>
             <div
                 class={`grid ${
-                    post.data.heroImage
+                    heroIsSplit
                         ? "grid-cols-1 @[600px]/hero:grid-cols-2"
                         : "grid-cols-1"
                 } gap-8 items-start`}
@@ -104,6 +118,16 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
                         <span class="font-bold"><FormattedDate date={post.data.pubDate} /></span>
                     </div>
                 </div>
+                {pullQuote && (
+                    <aside class="order-3 @[600px]/hero:order-2 border-l-4 border-black dark:border-white pl-6 self-start">
+                        <p class="m3-label-medium text-black/60 dark:text-white/60 uppercase tracking-[0.2em] mb-4">
+                            From the piece
+                        </p>
+                        <blockquote class="m3-title-large @[600px]/hero:m3-headline-medium italic leading-tight text-black dark:text-white">
+                            <span class="mark mark-pink">{pullQuote}</span>
+                        </blockquote>
+                    </aside>
+                )}
                 {post.data.heroImage && (
                     hasImageDims ? (
                         <div
@@ -151,7 +175,17 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
         >
             <div class="flex flex-col @[500px]:flex-row gap-6">
                 <div class="flex-1 order-2 @[500px]:order-1 max-w-3xl">
-                    <div class="flex items-center gap-2 mb-3 min-w-0">
+                    <div class="flex flex-wrap @[500px]/standard:flex-nowrap items-center gap-2 mb-3 min-w-0">
+                        {index != null && (
+                            /* Purely visual rhythm; the row order already says
+                               this, so announcing a bare "01" is just noise. */
+                            <span
+                                aria-hidden="true"
+                                class="mark-circle mark-green m3-label-medium text-black dark:text-white shrink-0"
+                            >
+                                {String(index).padStart(2, "0")}
+                            </span>
+                        )}
                         {rowTags.map((tag: any) => (
                             <a
                                 href={`/tags/${tag.label
