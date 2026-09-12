@@ -1,42 +1,58 @@
 ---
 name: faint-signals-series
-description: Author and manage content for the Faint Signals blog — new posts, new series, homepage highlight slots (Spotlight, Focus Analysis, Hot Takes), tags, and post dates. Use when adding or editing anything under src/content.
+description: Wire up content for the Faint Signals blog — frontmatter, tags, series, drafts, homepage slots (Spotlight, Focus, Hot Takes) and the build. Use when adding or editing anything under src/content. For the prose itself, use faint-signals-post.
 ---
 
-# Faint Signals content
+# Faint Signals content mechanics
 
 Schema of record: `src/content.config.ts`. This file explains the conventions
 around it.
 
-This skill covers the mechanics only — frontmatter, tags, slots, series wiring.
-For the words themselves, use the `faint-signals-post` skill: it turns Vaju's
-spoken dump into prose that sounds like him. Write the post there first, get
-it approved, then come back here for everything below.
+**This skill is the plumbing only.** The words — title, description, hot takes,
+body — belong to the `faint-signals-post` skill, which drafts them from Vaju's
+spoken dump in his voice. Write and get the prose approved there first, then
+come back here to wire it in. Never invent a title, description or hot take
+while doing frontmatter; go get them from the post skill.
 
 ## Post frontmatter
 
 ```yaml
 ---
-title: "Post Title"
-description: "Brief overview."
-pubDate: "YYYY-MM-DD"          # drives chronological order
-updatedDate: "YYYY-MM-DD"      # optional
-heroImage: "../../assets/x.jpg" # optional; relative to the post file
-author: "Author Name"          # optional, defaults to Vajahath Ahmed
-tags: ["AI & TECH"]            # optional, defaults to ["PERSONAL BLOG"]
-toc: "show"                    # optional, renders table of contents
-isSpotlight: true              # optional homepage hero
-isFocus: true                  # optional homepage sidebar analysis
-hotTakes: ["One-liner"]        # optional homepage sidebar takes
-seriesId: "series-slug"        # required for series posts
-seriesOrder: 1                 # required for series posts
-draft: true                    # optional; dev-only, never built for production
+title: "Post Title"             # from faint-signals-post, not invented here
+description: "Brief overview."  # likewise — shown on cards and in RSS
+pubDate: "YYYY-MM-DD"           # always ISO; drives chronological order
+updatedDate: "YYYY-MM-DD"       # optional
+heroImage: "../../assets/x.jpg" # optional; local path or remote URL
+author: "Author Name"           # optional, defaults to Vajahath Ahmed
+tags: ["AI & TECH"]             # optional, defaults to ["PERSONAL BLOG"]
+toc: "show"                     # optional, renders table of contents
+isSpotlight: true               # optional homepage hero
+isFocus: true                   # optional homepage sidebar analysis
+hotTakes: ["One-liner"]         # optional; also from faint-signals-post
+seriesId: "series-slug"         # required for series posts
+seriesOrder: 1                  # required for series posts
+draft: true                     # optional; dev-only, never built for production
 ---
 ```
 
 Every tag must exist in `TAGS` in `src/consts.ts` (label + color + textColor) or
 its styling breaks. Add new ones there first, using M3-style deep, high-contrast
 colors.
+
+`pubDate` is ISO (`2026-04-26`). Some older posts use `Apr 07 2026`; the schema
+coerces both, but normalise to ISO when touching a post.
+
+## Heading rule — this fails the build
+
+Body headings **start at H2 and step down one level at a time**. The post title
+is already the page H1.
+
+- No `#` in the body. Ever.
+- No jumping H2 → H4.
+
+Enforced twice: `scripts/validate-posts.ts` on the Markdown source, and
+`scripts/check-headings.ts` on the rendered HTML. Fenced code is skipped, so
+shell comments are safe.
 
 ## Drafts
 
@@ -57,37 +73,52 @@ rendering case; check design changes against it.
 
 ## Homepage slots
 
-Read by `src/pages/index.astro`:
+Read by `src/pages/index.astro`, where the counts live as named constants at
+the top of the file — check them there rather than trusting a number quoted
+here.
 
 - **Spotlight** (hero): the post with `isSpotlight: true`, else the newest post.
-- **Focus Analysis** (sidebar): the post with `isFocus: true`, excluding the
-  Spotlight post; falls back to an older post.
-- **Hot Takes** (sidebar): up to 5 entries sampled at random from the `hotTakes`
-  arrays across all posts.
+- **Focus** (sidebar): the post with `isFocus: true`, excluding the Spotlight
+  post; otherwise the 9th-newest, otherwise the newest remaining.
+- **Hot Takes** (sidebar): `HOT_TAKES_COUNT` entries sampled at random from the
+  `hotTakes` arrays across all posts.
+- **Feed**: up to `FEED_POSTS_COUNT` posts, Spotlight withheld (it is the hero
+  directly above). The Focus post stays in the feed.
 
-To move a slot, remove the flag from the old post and add it to the new one.
+Only one post should carry each of `isSpotlight` and `isFocus`. To move a slot,
+remove the flag from the old post and add it to the new one.
+
+The 2/3 + 1/3 split needs at least 3 feed posts; below that the sidebar drops
+to a full-width band underneath. This is self-correcting — the split returns as
+the archive grows — so don't "fix" a stub feed by padding the archive.
 
 ## Series
 
 1. Create `src/content/blog/<series-slug>/` for the posts (recommended, not
    enforced).
-2. Create `src/content/series/<series-slug>.yaml`:
+2. Create `src/content/series/<series-slug>.yaml` — the **filename is the
+   `seriesId`**:
 
 ```yaml
 title: "Series Name"
 description: "Brief overview of the narrative."
 coverImage: "../../assets/your-image.jpg"  # optional, relative to this file
 startedAt: "YYYY-MM-DD"                    # optional
+draft: true                                # optional
 ```
 
 3. Give each post `seriesId: "<series-slug>"` and a unique positive
    `seriesOrder`.
 
-If the user hasn't supplied a title, description, or cover image for a new
+A `seriesId` with no matching YAML fails validation. `seriesOrder` without
+`seriesId` fails too. Deleting the last post of a series leaves an orphan YAML —
+remove it, or leave the series deliberately.
+
+If the user hasn't supplied a title, description or cover image for a new
 series, ask before inventing them.
 
 ## Always finish with
 
 ```bash
-pnpm build   # runs typecheck + post:validate + astro build
+pnpm build   # typecheck → post:validate → astro build → lint:headings
 ```

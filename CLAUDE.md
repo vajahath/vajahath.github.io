@@ -8,9 +8,9 @@ front page built on Material Design 3.
 
 ```bash
 pnpm dev              # localhost:4321
-pnpm build            # typecheck + post:validate + astro build
+pnpm build            # typecheck + post:validate + astro build + lint:headings
 pnpm typecheck        # astro check
-pnpm post:validate    # scripts/validate-posts.ts (frontmatter + series refs)
+pnpm post:validate    # scripts/validate-posts.ts (frontmatter + series refs + headings)
 pnpm preview
 ```
 
