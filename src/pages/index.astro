@@ -5,7 +5,6 @@ import { getVisiblePosts } from "../lib/content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import SignalMark from "../components/SignalMark.astro";
 import HalftoneField from "../components/HalftoneField.astro";
 import NewsItem from "../components/NewsItem.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
@@ -57,13 +56,6 @@ const focusImageDims = focusPost?.data.heroImage ? parseDimensionsFromUrl(focusP
 const focusHasDims = focusImageDims.width !== undefined && focusImageDims.height !== undefined;
 
 // 3. Hot Takes Logic
-// An image-less spotlight pulls its first hot take out as a pull quote, so that
-// one has to leave the sidebar or the same sentence runs twice on one page.
-const spotlightPullQuote =
-	spotlightPost && !spotlightPost.data.heroImage
-		? spotlightPost.data.hotTakes?.[0]
-		: undefined;
-
 const hotTakesList = posts
 	.filter((p) => Array.isArray(p.data.hotTakes) && p.data.hotTakes.length > 0)
 	.flatMap((p) =>
@@ -72,7 +64,6 @@ const hotTakesList = posts
 			postId: p.id,
 		}))
 	)
-	.filter((t) => t.text !== spotlightPullQuote)
 	.sort(() => Math.random() - 0.5)
 	.slice(0, HOT_TAKES_COUNT);
 ---
@@ -96,17 +87,11 @@ const hotTakesList = posts
 				spotlightPost && (
 					<section class="pb-8 mb-8">
 						<NewsItem post={spotlightPost} type="hero" />
-						<div class="relative mt-12" aria-hidden="true">
-							<HalftoneField
-								class="absolute inset-x-0 -top-10 h-24"
-								cell={14}
-								opacity={52}
-							/>
-							<div class="relative flex items-center">
-								<span class="h-[3px] w-20 bg-signal"></span>
-								<span class="h-px flex-1 bg-black/12 dark:bg-white/15"></span>
-							</div>
-						</div>
+						<HalftoneField
+							class="mt-14 h-20 w-full"
+							cell={14}
+							opacity={62}
+						/>
 					</section>
 				)
 			}
@@ -127,7 +112,6 @@ const hotTakesList = posts
 					<h2
 						class="m3-label-medium text-black dark:text-white mb-6 flex items-center gap-2 uppercase tracking-[0.2em]"
 					>
-						<SignalMark strength={3} />
 						Latest Signals
 					</h2>
 					<div class="flex flex-col">
@@ -153,7 +137,6 @@ const hotTakesList = posts
 						<h3
 							class="m3-label-medium mb-6 flex items-center gap-2 uppercase tracking-[0.2em]"
 						>
-							<SignalMark strength={1} class="text-signal-text" />
 							Hot Takes
 						</h3>
 						<div class="flex flex-col gap-8">
@@ -180,11 +163,10 @@ const hotTakesList = posts
 						focusPost && (
 							<section class="relative bg-gray-50 dark:bg-zinc-950 border border-black/12 dark:border-white/15 overflow-hidden">
 								<HalftoneField
-									class="absolute inset-x-0 bottom-0 h-56"
-									cell={10}
-									fade="up"
+									class="absolute -right-20 -bottom-16 w-56 h-56"
+									cell={13}
 									hue={-25}
-									opacity={34}
+									opacity={50}
 								/>
 								{focusPost.data.heroImage && (
 									focusHasDims ? (
@@ -216,7 +198,6 @@ const hotTakesList = posts
 								)}
 								<div class="relative p-8">
 									<h3 class="m3-label-medium mb-6 uppercase tracking-[0.25em] text-signal-text flex items-center gap-2.5">
-										<SignalMark strength={2} />
 										Focus Analysis
 									</h3>
 									<p class="m3-focus-title italic mb-4 leading-tight text-2xl font-black">

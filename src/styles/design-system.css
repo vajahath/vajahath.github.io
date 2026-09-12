@@ -324,13 +324,11 @@
     font-optical-sizing: auto;
 }
 
+/* A giant ghost word used to sit in this corner; clipped by the container it
+   read as a rendering fault rather than texture. The dot screen the rest of
+   the site uses does the same job without pretending to be words. */
 @utility news-signal-highlight {
-    @apply p-5 pr-8 bg-zinc-50 dark:bg-zinc-900/50 border-l-4 border-signal relative overflow-hidden;
-
-    &::before {
-        content: "SIGNAL";
-        @apply absolute -right-6 -top-6 text-9xl font-black opacity-[0.04] italic tracking-tighter select-none pointer-events-none;
-    }
+    @apply p-5 pr-8 bg-zinc-50 dark:bg-zinc-900/50 border-l-2 border-signal relative overflow-hidden;
 }
 
 /* Marker utilities. Pair a shape with the ink: `class="mark mark-signal"` or

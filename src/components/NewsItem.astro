@@ -4,7 +4,6 @@ import { parseDimensionsFromUrl } from "../lib/wsrv";
 import FormattedDate from "./FormattedDate.astro";
 import { TAGS, type TagKey } from "../consts";
 import TagChip from "./TagChip.astro";
-import SignalMark from "./SignalMark.astro";
 import HalftoneField from "./HalftoneField.astro";
 import { splitOnHighlight } from "../lib/highlight";
 
@@ -62,27 +61,19 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
 const slugHue =
     ([...post.id].reduce((h: number, c: string) => (h * 31 + c.charCodeAt(0)) | 0, 7) % 360 + 360) % 360;
 
-// A spotlight with no hero image leaves half the page empty. The post's own
-// loudest line fills that better than a placeholder image would.
-const pullQuote: string | undefined =
-    !post.data.heroImage && Array.isArray(post.data.hotTakes)
-        ? post.data.hotTakes[0]
-        : undefined;
-const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
 ---
 
 {
     type === "hero" && (
         <div class:list={["flex flex-col gap-6 @container/hero", className]}>
             <div class="flex items-center gap-2.5 text-signal-text">
-                <SignalMark strength={4} />
                 <span class="m3-label-medium tracking-[0.25em] uppercase">
                     Spotlight
                 </span>
             </div>
             <div
                 class={`grid ${
-                    heroIsSplit
+                    post.data.heroImage
                         ? "grid-cols-1 @[600px]/hero:grid-cols-2"
                         : "grid-cols-1"
                 } gap-8 items-start`}
@@ -122,16 +113,6 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
                         <span class="font-bold"><FormattedDate date={post.data.pubDate} /></span>
                     </div>
                 </div>
-                {pullQuote && (
-                    <aside class="order-3 @[600px]/hero:order-2 border-l-2 border-signal pl-5 @[600px]/hero:pl-6 self-start">
-                        <p class="m3-label-medium text-black/60 dark:text-white/60 uppercase tracking-[0.2em] mb-4">
-                            From the piece
-                        </p>
-                        <blockquote class="m3-title-large @[600px]/hero:m3-headline-medium italic leading-tight text-black dark:text-white">
-                            {pullQuote}
-                        </blockquote>
-                    </aside>
-                )}
                 {post.data.heroImage && (
                     hasImageDims ? (
                         <div

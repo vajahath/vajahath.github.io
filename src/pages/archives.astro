@@ -4,7 +4,6 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import NewsItem from "../components/NewsItem.astro";
-import SignalMark from "../components/SignalMark.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 const RECENT_POSTS_LIMIT = 20;
@@ -64,7 +63,6 @@ const years = Object.keys(groupedPosts)
 					<h2
 						class="m3-label-medium mb-8 flex items-center gap-2 uppercase tracking-[0.2em]"
 					>
-						<SignalMark strength={3} />
 						Recent Signals
 					</h2>
 					<div class="flex flex-col">
@@ -81,7 +79,6 @@ const years = Object.keys(groupedPosts)
 					<h2
 						class="m3-label-medium mb-8 flex items-center gap-2 uppercase tracking-[0.2em]"
 					>
-						<SignalMark strength={1} class="text-signal-text" />
 						Deep Archive
 					</h2>
 					<div class="space-y-10">
