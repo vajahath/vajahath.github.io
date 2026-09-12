@@ -11,6 +11,7 @@ import SeriesNav from "../components/SeriesNav.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 
 import { TAGS, type TagKey } from "../consts";
+import { splitOnHighlight } from "../lib/highlight";
 
 type Props = CollectionEntry<"blog">["data"] & {
 	series?: {
@@ -26,6 +27,7 @@ type Props = CollectionEntry<"blog">["data"] & {
 
 const {
 	title,
+	titleHighlight,
 	description,
 	pubDate,
 	updatedDate,
@@ -49,6 +51,7 @@ const tagMetadata = tags.map((t: string) => ({
 }));
 
 const displayTitle = title;
+const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 ---
 
 <!doctype html>
@@ -116,7 +119,11 @@ const displayTitle = title;
 				{/* Article Title */}
 				<div class="flex flex-col gap-4">
 					<h1 class="m3-display-large text-black dark:text-white">
-						{displayTitle}
+						{titleParts.before}
+						{titleParts.marked && (
+							<span class="mark mark-yellow">{titleParts.match}</span>
+						)}
+						{titleParts.after}
 					</h1>
 
 					{/* The "Lede" */}

@@ -3,6 +3,7 @@ import RemoteImage from "./RemoteImage.astro";
 import { parseDimensionsFromUrl } from "../lib/wsrv";
 import FormattedDate from "./FormattedDate.astro";
 import { TAGS, type TagKey } from "../consts";
+import { splitOnHighlight } from "../lib/highlight";
 
 interface Props {
     post: any;
@@ -30,6 +31,8 @@ function toTitleCase(str: string) {
 }
 
 const title = toTitleCase(post.data.title);
+// Title-casing rewrites the string, so the fragment has to be matched after it.
+const titleParts = splitOnHighlight(title, post.data.titleHighlight);
 const tags = post.data.tags || [];
 const tagMetadata = tags.map(
     (t: string) =>
@@ -53,9 +56,8 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
     type === "hero" && (
         <div class:list={["flex flex-col gap-6 @container/hero", className]}>
             <div class="flex items-center gap-2">
-                <span class="inline-block w-2.5 h-2.5 bg-live-red rounded-full" />
-                <span class="m3-label-medium text-live-red-text font-black tracking-widest uppercase">
-                    Spotlight
+                <span class="m3-label-medium text-black dark:text-white font-black tracking-widest uppercase">
+                    <span class="mark mark-yellow">Spotlight</span>
                 </span>
             </div>
             <div
@@ -67,8 +69,12 @@ const hasImageDims = imageDims.width !== undefined && imageDims.height !== undef
             >
                 <div class="order-2 @[600px]/hero:order-1">
                     <a href={`/blog/${post.id}/`} class="group m3-touch-target">
-                        <h2 class="m3-display-large mb-4 text-black dark:text-white">
-                            {title}
+                        <h2 class="m3-display-medium mb-4 text-black dark:text-white">
+                            {titleParts.before}
+                            {titleParts.marked && (
+                                <span class="mark mark-yellow">{titleParts.match}</span>
+                            )}
+                            {titleParts.after}
                         </h2>
                     </a>
                     <p class="m3-body-large text-black dark:text-white mb-6 line-clamp-3">

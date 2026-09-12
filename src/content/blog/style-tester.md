@@ -118,5 +118,36 @@ exercises a different code path from the two local assets above.
 ![Remote portrait photograph loaded through the wsrv.nl image proxy](https://1drv.ms/i/c/604400cd54aac350/IQQw-DM4FRpWTLquxYb2Ja5gAVAl8qunSiNfKXujvuD4NMI)
 *Fig 2.3: Remote source. Should be proxied, responsive, and capped like the rest.*
 
+## Marker ink
+
+Four inks, two shapes. Every mark below has to stay legible in both themes and
+survive a line wrap without breaking the grid.
+
+### Swipes
+
+<p><span class="mark mark-yellow">Yellow swipe</span> &middot; <span class="mark mark-pink">pink swipe</span> &middot; <span class="mark mark-cyan">cyan swipe</span> &middot; <span class="mark mark-green">green swipe</span></p>
+
+### Underlines
+
+<p><span class="mark-under mark-yellow">Yellow underline</span> &middot; <span class="mark-under mark-pink">pink underline</span> &middot; <span class="mark-under mark-cyan">cyan underline</span> &middot; <span class="mark-under mark-green">green underline</span></p>
+
+### Across a line wrap
+
+The next mark is long on purpose, because the failure mode worth catching is a
+highlight that breaks into two disconnected boxes or spills past its column:
+<span class="mark mark-yellow">a marked phrase that has to run past the end of
+one line and pick itself up cleanly on the next one without leaving a gap or a
+hard edge where the wrap happened</span>. It should read as one continuous
+sweep of the pen.
+
+### On an uppercase display heading
+
+<p class="m3-display-small"><span class="mark mark-cyan">Uppercase</span> display type</p>
+
+### Bare `<mark>` from markdown
+
+A post can reach the kit with no extra classes: <mark>this phrase uses a plain
+mark element</mark> and picks up the yellow swipe automatically.
+
 ## Conclusion
 This post confirms that our design system handles complex Markdown structures without sacrificing the premium, high-contrast news aesthetic we've built.

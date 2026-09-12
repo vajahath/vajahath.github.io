@@ -148,6 +148,14 @@
     @apply rotate-90;
   }
 
+  /* Markdown can reach the marker kit with a bare <mark>. Colour is inherited
+     so the highlight never fights the surrounding text colour. */
+  mark {
+    @apply mark mark-yellow;
+    color: inherit;
+    background-color: transparent;
+  }
+
   sup {
     @apply text-xs text-brand-blue-text font-bold align-super;
   }

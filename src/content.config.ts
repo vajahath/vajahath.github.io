@@ -12,6 +12,9 @@ const blog = defineCollection({
 		heroImage: z.string().optional(),
 		author: z.string().default('Vajahath Ahmed'),
 		tags: z.array(z.string()).default(['PERSONAL BLOG']),
+		/** Substring of `title` to wrap in a marker swipe. Matched case-insensitively
+		 *  after title-casing; the build fails if it isn't present in the title. */
+		titleHighlight: z.string().optional(),
 		isSpotlight: z.boolean().optional().default(false),
 		isFocus: z.boolean().optional().default(false),
 		hotTakes: z.array(z.string()).optional(),

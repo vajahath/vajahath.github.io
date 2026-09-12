@@ -80,6 +80,17 @@ blogFiles.forEach(file => {
   if (!frontmatter.pubDate) errors.push('Missing "pubDate"');
   if (!frontmatter.tags || !Array.isArray(frontmatter.tags)) errors.push('Missing or invalid "tags"');
 
+  // A titleHighlight that isn't in the title renders as a plain, unmarked
+  // headline — a silent miss, so fail the build instead.
+  if (frontmatter.titleHighlight) {
+    const title = String(frontmatter.title ?? '');
+    if (!title.toLowerCase().includes(String(frontmatter.titleHighlight).toLowerCase())) {
+      errors.push(
+        `"titleHighlight" ("${frontmatter.titleHighlight}") does not appear in "title" ("${title}")`,
+      );
+    }
+  }
+
   // Series check
   if (frontmatter.seriesOrder != null) {
     if (!frontmatter.seriesId) {

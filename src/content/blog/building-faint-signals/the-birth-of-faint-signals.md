@@ -4,6 +4,7 @@ description: "The sharp, high-contrast pulse of a digital record, engineered for
 pubDate: "2026-04-26"
 tags: ["DEVLOG", "DESIGN"]
 toc: show
+titleHighlight: "Different Kind"
 isSpotlight: true
 seriesId: "building-faint-signals"
 seriesOrder: 1
