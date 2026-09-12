@@ -129,7 +129,9 @@ the whole effect is lost.
 <div class="halftone-fade-blob" style="position:relative;height:200px;margin-bottom:1.5rem;overflow:hidden"><div class="halftone" style="--halftone-cell:13px;width:100%;height:100%"></div></div>
 
 Shapes are re-rolled on every page load, so the two blocks above are never
-quite what they were last time. Lobe centres and radii are bounded so the
+quite what they were last time. Nothing animates in: a field this size is one
+of the largest LCP candidates on a page, so fading it in would record its paint
+at the end of the animation and could drag the metric out behind it. Lobe centres and radii are bounded so the
 falloff always finishes inside the box — a lobe cut off by a container is a
 straight edge, which is the one thing this must never have. With JavaScript
 off, the CSS shape stands in.

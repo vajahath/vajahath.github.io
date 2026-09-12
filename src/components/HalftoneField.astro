@@ -6,9 +6,12 @@
  * every browser; stacking both on one element needs mask-composite, which
  * does not.
  *
- * The falloff shape is re-rolled per page load by the script below. The CSS
- * blob is the shape you get with no JavaScript, so the field is never absent —
- * only less varied.
+ * Nothing here animates, deliberately. A field this size is one of the largest
+ * LCP candidates on the page — a background image counts, and on the home page
+ * this measures 110k px² against the headline's 132k. Anything that fades it
+ * in from zero records its paint when it finishes, so on a page with a shorter
+ * headline the field would win LCP and drag it out to the length of the
+ * animation. Painting with everything else costs nothing and cannot regress.
  *
  * Always decorative. It never sits behind text small enough for a saturated
  * dot to cost contrast.
@@ -25,10 +28,6 @@ interface Props {
 	hue?: number;
 	/** 0–100. Kept low wherever text sits nearby. */
 	opacity?: number;
-	/** How the screen arrives. `ripple` widens a circle from `origin`. */
-	reveal?: 'fade' | 'ripple' | 'none';
-	/** Ripple origin, as a CSS position. */
-	origin?: string;
 }
 const {
 	class: className = '',
@@ -36,8 +35,6 @@ const {
 	fade = 'blob',
 	hue = 0,
 	opacity = 100,
-	reveal = 'fade',
-	origin = '22% 55%',
 } = Astro.props;
 
 const fadeClass = {
@@ -46,11 +43,16 @@ const fadeClass = {
 	none: '',
 }[fade];
 
-const revealClass = {
-	fade: 'halftone-reveal',
-	ripple: 'halftone-reveal-ripple',
-	none: '',
-}[reveal];
+// Injected with set:html rather than written as children: inside an Astro
+// expression the braces in this source are parsed as JSX, and the script ships
+// wrapped in its own template literal and silently does nothing.
+const reroll = `(function(){var s=document.currentScript,e=s&&s.previousElementSibling;` +
+	`if(!e||!e.hasAttribute("data-halftone-blob"))return;` +
+	`function r(a,b){return (a+Math.random()*(b-a)).toFixed(1)}` +
+	`var n=3+Math.floor(Math.random()*3),g=[],i;` +
+	`for(i=0;i<n;i++)g.push("radial-gradient(ellipse "+r(18,34)+"% "+r(20,36)+"% at "+` +
+	`r(26,72)+"% "+r(24,70)+"%, #000 "+r(2,9)+"%, transparent "+r(62,72)+"%)");` +
+	`var v=g.join(",");e.style.maskImage=v;e.style.webkitMaskImage=v})();`;
 ---
 
 <div
@@ -60,39 +62,24 @@ const revealClass = {
 	style={`opacity: ${opacity / 100};`}
 >
 	<div
-		class:list={['halftone w-full h-full', revealClass]}
-		style={`--halftone-cell: ${cell}px; --halftone-origin: ${origin};${
-			hue ? ` filter: hue-rotate(${hue}deg);` : ''
-		}`}
+		class="halftone w-full h-full"
+		style={`--halftone-cell: ${cell}px;${hue ? ` filter: hue-rotate(${hue}deg);` : ''}`}
 	>
 	</div>
 </div>
 
-<script>
-	// Re-rolls every field's falloff on each load, so the scatter is never the
-	// shape you saw last time. Runs once per page however many fields there
-	// are — Astro bundles a component script a single time.
-	//
-	// Lobe centres stay between 26% and 72% and radii cap at 34%, so the
-	// furthest a lobe can reach is 89%: the blob always finishes fading before
-	// its container clips it. A lobe cut off by the clip is a straight edge,
-	// which is the one thing this must never have.
-	const rand = (min: number, max: number) => min + Math.random() * (max - min);
+{/*
+  Re-rolls this field's falloff so the scatter is never the shape you saw last
+  time. Inline and adjacent on purpose: it runs during parse, so the shape is
+  right at first paint and there is no swap to hide — which is what let the
+  reveal animation go. A bundled module would run after parse and pop.
 
-	function lobes() {
-		const count = 3 + Math.floor(Math.random() * 3); // 3–5
-		return Array.from(
-			{ length: count },
-			() =>
-				`radial-gradient(ellipse ${rand(18, 34).toFixed(1)}% ${rand(20, 36).toFixed(1)}% at ` +
-				`${rand(26, 72).toFixed(1)}% ${rand(24, 70).toFixed(1)}%, ` +
-				`#000 ${rand(2, 9).toFixed(1)}%, transparent ${rand(62, 72).toFixed(1)}%)`,
-		).join(', ');
-	}
+  Lobe centres stay between 26% and 72% with radii capped at 34%, so the
+  furthest a lobe reaches is 89%: the blob always finishes fading before its
+  container clips it. A lobe cut off by the clip is a straight edge, which is
+  the one thing this must never have.
 
-	for (const el of document.querySelectorAll<HTMLElement>('[data-halftone-blob]')) {
-		const shape = lobes();
-		el.style.setProperty('mask-image', shape);
-		el.style.setProperty('-webkit-mask-image', shape);
-	}
-</script>
+  With JavaScript off the CSS shape stands in, so the texture is never absent,
+  only less varied.
+*/}
+{fade !== 'none' && <script is:inline set:html={reroll} />}
