@@ -69,6 +69,10 @@ through `@tailwindcss/vite` — there is no config file.
 Schema of record is `src/content.config.ts`. Detailed authoring workflow lives in
 `.claude/skills/faint-signals-series/SKILL.md`.
 
+Posts are written from Vaju's spoken brain-dumps, in his voice — the
+`faint-signals-post` skill owns that and is the way a post gets drafted or
+rewritten. Prose first, frontmatter after.
+
 - Posts: `src/content/blog/**/*.{md,mdx}` — file path becomes the URL slug.
 - Series metadata: `src/content/series/<slug>.yaml`; posts join via
   `seriesId` + `seriesOrder`.

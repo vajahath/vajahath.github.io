@@ -8,6 +8,11 @@ description: Author and manage content for the Faint Signals blog — new posts,
 Schema of record: `src/content.config.ts`. This file explains the conventions
 around it.
 
+This skill covers the mechanics only — frontmatter, tags, slots, series wiring.
+For the words themselves, use the `faint-signals-post` skill: it turns Vaju's
+spoken dump into prose that sounds like him. Write the post there first, get
+it approved, then come back here for everything below.
+
 ## Post frontmatter
 
 ```yaml
