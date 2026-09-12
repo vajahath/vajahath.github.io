@@ -81,10 +81,13 @@ const hotTakesList = posts
 		<Header />
 
 		<main class="relative overflow-x-clip max-w-7xl mx-auto px-4 pt-8 pb-16">
-			<!-- Spotlight Hero Section -->
+			<!-- Spotlight Hero Section. Its bottom rule is heavier than the
+			     feed's row rules on purpose: every line on the page was the
+			     same weight, so nothing separated "next story in a list" from
+			     "end of a section", and this is the biggest break on the page. -->
 			{
 				spotlightPost && (
-					<section class="pb-12 mb-10">
+					<section class="pb-12 mb-12 border-b border-black/30 dark:border-white/30">
 						<NewsItem post={spotlightPost} type="hero" />
 					</section>
 				)
