@@ -388,21 +388,36 @@
     mask-repeat: repeat;
 }
 
-/* Fades the screen out rather than cutting it off at a hard edge, the way a
-   halftone blob thins toward its rim. */
-@utility halftone-fade-radial {
-    -webkit-mask-image: radial-gradient(ellipse 78% 68% at 42% 45%, #000 18%, transparent 72%);
-    mask-image: radial-gradient(ellipse 78% 68% at 42% 45%, #000 18%, transparent 72%);
+/* The boundary is the whole point. A single ellipse reads as a shape someone
+   drew; several overlapping ones of different sizes union into a lumpy edge
+   with no centre you can name, which is what makes the dots look scattered
+   rather than placed. Multiple mask layers composite as a union by default,
+   so this is one property, not a stack of elements.
+
+   Any field using these has to finish fading before its container clips it,
+   or the irregular edge is squared off again and the effect is lost. */
+@utility halftone-fade-blob {
+    --halftone-blob:
+        radial-gradient(ellipse 32% 38% at 30% 46%, #000 8%, transparent 66%),
+        radial-gradient(ellipse 26% 32% at 58% 62%, #000 6%, transparent 68%),
+        radial-gradient(ellipse 34% 24% at 70% 36%, #000 5%, transparent 66%),
+        radial-gradient(ellipse 20% 26% at 42% 26%, #000 3%, transparent 70%);
+    -webkit-mask-image: var(--halftone-blob);
+    mask-image: var(--halftone-blob);
 }
 
-@utility halftone-fade-down {
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 88%);
-    mask-image: linear-gradient(to bottom, #000 0%, transparent 88%);
-}
-
-@utility halftone-fade-up {
-    -webkit-mask-image: linear-gradient(to top, #000 12%, transparent 86%);
-    mask-image: linear-gradient(to top, #000 12%, transparent 86%);
+/* A second arrangement, so two fields on one page are not the same shape. */
+/* Centres and radii are kept well inside the box: a blob whose lobes reach the
+   element's own edge gets squared off by the clip and the irregular boundary
+   is lost, which is the only thing this is for. */
+@utility halftone-fade-blob-alt {
+    --halftone-blob:
+        radial-gradient(ellipse 30% 34% at 68% 54%, #000 8%, transparent 66%),
+        radial-gradient(ellipse 24% 30% at 41% 34%, #000 6%, transparent 68%),
+        radial-gradient(ellipse 32% 22% at 26% 62%, #000 4%, transparent 64%),
+        radial-gradient(ellipse 18% 24% at 58% 26%, #000 3%, transparent 70%);
+    -webkit-mask-image: var(--halftone-blob);
+    mask-image: var(--halftone-blob);
 }
 
 @utility m3-touch-target {

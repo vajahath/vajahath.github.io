@@ -13,8 +13,10 @@ interface Props {
 	class?: string;
 	/** Dot pitch. Larger reads as coarser, more printed. */
 	cell?: number;
-	/** How the screen thins out at its edges. */
-	fade?: 'radial' | 'down' | 'up' | 'none';
+	/** How the screen thins out at its edges. Irregular by default: a clean
+	 *  oval, or an edge squared off by a container, reads as a placed graphic
+	 *  rather than something scattered. */
+	fade?: 'blob' | 'blob-alt' | 'none';
 	/** Degrees to rotate the spectrum, so repeated fields are not identical. */
 	hue?: number;
 	/** 0–100. Kept low wherever text sits nearby. */
@@ -23,15 +25,14 @@ interface Props {
 const {
 	class: className = '',
 	cell = 11,
-	fade = 'radial',
+	fade = 'blob',
 	hue = 0,
 	opacity = 100,
 } = Astro.props;
 
 const fadeClass = {
-	radial: 'halftone-fade-radial',
-	down: 'halftone-fade-down',
-	up: 'halftone-fade-up',
+	blob: 'halftone-fade-blob',
+	'blob-alt': 'halftone-fade-blob-alt',
 	none: '',
 }[fade];
 ---

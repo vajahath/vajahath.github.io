@@ -72,16 +72,10 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 		    scroll container and break the sticky table of contents. */}
 		<main class="relative overflow-x-clip max-w-7xl mx-auto px-4 py-8">
 			<HalftoneField
-				class="hidden lg:block absolute -left-24 top-16 w-72 h-72"
+				class="hidden xl:block absolute left-0 top-20 w-36 h-[30rem]"
 				cell={13}
 				hue={20}
 				opacity={45}
-			/>
-			<HalftoneField
-				class="hidden lg:block absolute -right-20 top-[38rem] w-64 h-64"
-				cell={15}
-				hue={-60}
-				opacity={38}
 			/>
 			<div class:list={["relative", showToc && "flex items-start gap-12 justify-center"]}>
 			<article class={showToc ? "max-w-2xl w-full flex flex-col gap-6 min-w-0" : "max-w-2xl mx-auto flex flex-col gap-6"}>
@@ -148,16 +142,10 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 					{
 						hotTakes.length > 0 && (
 							<div class="news-signal-highlight">
-								<HalftoneField
-									class="absolute -right-16 -bottom-14 w-36 h-36"
-									cell={11}
-									hue={15}
-									opacity={55}
-								/>
-								<h2 class="relative m3-label-medium mb-3 uppercase tracking-[0.3em] text-signal-text font-black">
+								<h2 class="m3-label-medium mb-3 uppercase tracking-[0.3em] text-signal-text font-black">
 									Signal Highlights
 								</h2>
-								<ul class="relative list-none space-y-2.5">
+								<ul class="list-none space-y-2.5">
 									{hotTakes.map((take: string) => (
 										<li class="m3-body-large flex gap-4 items-start">
 											<span class="text-signal-text text-xl leading-none mt-0.5">

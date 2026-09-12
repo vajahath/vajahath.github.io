@@ -120,19 +120,22 @@ exercises a different code path from the two local assets above.
 
 ## Halftone
 
-A dot screen masked out of a colour gradient. Pure CSS, so it stays sharp at
-any size and recolours by rotating the hue. Always decorative, always behind
-content, never carrying text.
+A dot screen masked out of a colour gradient. The boundary is the point: a
+single ellipse reads as a shape someone drew, so several overlapping ones
+union into a lumpy edge with no centre you can name. Any field has to finish
+fading before its container clips it, or that edge is squared off again and
+the whole effect is lost.
 
-<div style="position:relative;height:140px;margin-bottom:1.5rem;overflow:hidden;border:1px solid rgba(0,0,0,.12)"><div class="halftone" style="--halftone-cell:11px;width:100%;height:100%"></div></div>
+<div class="halftone-fade-blob" style="position:relative;height:200px;margin-bottom:1.5rem;overflow:hidden"><div class="halftone" style="--halftone-cell:13px;width:100%;height:100%"></div></div>
 
-Coarser, and hue-rotated so repeated fields do not read as the same image:
+A second arrangement, so two fields on one page are not the same shape:
 
-<div style="position:relative;height:140px;margin-bottom:1.5rem;overflow:hidden;border:1px solid rgba(0,0,0,.12)"><div class="halftone" style="--halftone-cell:18px;filter:hue-rotate(140deg);width:100%;height:100%"></div></div>
+<div class="halftone-fade-blob-alt" style="position:relative;height:200px;margin-bottom:1.5rem;overflow:hidden"><div class="halftone" style="--halftone-cell:16px;filter:hue-rotate(120deg);width:100%;height:100%"></div></div>
 
-Faded out at the rim, which is how it sits behind real content:
+Unmasked, which is only ever right for a filled block such as the cover art on
+a post with no hero image:
 
-<div class="halftone-fade-radial" style="position:relative;height:140px;margin-bottom:1.5rem;overflow:hidden"><div class="halftone" style="--halftone-cell:13px;filter:hue-rotate(-40deg);width:100%;height:100%"></div></div>
+<div style="position:relative;height:120px;margin-bottom:1.5rem;overflow:hidden"><div class="halftone" style="--halftone-cell:9px;filter:hue-rotate(-60deg);width:100%;height:100%"></div></div>
 
 ## Marker ink
 

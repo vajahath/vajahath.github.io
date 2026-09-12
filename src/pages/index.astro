@@ -81,17 +81,19 @@ const hotTakesList = posts
 	>
 		<Header />
 
-		<main class="max-w-7xl mx-auto px-4 pt-8 pb-16">
+		<main class="relative overflow-x-clip max-w-7xl mx-auto px-4 pt-8 pb-16">
 			<!-- Spotlight Hero Section -->
 			{
 				spotlightPost && (
-					<section class="pb-8 mb-8">
-						<NewsItem post={spotlightPost} type="hero" />
+					<section class="relative pb-14 mb-10">
 						<HalftoneField
-							class="mt-14 h-20 w-full"
+							class="absolute inset-x-0 -top-10 bottom-1/4"
 							cell={14}
-							opacity={62}
+							opacity={30}
 						/>
+						<div class="relative">
+							<NewsItem post={spotlightPost} type="hero" />
+						</div>
 					</section>
 				)
 			}
@@ -161,13 +163,7 @@ const hotTakesList = posts
 					<!-- Focus Section -->
 					{
 						focusPost && (
-							<section class="relative bg-gray-50 dark:bg-zinc-950 border border-black/12 dark:border-white/15 overflow-hidden">
-								<HalftoneField
-									class="absolute -right-20 -bottom-16 w-56 h-56"
-									cell={13}
-									hue={-25}
-									opacity={50}
-								/>
+							<section class="bg-gray-50 dark:bg-zinc-950 border border-black/12 dark:border-white/15 overflow-hidden">
 								{focusPost.data.heroImage && (
 									focusHasDims ? (
 										<div

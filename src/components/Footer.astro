@@ -7,14 +7,16 @@ const today = new Date();
 <footer
 	class="relative overflow-hidden border-t border-black/10 dark:border-white/10 mt-20 pt-16 pb-12"
 >
-	{/* The page ends in colour rather than trailing off into empty paper —
-	    but inside the top padding, clear of the first line of text. */}
+	{/* The page ends in colour rather than trailing off into empty paper. The
+	    blob mask scatters the density, so this reads as tooth across the whole
+	    foot rather than a band with a ruled edge — and stays light enough that
+	    the copy over it is unaffected. */}
 	<HalftoneField
-		class="absolute inset-x-0 top-0 h-14"
-		cell={15}
-		fade="down"
+		class="absolute inset-0"
+		cell={16}
+		fade="blob-alt"
 		hue={35}
-		opacity={55}
+		opacity={26}
 	/>
 	<div class="relative max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 		<div class="col-span-2">
