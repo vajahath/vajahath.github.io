@@ -12,8 +12,6 @@ interface Props {
     /** Row title level. Must sit exactly one below the section heading above
      *  it, or the page outline skips a level. */
     headingLevel?: 2 | 3 | 4;
-    /** 1-based position in the feed, shown as a circled index. */
-    index?: number;
 }
 
 const {
@@ -21,7 +19,6 @@ const {
     type = "standard",
     className = "",
     headingLevel = 3,
-    index,
 } = Astro.props;
 const RowHeading = `h${headingLevel}` as const;
 
@@ -176,16 +173,6 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
             <div class="flex flex-col @[500px]:flex-row gap-6">
                 <div class="flex-1 order-2 @[500px]:order-1 max-w-3xl">
                     <div class="flex flex-wrap @[500px]/standard:flex-nowrap items-center gap-2 mb-3 min-w-0">
-                        {index != null && (
-                            /* Purely visual rhythm; the row order already says
-                               this, so announcing a bare "01" is just noise. */
-                            <span
-                                aria-hidden="true"
-                                class="mark-circle mark-green m3-label-medium text-black dark:text-white shrink-0"
-                            >
-                                {String(index).padStart(2, "0")}
-                            </span>
-                        )}
                         {rowTags.map((tag: any) => (
                             <a
                                 href={`/tags/${tag.label

@@ -4,7 +4,6 @@ import { parseDimensionsFromUrl } from "../lib/wsrv";
 import { getVisiblePosts } from "../lib/content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import Dateline from "../components/Dateline.astro";
 import Header from "../components/Header.astro";
 import NewsItem from "../components/NewsItem.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
@@ -88,7 +87,6 @@ const hotTakesList = posts
 		class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-200"
 	>
 		<Header />
-		<Dateline />
 
 		<main class="max-w-7xl mx-auto px-4 pt-8 pb-16">
 			<!-- Spotlight Hero Section -->
@@ -122,12 +120,8 @@ const hotTakesList = posts
 					</h2>
 					<div class="flex flex-col">
 						{
-							feedPosts.map((post, i) => (
-								<NewsItem
-									post={post}
-									type="standard"
-									index={i + 1}
-								/>
+							feedPosts.map((post) => (
+								<NewsItem post={post} type="standard" />
 							))
 						}
 					</div>
