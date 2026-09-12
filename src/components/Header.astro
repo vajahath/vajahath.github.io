@@ -80,14 +80,18 @@ import HalftoneField from './HalftoneField.astro';
 			<a href="/" class="relative hover:opacity-90 transition-opacity block">
 				<HalftoneField
 					class:list={[
-						"absolute -top-5 -bottom-1 -left-7",
+						/* Room is taken upward and rightward only. The byline
+						   sits 4px under the wordmark, and small orange text
+						   over a saturated dot fails AA at any strength worth
+						   seeing — so the field stops at the wordmark's foot. */
+						"absolute -top-8 -bottom-1 -left-7",
 						isHome
-							? "-right-10 sm:-right-32 md:-right-56"
-							: "-right-8 sm:-right-24",
+							? "-right-10 sm:-right-40 md:-right-64"
+							: "-right-8 sm:-right-40",
 					]}
 					cell={isHome ? 12 : 9}
 					fade={isHome ? 'blob' : 'blob-alt'}
-					opacity={isHome ? 55 : 45}
+					opacity={isHome ? 70 : 60}
 					reveal={isHome ? 'ripple' : 'fade'}
 					origin="14% 62%"
 				/>
