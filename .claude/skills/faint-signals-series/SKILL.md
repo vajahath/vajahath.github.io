@@ -46,7 +46,17 @@ coerces both, but normalise to ISO when touching a post.
 
 ## Highlighting
 
-Two separate things, one kit.
+Two separate things, one kit. They are not interchangeable, and the title one
+is not made redundant by `<mark>`.
+
+`<mark>` only works where Markdown is rendered, which means the body. A title
+is a plain string and the same string is reused everywhere — `<title>`, the
+og: and twitter: meta tags, the RSS item titles, and image `alt` text. Put a
+tag in it and it leaks into all of them: the browser tab literally reads
+`Style &lt;mark&gt;Sandbox&lt;/mark&gt;`, and the heading renders the escaped
+markup too. Making it work would mean rendering HTML in the two places a title
+is a heading and stripping it in the eight where it is not — and any one that
+gets missed ships markup to a feed reader.
 
 **In a title**, `titleHighlight` names a phrase to mark. It is matched
 case-insensitively *after* title-casing, and the build fails if the phrase is
