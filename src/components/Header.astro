@@ -88,6 +88,8 @@ import HalftoneField from './HalftoneField.astro';
 					cell={isHome ? 12 : 9}
 					fade={isHome ? 'blob' : 'blob-alt'}
 					opacity={isHome ? 55 : 45}
+					reveal={isHome ? 'ripple' : 'fade'}
+					origin="14% 62%"
 				/>
 				<Wordmark
 					class:list={[

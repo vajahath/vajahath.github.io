@@ -1,13 +1,17 @@
 ---
 /**
  * A halftone dot screen over a colour gradient, used as atmosphere behind
- * content. Two nested elements on purpose: the inner one carries the dot mask,
- * the outer one carries the falloff. One mask per element composites reliably
- * in every browser; stacking both on one element needs mask-composite, which
+ * content. Two nested elements on purpose: the outer one carries the falloff,
+ * the inner one the dot mask. One mask per element composites reliably in
+ * every browser; stacking both on one element needs mask-composite, which
  * does not.
  *
- * Always decorative and never behind body copy at a strength that would eat
- * contrast — it sits under headings and in empty space.
+ * The falloff shape is re-rolled per page load by the script below. The CSS
+ * blob is the shape you get with no JavaScript, so the field is never absent —
+ * only less varied.
+ *
+ * Always decorative. It never sits behind text small enough for a saturated
+ * dot to cost contrast.
  */
 interface Props {
 	class?: string;
@@ -21,6 +25,10 @@ interface Props {
 	hue?: number;
 	/** 0–100. Kept low wherever text sits nearby. */
 	opacity?: number;
+	/** How the screen arrives. `ripple` widens a circle from `origin`. */
+	reveal?: 'fade' | 'ripple' | 'none';
+	/** Ripple origin, as a CSS position. */
+	origin?: string;
 }
 const {
 	class: className = '',
@@ -28,6 +36,8 @@ const {
 	fade = 'blob',
 	hue = 0,
 	opacity = 100,
+	reveal = 'fade',
+	origin = '22% 55%',
 } = Astro.props;
 
 const fadeClass = {
@@ -35,16 +45,54 @@ const fadeClass = {
 	'blob-alt': 'halftone-fade-blob-alt',
 	none: '',
 }[fade];
+
+const revealClass = {
+	fade: 'halftone-reveal',
+	ripple: 'halftone-reveal-ripple',
+	none: '',
+}[reveal];
 ---
 
 <div
 	class:list={['pointer-events-none overflow-hidden', fadeClass, className]}
 	aria-hidden="true"
+	data-halftone-blob={fade === 'none' ? undefined : ''}
 	style={`opacity: ${opacity / 100};`}
 >
 	<div
-		class="halftone w-full h-full"
-		style={`--halftone-cell: ${cell}px;${hue ? ` filter: hue-rotate(${hue}deg);` : ''}`}
+		class:list={['halftone w-full h-full', revealClass]}
+		style={`--halftone-cell: ${cell}px; --halftone-origin: ${origin};${
+			hue ? ` filter: hue-rotate(${hue}deg);` : ''
+		}`}
 	>
 	</div>
 </div>
+
+<script>
+	// Re-rolls every field's falloff on each load, so the scatter is never the
+	// shape you saw last time. Runs once per page however many fields there
+	// are — Astro bundles a component script a single time.
+	//
+	// Lobe centres stay between 26% and 72% and radii cap at 34%, so the
+	// furthest a lobe can reach is 89%: the blob always finishes fading before
+	// its container clips it. A lobe cut off by the clip is a straight edge,
+	// which is the one thing this must never have.
+	const rand = (min: number, max: number) => min + Math.random() * (max - min);
+
+	function lobes() {
+		const count = 3 + Math.floor(Math.random() * 3); // 3–5
+		return Array.from(
+			{ length: count },
+			() =>
+				`radial-gradient(ellipse ${rand(18, 34).toFixed(1)}% ${rand(20, 36).toFixed(1)}% at ` +
+				`${rand(26, 72).toFixed(1)}% ${rand(24, 70).toFixed(1)}%, ` +
+				`#000 ${rand(2, 9).toFixed(1)}%, transparent ${rand(62, 72).toFixed(1)}%)`,
+		).join(', ');
+	}
+
+	for (const el of document.querySelectorAll<HTMLElement>('[data-halftone-blob]')) {
+		const shape = lobes();
+		el.style.setProperty('mask-image', shape);
+		el.style.setProperty('-webkit-mask-image', shape);
+	}
+</script>

@@ -420,6 +420,51 @@
     mask-image: var(--halftone-blob);
 }
 
+/* Reveal. One animation per field, once, on a decorative element with nothing
+   under it — no layout, no scroll listener, nothing running after it lands.
+   The opacity here is the inner screen's own; the wrapper keeps the field's
+   configured strength, so these never fight. */
+@keyframes halftone-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* The ripple is a circle widening from a point — the dots arrive as it passes
+   rather than all at once. clip-path is the cheap way to do it; animating the
+   dot mask itself would repaint the grid every frame. */
+@keyframes halftone-ripple {
+    from {
+        opacity: 0;
+        clip-path: circle(0% at var(--halftone-origin, 22% 55%));
+    }
+    45% {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+        clip-path: circle(145% at var(--halftone-origin, 22% 55%));
+    }
+}
+
+@utility halftone-reveal {
+    animation: halftone-in 700ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@utility halftone-reveal-ripple {
+    animation: halftone-ripple 1400ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .halftone-reveal,
+    .halftone-reveal-ripple {
+        animation: none;
+    }
+}
+
 @utility m3-touch-target {
     min-width: var(--md-sys-accessibility-touch-target);
     min-height: var(--md-sys-accessibility-touch-target);

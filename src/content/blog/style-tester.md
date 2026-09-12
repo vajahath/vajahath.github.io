@@ -128,6 +128,12 @@ the whole effect is lost.
 
 <div class="halftone-fade-blob" style="position:relative;height:200px;margin-bottom:1.5rem;overflow:hidden"><div class="halftone" style="--halftone-cell:13px;width:100%;height:100%"></div></div>
 
+Shapes are re-rolled on every page load, so the two blocks above are never
+quite what they were last time. Lobe centres and radii are bounded so the
+falloff always finishes inside the box — a lobe cut off by a container is a
+straight edge, which is the one thing this must never have. With JavaScript
+off, the CSS shape stands in.
+
 A second arrangement, so two fields on one page are not the same shape:
 
 <div class="halftone-fade-blob-alt" style="position:relative;height:200px;margin-bottom:1.5rem;overflow:hidden"><div class="halftone" style="--halftone-cell:16px;filter:hue-rotate(120deg);width:100%;height:100%"></div></div>
