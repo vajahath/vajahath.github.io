@@ -3,6 +3,8 @@ import RemoteImage from "./RemoteImage.astro";
 import { parseDimensionsFromUrl } from "../lib/wsrv";
 import FormattedDate from "./FormattedDate.astro";
 import { TAGS, type TagKey } from "../consts";
+import TagChip from "./TagChip.astro";
+import SignalMark from "./SignalMark.astro";
 import { splitOnHighlight } from "../lib/highlight";
 
 interface Props {
@@ -66,9 +68,10 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
 {
     type === "hero" && (
         <div class:list={["flex flex-col gap-6 @container/hero", className]}>
-            <div class="flex items-center gap-2">
-                <span class="m3-label-medium text-black dark:text-white font-black tracking-widest uppercase">
-                    <span class="mark mark-yellow">Spotlight</span>
+            <div class="flex items-center gap-2.5 text-signal-text">
+                <SignalMark strength={4} />
+                <span class="m3-label-medium tracking-[0.25em] uppercase">
+                    Spotlight
                 </span>
             </div>
             <div
@@ -83,7 +86,7 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
                         <h2 class="m3-display-medium mb-4 text-black dark:text-white">
                             {titleParts.before}
                             {titleParts.marked && (
-                                <span class="mark mark-yellow">{titleParts.match}</span>
+                                <span class="mark mark-signal">{titleParts.match}</span>
                             )}
                             {titleParts.after}
                         </h2>
@@ -93,18 +96,16 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         {tagMetadata.map((tag: any) => (
-                            <a
+                            <TagChip
+                                label={tag.label}
+                                color={tag.color}
                                 href={`/tags/${tag.label
                                     .toLowerCase()
                                     .replace(/\s+/g, "-")}`}
-                                class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80 border border-black/10"
-                                style={`background-color: ${tag.color}; color: ${tag.textColor};`}
-                            >
-                                {tag.label}
-                            </a>
+                            />
                         ))}
                         {isInSeries && (
-                            <span class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider bg-live-red-fill text-white border border-black/10">
+                            <span class="m3-label-medium uppercase tracking-wider text-signal-text">
                                 Series · Part {seriesOrder}
                             </span>
                         )}
@@ -116,12 +117,12 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
                     </div>
                 </div>
                 {pullQuote && (
-                    <aside class="order-3 @[600px]/hero:order-2 border-l-4 border-black dark:border-white pl-6 self-start">
+                    <aside class="order-3 @[600px]/hero:order-2 border-l-2 border-signal pl-5 @[600px]/hero:pl-6 self-start">
                         <p class="m3-label-medium text-black/60 dark:text-white/60 uppercase tracking-[0.2em] mb-4">
                             From the piece
                         </p>
                         <blockquote class="m3-title-large @[600px]/hero:m3-headline-medium italic leading-tight text-black dark:text-white">
-                            <span class="mark mark-pink">{pullQuote}</span>
+                            {pullQuote}
                         </blockquote>
                     </aside>
                 )}
@@ -166,7 +167,7 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
     type === "standard" && (
         <article
             class:list={[
-                "py-8 group border-b-2 border-black dark:border-white last:border-0 @container/standard",
+                "py-9 group border-b border-black/12 dark:border-white/15 last:border-0 @container/standard",
                 className,
             ]}
         >
@@ -174,27 +175,25 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
                 <div class="flex-1 order-2 @[500px]:order-1 max-w-3xl">
                     <div class="flex flex-wrap @[500px]/standard:flex-nowrap items-center gap-2 mb-3 min-w-0">
                         {rowTags.map((tag: any) => (
-                            <a
+                            <TagChip
+                                label={tag.label}
+                                color={tag.color}
                                 href={`/tags/${tag.label
                                     .toLowerCase()
                                     .replace(/\s+/g, "-")}`}
-                                class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80 border border-black/10 shrink-0"
-                                style={`background-color: ${tag.color}; color: ${tag.textColor};`}
-                            >
-                                {tag.label}
-                            </a>
+                            />
                         ))}
                         {overflowTagCount > 0 && (
-                            <span class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider border border-black/20 dark:border-white/20 text-black/60 dark:text-white/60 shrink-0">
+                            <span class="m3-label-medium uppercase text-black/45 dark:text-white/45 shrink-0">
                                 +{overflowTagCount}
                             </span>
                         )}
                         {isInSeries && (
-                            <span class="m3-label-medium px-2 py-0.5 font-black uppercase tracking-wider bg-live-red-fill text-white border border-black/10 shrink-0">
-                                Series · Part {seriesOrder}
+                            <span class="m3-label-medium uppercase tracking-wider text-signal-text shrink-0">
+                                Part {seriesOrder}
                             </span>
                         )}
-                        <span class="m3-label-medium text-black dark:text-white ml-1 shrink-0 whitespace-nowrap">
+                        <span class="m3-label-medium text-black/45 dark:text-white/45 shrink-0 whitespace-nowrap">
                             <FormattedDate date={post.data.pubDate} />
                         </span>
                     </div>
@@ -208,7 +207,7 @@ const heroIsSplit = Boolean(post.data.heroImage || pullQuote);
                     </p>
                 </div>
                 {post.data.heroImage && (
-                    <div class="w-full @[500px]:w-56 aspect-video overflow-hidden shrink-0 order-1 @[500px]:order-2 border-2 border-black dark:border-white">
+                    <div class="w-full @[500px]:w-56 aspect-video overflow-hidden shrink-0 order-1 @[500px]:order-2 border border-black/12 dark:border-white/15">
                         <RemoteImage
                             src={post.data.heroImage}
                             alt={post.data.title}

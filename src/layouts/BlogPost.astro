@@ -11,6 +11,7 @@ import SeriesNav from "../components/SeriesNav.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 
 import { TAGS, type TagKey } from "../consts";
+import TagChip from "../components/TagChip.astro";
 import { splitOnHighlight } from "../lib/highlight";
 
 type Props = CollectionEntry<"blog">["data"] & {
@@ -74,30 +75,27 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 				>
 					<div class="flex flex-wrap gap-2">
 						{
-							tagMetadata.map((tag: any) => {
-								const Chip = tag.registered ? "a" : "span";
-								return (
-									<Chip
-										href={
-											tag.registered
-												? `/tags/${tag.label
-														.toLowerCase()
-														.replace(/\s+/g, "-")}`
-												: undefined
-										}
-										class="px-2 py-0.5 font-black uppercase tracking-wider transition-opacity hover:opacity-80 border border-black/10"
-										style={`background-color: ${tag.color}; color: ${tag.textColor};`}
-									>
-										{tag.label}
-									</Chip>
-								);
-							})
+							tagMetadata.map((tag: any) => (
+								<TagChip
+									label={tag.label}
+									color={tag.color}
+									textColor={tag.textColor}
+									variant="solid"
+									href={
+										tag.registered
+											? `/tags/${tag.label
+													.toLowerCase()
+													.replace(/\s+/g, "-")}`
+											: undefined
+									}
+								/>
+							))
 						}
 						{
 							series && (
 								<a
 									href={`/series/${series.slug}/`}
-									class="px-2 py-0.5 font-black uppercase tracking-wider bg-live-red-fill text-white transition-opacity hover:opacity-80 border border-black/10"
+									class="m3-label-medium uppercase tracking-wider px-2 py-1 bg-signal-fill text-white transition-opacity hover:opacity-80"
 								>
 									Series · Part {series.currentOrder}
 								</a>
@@ -109,7 +107,7 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 					<span><FormattedDate date={pubDate} /></span>
 					{
 						updatedDate && (
-							<span class="italic text-live-red-text">
+							<span class="italic text-signal-text">
 								Updated <FormattedDate date={updatedDate} />
 							</span>
 						)
@@ -121,7 +119,7 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 					<h1 class="m3-display-large text-black dark:text-white">
 						{titleParts.before}
 						{titleParts.marked && (
-							<span class="mark mark-yellow">{titleParts.match}</span>
+							<span class="mark mark-signal">{titleParts.match}</span>
 						)}
 						{titleParts.after}
 					</h1>
@@ -134,13 +132,13 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 					{
 						hotTakes.length > 0 && (
 							<div class="news-signal-highlight">
-								<h2 class="m3-label-medium mb-3 uppercase tracking-[0.3em] text-live-red-text font-black">
+								<h2 class="m3-label-medium mb-3 uppercase tracking-[0.3em] text-signal-text font-black">
 									Signal Highlights
 								</h2>
 								<ul class="list-none space-y-2.5">
 									{hotTakes.map((take: string) => (
 										<li class="m3-body-large flex gap-4 items-start">
-											<span class="text-live-red-text text-xl leading-none mt-0.5">
+											<span class="text-signal-text text-xl leading-none mt-0.5">
 												/
 											</span>
 											<span class="font-medium">
@@ -195,7 +193,7 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 
 				{/* Article Body */}
 				<div
-					class="prose prose-neutral dark:prose-invert max-w-none m3-body-large [&>p]:mb-5 [&>h1]:m3-display-small [&>h1]:mt-16 [&>h1]:mb-6 [&>h2]:m3-headline-medium [&>h2]:mt-14 [&>h2]:mb-4 [&>h2]:border-b-2 [&>h2]:border-black dark:[&>h2]:border-white [&>h2]:pb-1 [&>h3]:m3-headline-small [&>h3]:mt-8 [&>h3]:mb-3 [&>h4]:m3-title-large [&>h4]:mt-6 [&>h4]:mb-2 [&>blockquote]:border-l-4 [&>blockquote]:border-brand-blue [&>blockquote]:bg-gray-50 dark:[&>blockquote]:bg-zinc-950 [&>blockquote]:p-6 [&>blockquote]:italic [&>blockquote]:font-bold [&>blockquote]:text-xl [&>pre]:rounded-none [&>pre]:border [&>pre]:border-black dark:[&>pre]:border-white [&>pre]:p-6 [&>ul]:list-square [&>li]:mb-2 [&>img]:h-auto [&>img]:max-w-full"
+					class="prose prose-neutral dark:prose-invert max-w-none m3-body-large [&>p]:mb-5 [&>h1]:m3-display-small [&>h1]:mt-16 [&>h1]:mb-6 [&>h2]:m3-headline-medium [&>h2]:mt-14 [&>h2]:mb-4 [&>h2]:border-b-2 [&>h2]:border-black dark:[&>h2]:border-white [&>h2]:pb-1 [&>h3]:m3-headline-small [&>h3]:mt-8 [&>h3]:mb-3 [&>h4]:m3-title-large [&>h4]:mt-6 [&>h4]:mb-2 [&>blockquote]:border-l-4 [&>blockquote]:border-signal [&>blockquote]:bg-gray-50 dark:[&>blockquote]:bg-zinc-950 [&>blockquote]:p-6 [&>blockquote]:italic [&>blockquote]:font-bold [&>blockquote]:text-xl [&>pre]:rounded-none [&>pre]:border [&>pre]:border-black dark:[&>pre]:border-white [&>pre]:p-6 [&>ul]:list-square [&>li]:mb-2 [&>img]:h-auto [&>img]:max-w-full"
 				>
 					<slot />
 				</div>
@@ -211,7 +209,7 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 			@reference "../styles/global.css";
 
 			.prose a {
-				@apply text-brand-blue-text font-black underline decoration-2 underline-offset-4 hover:bg-brand-blue-text hover:text-white transition-all;
+				@apply text-signal-text font-black underline decoration-2 underline-offset-4 hover:bg-signal-text hover:text-white transition-all;
 			}
 
 			.prose strong {
@@ -227,7 +225,7 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 				font-size: 0.75em;
 				font-weight: 400;
 				text-decoration: none;
-				color: var(--color-brand-blue);
+				color: var(--color-signal);
 				transition: opacity 0.15s;
 				vertical-align: middle;
 			}

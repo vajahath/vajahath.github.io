@@ -51,10 +51,11 @@ const metadata = TAGS[tagName as TagKey] || {
                     class="m3-label-medium text-black dark:text-white uppercase tracking-widest px-1"
                     >Tag_Archives</span
                 >
-                <h1
-                    class="m3-display-large italic leading-none px-6 py-2 border-2 border-black/10"
-                    style={`background-color: ${metadata.color}; color: ${metadata.textColor};`}
-                >
+                <h1 class="m3-display-large italic leading-none flex items-center gap-4">
+                    <span
+                        class="w-5 h-5 rounded-full shrink-0"
+                        style={`background-color: ${metadata.color};`}
+                    />
                     {tagName}
                 </h1>
             </section>

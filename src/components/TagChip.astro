@@ -1,0 +1,58 @@
+---
+/**
+ * The one place a tag is drawn. This markup used to be copied into five files,
+ * so restyling tags meant five edits and they had already drifted apart.
+ *
+ * `dot` is the listing form: the tag's colour survives as a small dot, the
+ * label stays quiet ink. A row of filled colour blocks was the loudest thing
+ * on any page and carried no more information than this does.
+ * `solid` is the filled form, kept for a tag's own page where the chip *is*
+ * the subject.
+ */
+interface Props {
+	label: string;
+	color: string;
+	textColor?: string;
+	href?: string;
+	variant?: 'dot' | 'solid';
+	class?: string;
+}
+const {
+	label,
+	color,
+	textColor = '#ffffff',
+	href,
+	variant = 'dot',
+	class: className = '',
+} = Astro.props;
+
+const Tag = href ? 'a' : 'span';
+const base = 'm3-label-medium uppercase inline-flex items-center shrink-0';
+---
+
+{
+	variant === 'solid' ? (
+		<Tag
+			href={href}
+			class:list={[base, 'px-2 py-1 tracking-wider transition-opacity hover:opacity-80', className]}
+			style={`background-color: ${color}; color: ${textColor};`}
+		>
+			{label}
+		</Tag>
+	) : (
+		<Tag
+			href={href}
+			class:list={[
+				base,
+				'gap-1.5 tracking-[0.14em] text-black/70 dark:text-white/70 transition-colors hover:text-black dark:hover:text-white',
+				className,
+			]}
+		>
+			<span
+				class="w-[7px] h-[7px] rounded-full shrink-0"
+				style={`background-color: ${color};`}
+			/>
+			{label}
+		</Tag>
+	)
+}

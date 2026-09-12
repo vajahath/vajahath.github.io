@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import NewsItem from "../components/NewsItem.astro";
+import SignalMark from "../components/SignalMark.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 const RECENT_POSTS_LIMIT = 20;
@@ -51,7 +52,7 @@ const years = Object.keys(groupedPosts)
 					Archives
 				</h1>
 				<p
-					class="text-sm font-bold uppercase tracking-[0.4em] mt-4 text-black dark:text-white"
+					class="text-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.4em] mt-4 text-black dark:text-white"
 				>
 					Categorized_Signals_Repository
 				</p>
@@ -63,7 +64,7 @@ const years = Object.keys(groupedPosts)
 					<h2
 						class="m3-label-medium mb-8 flex items-center gap-2 uppercase tracking-[0.2em]"
 					>
-						<span class="w-3 h-3 bg-black dark:bg-white"></span>
+						<SignalMark strength={3} />
 						Recent Signals
 					</h2>
 					<div class="flex flex-col">
@@ -80,7 +81,7 @@ const years = Object.keys(groupedPosts)
 					<h2
 						class="m3-label-medium mb-8 flex items-center gap-2 uppercase tracking-[0.2em]"
 					>
-						<span class="w-3 h-3 bg-live-red"></span>
+						<SignalMark strength={1} class="text-signal-text" />
 						Deep Archive
 					</h2>
 					<div class="space-y-10">
@@ -103,7 +104,7 @@ const years = Object.keys(groupedPosts)
 											)
 											.map((month) => (
 												<div class="space-y-3">
-													<h4 class="m3-label-medium text-live-red-text tracking-widest">
+													<h4 class="m3-label-medium text-signal-text tracking-widest">
 														{month.toUpperCase()}
 													</h4>
 													<ul class="space-y-2 border-l border-black/5 dark:border-white/5 pl-4">
@@ -113,7 +114,7 @@ const years = Object.keys(groupedPosts)
 															<li>
 																<a
 																	href={`/blog/${post.id}/`}
-																	class="m3-body-large text-base hover:text-brand-blue-text hover:underline leading-tight block"
+																	class="m3-body-large text-base hover:text-signal-text hover:underline leading-tight block"
 																>
 																	{
 																		post

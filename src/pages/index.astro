@@ -5,6 +5,7 @@ import { getVisiblePosts } from "../lib/content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import SignalMark from "../components/SignalMark.astro";
 import NewsItem from "../components/NewsItem.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
@@ -94,7 +95,10 @@ const hotTakesList = posts
 				spotlightPost && (
 					<section class="pb-8 mb-8">
 						<NewsItem post={spotlightPost} type="hero" />
-						<hr class="mark-rule mark-green mt-10" />
+						<div class="flex items-center mt-12" aria-hidden="true">
+							<span class="h-[3px] w-20 bg-signal"></span>
+							<span class="h-px flex-1 bg-black/12 dark:bg-white/15"></span>
+						</div>
 					</section>
 				)
 			}
@@ -115,8 +119,8 @@ const hotTakesList = posts
 					<h2
 						class="m3-label-medium text-black dark:text-white mb-6 flex items-center gap-2 uppercase tracking-[0.2em]"
 					>
-						<span class="w-3 h-3 bg-black dark:bg-white"></span>
-						<span class="mark mark-green">Latest Signals</span>
+						<SignalMark strength={3} />
+						Latest Signals
 					</h2>
 					<div class="flex flex-col">
 						{
@@ -141,20 +145,19 @@ const hotTakesList = posts
 						<h3
 							class="m3-label-medium mb-6 flex items-center gap-2 uppercase tracking-[0.2em]"
 						>
-							<span class="w-2.5 h-2.5 bg-live-red rounded-full"
-							></span>
+							<SignalMark strength={1} class="text-signal-text" />
 							Hot Takes
 						</h3>
 						<div class="flex flex-col gap-8">
 							{
 								hotTakesList.map((take) => (
-									<div class="group relative">
-										<p class="m3-title-large text-xl italic leading-tight mb-2">
-											<span class="mark mark-pink">{take.text}</span>
+									<div class="group relative border-l-2 border-black/15 dark:border-white/20 pl-4 transition-colors hover:border-signal">
+										<p class="m3-title-large italic leading-snug mb-2.5">
+											{take.text}
 										</p>
 										<a
 											href={`/blog/${take.postId}/`}
-											class="m3-label-medium text-live-red-text hover:underline uppercase tracking-widest text-[10px]"
+											class="m3-label-medium text-signal-text hover:underline uppercase tracking-widest text-[10px]"
 										>
 											Source Signal →
 										</a>
@@ -167,7 +170,7 @@ const hotTakesList = posts
 					<!-- Focus Section -->
 					{
 						focusPost && (
-							<section class="bg-gray-50 dark:bg-zinc-950 border-2 border-black dark:border-white overflow-hidden">
+							<section class="bg-gray-50 dark:bg-zinc-950 border border-black/12 dark:border-white/15 overflow-hidden">
 								{focusPost.data.heroImage && (
 									focusHasDims ? (
 										<div
@@ -197,8 +200,9 @@ const hotTakesList = posts
 									)
 								)}
 								<div class="p-8">
-									<h3 class="m3-label-medium mb-6 uppercase tracking-[0.2em] text-black dark:text-white">
-										<span class="mark mark-cyan">Focus Analysis</span>
+									<h3 class="m3-label-medium mb-6 uppercase tracking-[0.25em] text-signal-text flex items-center gap-2.5">
+										<SignalMark strength={2} />
+										Focus Analysis
 									</h3>
 									<p class="m3-focus-title italic mb-4 leading-tight text-2xl font-black">
 										{focusTitle}
@@ -209,7 +213,7 @@ const hotTakesList = posts
 									</p>
 									<a
 										href={`/blog/${focusPost.id}/`}
-										class="m3-touch-target inline-flex items-center m3-label-medium text-black dark:text-white hover:underline px-6 py-2 border-2 border-black dark:border-white transition-all uppercase tracking-widest"
+										class="m3-touch-target inline-flex items-center m3-label-medium px-6 py-2 border border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors uppercase tracking-widest"
 									>
 										Read Full Analysis →
 									</a>

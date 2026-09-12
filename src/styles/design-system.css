@@ -3,53 +3,48 @@
   Typography: Roboto Flex (Full Variable)
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,75..125,100..1000,96,468,79,-203,738,514,712&display=swap');
 
 :root {
-    /* --- COLOR TOKENS (System Roles) --- */
+    /* --- COLOR TOKENS (System Roles) ---
+       Ink on paper plus one accent. Pure #000 on #fff is harsh and reads as an
+       unfinished template; warming both ends and spending the only saturated
+       colour on a single signal orange is what makes the page look composed.
+       The blue/red split the site used to run was two accents competing. */
 
-    /* Primary: High-energy Brand Color */
-    --md-sys-color-primary: #3b82f6;
+    /* Accent: signal orange. -text is the AA-safe step for small text on
+       paper, -fill the step that can carry white text. */
+    --md-sys-color-primary: #E2551D;
     --md-sys-color-on-primary: #ffffff;
-    --md-sys-color-primary-container: #dbeafe;
-    --md-sys-color-on-primary-container: #1e3a8a;
+    --md-sys-color-primary-container: #FBE6DA;
+    --md-sys-color-on-primary-container: #6B2408;
+    --md-sys-color-primary-text: #B23F10;
 
-    /* Secondary: Medium Emphasis / Content Groups */
-    --md-sys-color-secondary: #71717a;
+    --md-sys-color-secondary: #6D6459;
     --md-sys-color-on-secondary: #ffffff;
-    --md-sys-color-secondary-container: #f4f4f5;
-    --md-sys-color-on-secondary-container: #18181b;
+    --md-sys-color-secondary-container: #F2EDE4;
+    --md-sys-color-on-secondary-container: #17140F;
 
-    /* Tertiary: Accents / Highlights */
-    --md-sys-color-tertiary: #10b981;
-    /* Emerald-500 equivalent */
+    --md-sys-color-tertiary: #4E7A5C;
     --md-sys-color-on-tertiary: #ffffff;
-    --md-sys-color-tertiary-container: #dcfce7;
-    --md-sys-color-on-tertiary-container: #064e3b;
+    --md-sys-color-tertiary-container: #E2EDE4;
+    --md-sys-color-on-tertiary-container: #22402D;
 
-    /* Error: Live/Breaking Status */
-    --md-sys-color-error: #ef4444;
-    /* Bright error/primary are fill shades: they miss WCAG AA as small text on
-       a light surface (3.8:1 / 3.7:1). These darker steps are for text and for
-       fills that carry white text. On a dark surface the bright shades already
-       clear AA, so the dark theme maps these straight back. */
-    --md-sys-color-error-text: #dc2626;
-    --md-sys-color-primary-text: #1d4ed8;
-    /* Fills that carry white text; theme-independent, since the white sits on
-       the fill rather than on the page surface. */
-    --md-sys-color-error-fill: #dc2626;
+    /* "Live" is the same accent. One saturated colour, used sparingly, reads
+       as deliberate; two read as decoration. */
+    --md-sys-color-error: #E2551D;
+    --md-sys-color-error-text: #B23F10;
+    --md-sys-color-error-fill: #B23F10;
     --md-sys-color-on-error: #ffffff;
-    --md-sys-color-error-container: #fee2e2;
-    --md-sys-color-on-error-container: #991b1b;
+    --md-sys-color-error-container: #FBE6DA;
+    --md-sys-color-on-error-container: #6B2408;
 
-    /* Neutral: Surface and Background */
-    --md-sys-color-surface: #ffffff;
-    --md-sys-color-on-surface: #000000;
-    --md-sys-color-surface-variant: #f4f4f5;
-    --md-sys-color-on-surface-variant: #3f3f46;
-    --md-sys-color-outline: #000000;
-    /* High contrast outline for news vibe */
-    --md-sys-color-outline-variant: #e5e7eb;
+    --md-sys-color-surface: #FBF9F5;
+    --md-sys-color-on-surface: #17140F;
+    --md-sys-color-surface-variant: #F2EDE4;
+    --md-sys-color-on-surface-variant: #6D6459;
+    --md-sys-color-outline: #17140F;
+    --md-sys-color-outline-variant: #E4DDD1;
 
     /* --- TYPOGRAPHY TOKENS --- */
     --md-sys-typescale-font-family-flex: "Roboto Flex", sans-serif;
@@ -58,81 +53,81 @@
     --md-sys-typescale-font-family: var(--md-sys-typescale-font-family-flex);
 
     /* Variation Settings Base (Punchy News Aesthetic) */
-    --md-sys-font-variation-base: "slnt" 0, "wdth" 100, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
+    --md-sys-font-variation-base: "slnt" 0, "GRAD" 0, "XOPQ" 96, "XTRA" 468, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
 
     /* Display Large (Hero Headlines) */
-    --md-sys-typescale-display-large-size: 3.5rem;
+    --md-sys-typescale-display-large-size: clamp(2.6rem, 8.5vw, 4rem);
     --md-sys-typescale-display-large-line-height: 1.05;
     --md-sys-typescale-display-large-weight: 800;
-    --md-sys-typescale-display-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 144;
+    --md-sys-typescale-display-large-variation: var(--md-sys-font-variation-base), "wght" 900, "wdth" 84, "opsz" 144;
 
     /* Display Medium */
-    --md-sys-typescale-display-medium-size: 2.75rem;
+    --md-sys-typescale-display-medium-size: clamp(2.1rem, 6.5vw, 3rem);
     --md-sys-typescale-display-medium-line-height: 1.1;
     --md-sys-typescale-display-medium-weight: 800;
-    --md-sys-typescale-display-medium-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 72;
+    --md-sys-typescale-display-medium-variation: var(--md-sys-font-variation-base), "wght" 900, "wdth" 86, "opsz" 72;
 
     /* Display Small */
-    --md-sys-typescale-display-small-size: 2.25rem;
+    --md-sys-typescale-display-small-size: clamp(1.8rem, 5vw, 2.35rem);
     --md-sys-typescale-display-small-line-height: 1.1;
     --md-sys-typescale-display-small-weight: 800;
-    --md-sys-typescale-display-small-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 48;
+    --md-sys-typescale-display-small-variation: var(--md-sys-font-variation-base), "wght" 880, "wdth" 88, "opsz" 48;
 
     /* Headline Large (Primary Section Titles) */
-    --md-sys-typescale-headline-large-size: 2rem;
+    --md-sys-typescale-headline-large-size: clamp(1.65rem, 4.4vw, 2.15rem);
     --md-sys-typescale-headline-large-line-height: 1.2;
     --md-sys-typescale-headline-large-weight: 800;
-    --md-sys-typescale-headline-large-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 32;
+    --md-sys-typescale-headline-large-variation: var(--md-sys-font-variation-base), "wght" 860, "wdth" 90, "opsz" 32;
 
     /* Headline Medium (Sub-sections) */
-    --md-sys-typescale-headline-medium-size: 1.75rem;
+    --md-sys-typescale-headline-medium-size: clamp(1.45rem, 3.6vw, 1.8rem);
     --md-sys-typescale-headline-medium-line-height: 1.15;
     --md-sys-typescale-headline-medium-weight: 700;
-    --md-sys-typescale-headline-medium-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 32;
+    --md-sys-typescale-headline-medium-variation: var(--md-sys-font-variation-base), "wght" 780, "wdth" 92, "opsz" 32;
 
     /* Headline Small (Minor Titles) */
-    --md-sys-typescale-headline-small-size: 1.5rem;
+    --md-sys-typescale-headline-small-size: clamp(1.3rem, 3vw, 1.55rem);
     --md-sys-typescale-headline-small-line-height: 1.2;
     --md-sys-typescale-headline-small-weight: 700;
-    --md-sys-typescale-headline-small-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 24;
+    --md-sys-typescale-headline-small-variation: var(--md-sys-font-variation-base), "wght" 760, "wdth" 92, "opsz" 24;
 
 
     /* Title Large (Section Headers) */
     --md-sys-typescale-title-large-size: 1.375rem;
     --md-sys-typescale-title-large-line-height: 1.25;
     --md-sys-typescale-title-large-weight: 700;
-    --md-sys-typescale-title-large-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 32;
+    --md-sys-typescale-title-large-variation: var(--md-sys-font-variation-base), "wght" 780, "wdth" 92, "opsz" 32;
 
     /* Focus Title (Special Callouts) */
     --md-sys-typescale-focus-title-size: 1.75rem;
     --md-sys-typescale-focus-title-line-height: 1.1;
     --md-sys-typescale-focus-title-weight: 800;
-    --md-sys-typescale-focus-title-variation: var(--md-sys-font-variation-base), "wght" 800, "opsz" 48;
+    --md-sys-typescale-focus-title-variation: var(--md-sys-font-variation-base), "wght" 880, "wdth" 88, "opsz" 48;
 
     /* Body Large (Main Text) */
     --md-sys-typescale-body-large-size: 1.125rem;
     /* 18px for news readability */
     --md-sys-typescale-body-large-line-height: 1.6;
     --md-sys-typescale-body-large-weight: 460;
-    --md-sys-typescale-body-large-variation: var(--md-sys-font-variation-base), "wght" 460, "opsz" 12;
+    --md-sys-typescale-body-large-variation: var(--md-sys-font-variation-base), "wght" 440, "wdth" 100, "opsz" 12;
 
     /* Label Large */
     --md-sys-typescale-label-large-size: 0.875rem;
     --md-sys-typescale-label-large-line-height: 1.25;
     --md-sys-typescale-label-large-weight: 700;
-    --md-sys-typescale-label-large-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 12;
+    --md-sys-typescale-label-large-variation: var(--md-sys-font-variation-base), "wght" 620, "wdth" 115, "opsz" 12;
 
     /* Label Medium (Metadata) */
     --md-sys-typescale-label-medium-size: 0.75rem;
     --md-sys-typescale-label-medium-line-height: 1;
     --md-sys-typescale-label-medium-weight: 700;
-    --md-sys-typescale-label-medium-variation: var(--md-sys-font-variation-base), "wght" 700, "opsz" 10;
+    --md-sys-typescale-label-medium-variation: var(--md-sys-font-variation-base), "wght" 620, "wdth" 115, "opsz" 10;
 
     /* Lede (Article Description) */
-    --md-sys-typescale-lede-size: 1.75rem;
+    --md-sys-typescale-lede-size: clamp(1.3rem, 3.4vw, 1.7rem);
     --md-sys-typescale-lede-line-height: 1.3;
     --md-sys-typescale-lede-weight: 450;
-    --md-sys-typescale-lede-variation: var(--md-sys-font-variation-base), "wght" 450, "opsz" 28;
+    --md-sys-typescale-lede-variation: var(--md-sys-font-variation-base), "wght" 400, "wdth" 100, "opsz" 28;
 
     /* --- SHAPE & ELEVATION --- */
     --md-sys-shape-corner-none: 0;
@@ -150,38 +145,10 @@
        behind a two-word mark and a six-word one. Light inks are tuned for
        black text, the -dark set for white text; both clear WCAG AA at full
        double-pass opacity. */
-    --mark-swipe-yellow: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23ffd633%27 fill-opacity%3D%270.8%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23ffd633%27 fill-opacity%3D%270.55%27%2F%3E%3C%2Fsvg%3E");
-    --mark-swipe-pink: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23ff5fa8%27 fill-opacity%3D%270.72%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23ff5fa8%27 fill-opacity%3D%270.5%27%2F%3E%3C%2Fsvg%3E");
-    --mark-swipe-cyan: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%232cc4ec%27 fill-opacity%3D%270.72%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%232cc4ec%27 fill-opacity%3D%270.5%27%2F%3E%3C%2Fsvg%3E");
-    --mark-swipe-green: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%2345d977%27 fill-opacity%3D%270.72%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%2345d977%27 fill-opacity%3D%270.5%27%2F%3E%3C%2Fsvg%3E");
-    --mark-swipe-yellow-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23b08800%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23b08800%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
-    --mark-swipe-pink-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23c43f7a%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23c43f7a%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
-    --mark-swipe-cyan-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%230f7f9e%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%230f7f9e%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
-    --mark-swipe-green-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%232f8f4f%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%232f8f4f%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
-    --mark-underline-yellow: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23ffd633%27 fill-opacity%3D%270.8%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23ffd633%27 fill-opacity%3D%270.55%27%2F%3E%3C%2Fsvg%3E");
-    --mark-underline-pink: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23ff5fa8%27 fill-opacity%3D%270.72%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23ff5fa8%27 fill-opacity%3D%270.5%27%2F%3E%3C%2Fsvg%3E");
-    --mark-underline-cyan: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%232cc4ec%27 fill-opacity%3D%270.72%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%232cc4ec%27 fill-opacity%3D%270.5%27%2F%3E%3C%2Fsvg%3E");
-    --mark-underline-green: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%2345d977%27 fill-opacity%3D%270.72%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%2345d977%27 fill-opacity%3D%270.5%27%2F%3E%3C%2Fsvg%3E");
-    --mark-underline-yellow-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23b08800%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23b08800%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
-    --mark-underline-pink-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23c43f7a%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23c43f7a%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
-    --mark-underline-cyan-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%230f7f9e%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%230f7f9e%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
-    --mark-underline-green-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%232f8f4f%27 fill-opacity%3D%270.5%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%232f8f4f%27 fill-opacity%3D%270.45%27%2F%3E%3C%2Fsvg%3E");
-    --mark-circle-yellow: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%23d9a400%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%23d9a400%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-circle-pink: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%23e0357f%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%23e0357f%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-circle-cyan: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%231195bb%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%231195bb%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-circle-green: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%231f9d56%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%231f9d56%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-circle-yellow-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%23ffd633%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%23ffd633%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-circle-pink-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%23ff5fa8%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%23ff5fa8%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-circle-cyan-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%232cc4ec%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%232cc4ec%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-circle-green-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 120 60%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M97%2C13 C79%2C4 41%2C3 23%2C14 C5%2C24 8%2C43 29%2C51 C50%2C59 88%2C57 104%2C45 C116%2C36 115%2C20 99%2C13%27 fill%3D%27none%27 stroke%3D%27%2345d977%27 stroke-width%3D%273.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M101%2C17 C85%2C8 45%2C6 26%2C17 C11%2C26 13%2C42 31%2C49%27 fill%3D%27none%27 stroke%3D%27%2345d977%27 stroke-width%3D%272.1%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-scribble-yellow: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%23d9a400%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%23d9a400%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-scribble-pink: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%23e0357f%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%23e0357f%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-scribble-cyan: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%231195bb%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%231195bb%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-scribble-green: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%231f9d56%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%231f9d56%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-scribble-yellow-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%23ffd633%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%23ffd633%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-scribble-pink-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%23ff5fa8%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%23ff5fa8%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-scribble-cyan-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%232cc4ec%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%232cc4ec%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
-    --mark-scribble-green-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 400 12%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M2%2C7 C62%2C3 118%2C9 182%2C5 C242%2C1 302%2C9 398%2C4%27 fill%3D%27none%27 stroke%3D%27%2345d977%27 stroke-width%3D%272.6%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.95%27%2F%3E%3Cpath d%3D%27M9%2C9 C70%2C6 132%2C11 192%2C7 C252%2C3 322%2C9 393%2C7%27 fill%3D%27none%27 stroke%3D%27%2345d977%27 stroke-width%3D%271.4%27 stroke-linecap%3D%27round%27 stroke-opacity%3D%270.6%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-signal: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-swipe-signal-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 44%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M3%2C38 C22%2C33 48%2C39 74%2C34 C102%2C29 130%2C37 160%2C31 C176%2C28 188%2C33 197%2C26 L191%2C6 C176%2C10 160%2C4 138%2C8 C110%2C13 86%2C3 58%2C8 C36%2C12 20%2C5 7%2C10 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M9%2C33 C32%2C29 60%2C34 88%2C30 C116%2C26 148%2C32 192%2C25 L188%2C11 C158%2C15 128%2C8 98%2C12 C68%2C16 34%2C10 12%2C15 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-signal: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%23F2812E%27 fill-opacity%3D%270.38%27%2F%3E%3C%2Fsvg%3E");
+    --mark-underline-signal-dark: url("data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 200 20%27 preserveAspectRatio%3D%27none%27%3E%3Cpath d%3D%27M1%2C17 C26%2C13 58%2C18 90%2C15 C122%2C12 158%2C17 199%2C11 L195%2C3 C156%2C7 120%2C2 88%2C5 C56%2C8 24%2C3 3%2C7 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.6%27%2F%3E%3Cpath d%3D%27M12%2C15 C42%2C12 72%2C16 106%2C13 C142%2C10 172%2C14 194%2C9 L191%2C5 C168%2C8 138%2C4 106%2C7 C74%2C10 42%2C6 14%2C9 Z%27 fill%3D%27%239C4413%27 fill-opacity%3D%270.4%27%2F%3E%3C%2Fsvg%3E");
 
     /* Touch Target Minimum */
     --md-sys-accessibility-touch-target: 48px;
@@ -189,45 +156,38 @@
 
 
 .dark {
-    --md-sys-color-error-text: var(--md-sys-color-error);
-    --md-sys-color-primary-text: var(--md-sys-color-primary);
-    /* --md-sys-color-error-fill deliberately not remapped: white-on-red needs
-       the dark step in either theme. */
+    --md-sys-color-primary: #FF7A45;
+    --md-sys-color-primary-text: #FF9163;
+    --md-sys-color-on-primary: #17140F;
+    --md-sys-color-primary-container: #6B2408;
+    --md-sys-color-on-primary-container: #FBE6DA;
 
-    --md-sys-color-primary: #60a5fa;
-    --md-sys-color-on-primary: #000000;
-    --md-sys-color-primary-container: #1e3a8a;
-    --md-sys-color-on-primary-container: #dbeafe;
+    --md-sys-color-error: #FF7A45;
+    --md-sys-color-error-text: #FF9163;
+    /* -error-fill deliberately not remapped: white-on-accent needs the dark
+       step in either theme. */
 
-    --md-sys-color-surface: #000000;
-    --md-sys-color-on-surface: #ffffff;
-    --md-sys-color-surface-variant: #18181b;
-    --md-sys-color-on-surface-variant: #d1d5db;
-    --md-sys-color-outline: #ffffff;
-    --md-sys-color-outline-variant: #3f3f46;
+    --md-sys-color-tertiary: #7FB08F;
 
-    /* Marker inks swap wholesale: a translucent pastel that carries black
-       text is unreadable under white text. */
-    --mark-swipe-yellow: var(--mark-swipe-yellow-dark);
-    --mark-swipe-pink: var(--mark-swipe-pink-dark);
-    --mark-swipe-cyan: var(--mark-swipe-cyan-dark);
-    --mark-swipe-green: var(--mark-swipe-green-dark);
-    --mark-underline-yellow: var(--mark-underline-yellow-dark);
-    --mark-underline-pink: var(--mark-underline-pink-dark);
-    --mark-underline-cyan: var(--mark-underline-cyan-dark);
-    --mark-underline-green: var(--mark-underline-green-dark);
-    --mark-circle-yellow: var(--mark-circle-yellow-dark);
-    --mark-circle-pink: var(--mark-circle-pink-dark);
-    --mark-circle-cyan: var(--mark-circle-cyan-dark);
-    --mark-circle-green: var(--mark-circle-green-dark);
-    --mark-scribble-yellow: var(--mark-scribble-yellow-dark);
-    --mark-scribble-pink: var(--mark-scribble-pink-dark);
-    --mark-scribble-cyan: var(--mark-scribble-cyan-dark);
-    --mark-scribble-green: var(--mark-scribble-green-dark);
+    --md-sys-color-surface: #17140F;
+    --md-sys-color-on-surface: #FBF9F5;
+    --md-sys-color-surface-variant: #221E18;
+    --md-sys-color-on-surface-variant: #A39A8D;
+    --md-sys-color-outline: #FBF9F5;
+    --md-sys-color-outline-variant: #332E27;
 
     /* Reduce weight slightly for dark mode to prevent "glow" bloom */
     --md-sys-typescale-body-large-weight: 460;
-    --md-sys-typescale-body-large-variation: var(--md-sys-font-variation-base), "wght" 460, "opsz" 12;
+    --md-sys-typescale-body-large-variation: var(--md-sys-font-variation-base), "wght" 440, "wdth" 100, "opsz" 12;
+
+    /* Marker ink swaps wholesale: a translucent wash that carries black text
+       is unreadable under white text. */
+    --mark-swipe-signal: var(--mark-swipe-signal-dark);
+    --mark-underline-signal: var(--mark-underline-signal-dark);
+
+    /* Reduce weight slightly for dark mode to prevent "glow" bloom */
+    --md-sys-typescale-body-large-weight: 460;
+    --md-sys-typescale-body-large-variation: var(--md-sys-font-variation-base), "wght" 440, "wdth" 100, "opsz" 12;
 }
 
 
@@ -360,7 +320,7 @@
 }
 
 @utility news-signal-highlight {
-    @apply p-5 pr-8 bg-zinc-50 dark:bg-zinc-900/50 border-l-4 border-live-red relative overflow-hidden;
+    @apply p-5 pr-8 bg-zinc-50 dark:bg-zinc-900/50 border-l-4 border-signal relative overflow-hidden;
 
     &::before {
         content: "SIGNAL";
@@ -368,10 +328,11 @@
     }
 }
 
-/* Marker utilities. Pair a shape with an ink: `class="mark mark-yellow"` or
-   `class="mark-under mark-cyan"`. The ink utility publishes both shapes so the
-   two can be combined in either order. Negative inline margin pulls the
-   overshoot back so marked text still sits on the surrounding rhythm. */
+/* Marker utilities. Pair a shape with the ink: `class="mark mark-signal"` or
+   `class="mark-under mark-signal"`. One ink only — a highlighter in four
+   colours was decoration; in the accent alone it is emphasis. Negative inline
+   margin pulls the overshoot back so marked text still sits on the
+   surrounding rhythm. */
 
 @utility mark {
     display: inline;
@@ -399,91 +360,9 @@
     padding-bottom: 0.12em;
 }
 
-@utility mark-yellow {
-    --mark-fill: var(--mark-swipe-yellow);
-    --mark-fill-under: var(--mark-underline-yellow);
-    --mark-fill-circle: var(--mark-circle-yellow);
-    --mark-fill-scribble: var(--mark-scribble-yellow);
-}
-
-@utility mark-pink {
-    --mark-fill: var(--mark-swipe-pink);
-    --mark-fill-under: var(--mark-underline-pink);
-    --mark-fill-circle: var(--mark-circle-pink);
-    --mark-fill-scribble: var(--mark-scribble-pink);
-}
-
-@utility mark-cyan {
-    --mark-fill: var(--mark-swipe-cyan);
-    --mark-fill-under: var(--mark-underline-cyan);
-    --mark-fill-circle: var(--mark-circle-cyan);
-    --mark-fill-scribble: var(--mark-scribble-cyan);
-}
-
-@utility mark-green {
-    --mark-fill: var(--mark-swipe-green);
-    --mark-fill-under: var(--mark-underline-green);
-    --mark-fill-circle: var(--mark-circle-green);
-    --mark-fill-scribble: var(--mark-scribble-green);
-}
-
-/* Pen annotations rather than highlighter. `mark-circle` rings whatever it
-   wraps, so it needs a block that can carry padding; `mark-rule` replaces a
-   border on an empty element with a drawn line. */
-
-@utility mark-circle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-image: var(--mark-fill-circle);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
-    padding: 0.35em 0.7em;
-}
-
-@utility mark-rule {
-    display: block;
-    width: 100%;
-    height: 0.75rem;
-    border: 0;
-    background-image: var(--mark-fill-scribble);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
-}
-
-/* Images whose intrinsic size drives the layout (article heroes, markdown
-   figures) must never run taller than the viewport, or the reader has to
-   scroll to see one picture. Width stays auto so the aspect ratio holds. */
-/* Masthead byline. Roboto Flex ignores font-weight once
-   font-variation-settings is set, so the emphasis has to come from the wght
-   axis; XTRA widens the counters so the name reads as a small wordmark. */
-@utility byline-name {
-    font-weight: 900;
-    font-variation-settings: var(--md-sys-font-variation-base), "wght" 900,
-        "XTRA" 500, "opsz" 10;
-    letter-spacing: 0.16em;
-    color: var(--md-sys-color-primary-text);
-}
-
-@utility byline-kicker {
-    font-variation-settings: var(--md-sys-font-variation-base), "wght" 500,
-        "opsz" 10;
-    color: var(--md-sys-color-on-surface-variant);
-}
-
-@utility media-cap {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 75vh;
-    margin-inline: auto;
-    object-fit: contain;
-    /* Outlined on the page ground rather than sat on a grey mat: an untreated
-       grey field reads as an image that failed to fill its box. */
-    border: 2px solid var(--md-sys-color-outline);
+@utility mark-signal {
+    --mark-fill: var(--mark-swipe-signal);
+    --mark-fill-under: var(--mark-underline-signal);
 }
 
 @utility m3-touch-target {

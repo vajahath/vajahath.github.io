@@ -36,7 +36,7 @@ import SiteByline from './SiteByline.astro';
 		class="flex-1 flex items-center gap-4 px-4 py-2 overflow-hidden border-r border-gray-800"
 	>
 		<span
-			class="m3-label-medium bg-live-red-fill px-1.5 py-0.5 shrink-0 text-white font-black"
+			class="m3-label-medium bg-signal-fill px-1.5 py-0.5 shrink-0 text-white font-black"
 		>
 			{">>>"}
 		</span>
@@ -47,7 +47,7 @@ import SiteByline from './SiteByline.astro';
 				href={randomHotTake.postId
 					? `/blog/${randomHotTake.postId}/`
 					: "#"}
-				class="flex items-center gap-4 max-w-full opacity-0 hover:text-live-red-text transition-colors animate-ticker-entry"
+				class="flex items-center gap-4 max-w-full opacity-0 hover:text-signal-text transition-colors animate-ticker-entry"
 			>
 				<span class="truncate">{randomHotTake.text}</span>
 				<span
@@ -68,8 +68,8 @@ import SiteByline from './SiteByline.astro';
 {/* Main Header */}
 <header
 	class:list={[
-		"max-w-7xl mx-auto px-4 border-b-2 border-black dark:border-white",
-		isHome ? "pt-10 pb-6" : "py-4",
+		"max-w-7xl mx-auto px-4 border-b border-black/15 dark:border-white/20",
+		isHome ? "pt-6 pb-5 md:pt-10 md:pb-6" : "py-4",
 	]}
 >
 	<div class="flex flex-col gap-2">
@@ -83,7 +83,7 @@ import SiteByline from './SiteByline.astro';
 						isHome ? "m3-display-large" : "m3-headline-large",
 					]}
 					style={isHome
-						? "font-size: clamp(3.2rem, 9vw, 5.5rem);"
+						? "font-size: clamp(2.5rem, 11.5vw, 5.5rem);"
 						: ""}
 				>
 					{SITE_TITLE}
@@ -97,7 +97,7 @@ import SiteByline from './SiteByline.astro';
 			}
 
 			<nav
-				class="flex flex-wrap gap-x-6 gap-y-2 m3-label-large text-black dark:text-white md:pb-1"
+				class="flex flex-wrap gap-x-5 gap-y-2 m3-label-large text-black/70 dark:text-white/70 md:pb-1"
 			>
 				<HeaderLink href="/tags/devlog">DEVLOG</HeaderLink>
 				<HeaderLink href="/tags/design">DESIGN</HeaderLink>

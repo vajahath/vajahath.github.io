@@ -44,7 +44,7 @@ const seriesWithCount = await Promise.all(
                     Series
                 </h1>
                 <p
-                    class="text-sm font-bold uppercase tracking-[0.4em] mt-4 text-black dark:text-white"
+                    class="text-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.4em] mt-4 text-black dark:text-white"
                 >
                     Chained_Signal_Narratives
                 </p>
@@ -55,7 +55,7 @@ const seriesWithCount = await Promise.all(
                     seriesWithCount.map((series) => (
                         <a
                             href={`/series/${series.id}/`}
-                            class="group border-2 border-black dark:border-white p-6 hover:bg-brand-blue/5 transition-colors flex flex-col gap-6"
+                            class="group border-2 border-black dark:border-white p-6 hover:bg-signal/5 transition-colors flex flex-col gap-6"
                         >
                             {series.data.coverImage && (
                                 <div class="aspect-video overflow-hidden border border-black/10 dark:border-white/10">
@@ -71,17 +71,17 @@ const seriesWithCount = await Promise.all(
                             )}
                             <div class="flex flex-col gap-3">
                                 <div class="flex justify-between items-baseline">
-                                    <h2 class="m3-headline-large group-hover:text-brand-blue-text group-hover:underline decoration-4 underline-offset-4">
+                                    <h2 class="m3-headline-large group-hover:text-signal-text group-hover:underline decoration-4 underline-offset-4">
                                         {series.data.title}
                                     </h2>
-                                    <span class="m3-label-medium text-live-red-text font-black">
+                                    <span class="m3-label-medium text-signal-text font-black">
                                         {series.postCount} PARTS
                                     </span>
                                 </div>
                                 <p class="m3-body-large line-clamp-2 italic">
                                     {series.data.description}
                                 </p>
-                                <span class="m3-label-medium mt-2 font-black tracking-widest group-hover:text-brand-blue-text">
+                                <span class="m3-label-medium mt-2 font-black tracking-widest group-hover:text-signal-text">
                                     OPEN NARRATIVE →
                                 </span>
                             </div>

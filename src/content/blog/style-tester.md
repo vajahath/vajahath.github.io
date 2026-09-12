@@ -120,43 +120,28 @@ exercises a different code path from the two local assets above.
 
 ## Marker ink
 
-Four inks, two shapes. Every mark below has to stay legible in both themes and
-survive a line wrap without breaking the grid.
+One ink, two shapes. Both have to stay legible in either theme and survive a
+line wrap without breaking the grid.
 
-### Swipes
-
-<p><span class="mark mark-yellow">Yellow swipe</span> &middot; <span class="mark mark-pink">pink swipe</span> &middot; <span class="mark mark-cyan">cyan swipe</span> &middot; <span class="mark mark-green">green swipe</span></p>
-
-### Underlines
-
-<p><span class="mark-under mark-yellow">Yellow underline</span> &middot; <span class="mark-under mark-pink">pink underline</span> &middot; <span class="mark-under mark-cyan">cyan underline</span> &middot; <span class="mark-under mark-green">green underline</span></p>
-
-### Pen annotations
-
-Circled labels and a drawn rule, as opposed to the highlighter bands above.
-
-<p><span class="mark-circle mark-green">01</span> <span class="mark-circle mark-pink">No. 07</span> <span class="mark-circle mark-cyan">NEW</span> <span class="mark-circle mark-yellow">A</span></p>
-
-<hr class="mark-rule mark-green" />
-<hr class="mark-rule mark-pink" />
+<p><span class="mark mark-signal">Accent swipe</span> &middot; <span class="mark-under mark-signal">accent underline</span></p>
 
 ### Across a line wrap
 
 The next mark is long on purpose, because the failure mode worth catching is a
 highlight that breaks into two disconnected boxes or spills past its column:
-<span class="mark mark-yellow">a marked phrase that has to run past the end of
+<span class="mark mark-signal">a marked phrase that has to run past the end of
 one line and pick itself up cleanly on the next one without leaving a gap or a
 hard edge where the wrap happened</span>. It should read as one continuous
 sweep of the pen.
 
 ### On an uppercase display heading
 
-<p class="m3-display-small"><span class="mark mark-cyan">Uppercase</span> display type</p>
+<p class="m3-display-small"><span class="mark mark-signal">Uppercase</span> display type</p>
 
 ### Bare `<mark>` from markdown
 
 A post can reach the kit with no extra classes: <mark>this phrase uses a plain
-mark element</mark> and picks up the yellow swipe automatically.
+mark element</mark> and picks up the accent swipe automatically.
 
 ## Conclusion
 This post confirms that our design system handles complex Markdown structures without sacrificing the premium, high-contrast news aesthetic we've built.
