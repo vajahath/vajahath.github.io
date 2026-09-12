@@ -26,6 +26,7 @@ const randomHotTake =
 // avoid a second top-level heading.
 const Wordmark = isHome ? 'h1' : 'div';
 import SiteByline from './SiteByline.astro';
+import HalftoneField from './HalftoneField.astro';
 ---
 
 {/* Top Utility & Ticker Row */}
@@ -68,15 +69,26 @@ import SiteByline from './SiteByline.astro';
 {/* Main Header */}
 <header
 	class:list={[
-		"max-w-7xl mx-auto px-4 border-b border-black/15 dark:border-white/20",
+		"relative overflow-hidden max-w-7xl mx-auto px-4 border-b border-black/15 dark:border-white/20",
 		isHome ? "pt-6 pb-5 md:pt-10 md:pb-6" : "py-4",
 	]}
 >
-	<div class="flex flex-col gap-2">
+	<div class="relative flex flex-col gap-2">
 		<div
 			class="flex flex-col md:flex-row md:items-baseline justify-between gap-4"
 		>
-			<a href="/" class="hover:opacity-90 transition-opacity block">
+			<a href="/" class="relative hover:opacity-90 transition-opacity block">
+				<HalftoneField
+					class:list={[
+						"absolute -top-5 -bottom-1 -left-7",
+						isHome
+							? "-right-10 sm:-right-32 md:-right-56"
+							: "-right-8 sm:-right-24",
+					]}
+					cell={isHome ? 12 : 9}
+					fade={isHome ? 'blob' : 'blob-alt'}
+					opacity={isHome ? 55 : 45}
+				/>
 				<Wordmark
 					class:list={[
 						"uppercase italic leading-none m-0 p-0",
@@ -86,7 +98,7 @@ import SiteByline from './SiteByline.astro';
 						? "font-size: clamp(2.5rem, 11.5vw, 5.5rem);"
 						: ""}
 				>
-					{SITE_TITLE}
+					<span class="relative">{SITE_TITLE}</span>
 				</Wordmark>
 			</a>
 

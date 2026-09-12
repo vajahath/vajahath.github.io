@@ -12,7 +12,6 @@ import TableOfContents from "../components/TableOfContents.astro";
 
 import { TAGS, type TagKey } from "../consts";
 import TagChip from "../components/TagChip.astro";
-import HalftoneField from "../components/HalftoneField.astro";
 import { splitOnHighlight } from "../lib/highlight";
 
 type Props = CollectionEntry<"blog">["data"] & {
@@ -71,12 +70,6 @@ const titleParts = splitOnHighlight(displayTitle, titleHighlight);
 		    container between 1024 and 1366px, and `hidden` would make this a
 		    scroll container and break the sticky table of contents. */}
 		<main class="relative overflow-x-clip max-w-7xl mx-auto px-4 py-8">
-			<HalftoneField
-				class="hidden xl:block absolute left-0 top-20 w-36 h-[30rem]"
-				cell={13}
-				hue={20}
-				opacity={45}
-			/>
 			<div class:list={["relative", showToc && "flex items-start gap-12 justify-center"]}>
 			<article class={showToc ? "max-w-2xl w-full flex flex-col gap-6 min-w-0" : "max-w-2xl mx-auto flex flex-col gap-6"}>
 				{/* Top Meta */}
