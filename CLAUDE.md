@@ -14,7 +14,13 @@ pnpm post:validate    # scripts/validate-posts.ts (frontmatter + series refs + h
 pnpm preview
 ```
 
-Node 24, pnpm 11 (see `.node-version`, `packageManager`).
+Node 24, pnpm 11 (see `.node-version`, `packageManager`). pnpm comes from
+Corepack: run `corepack enable` once per Node install. pnpm rejects packages
+published less than a day ago (`minimumReleaseAge`), so a just-released
+version can fail install; wait or pin the previous one.
+
+`AGENTS.md` and `.agents/skills` are symlinks to this file and
+`.claude/skills`, so every agent reads one copy. Edit the `.claude` side.
 
 ## Design principles
 
@@ -77,6 +83,13 @@ rewritten. Prose first, frontmatter after.
 - Series metadata: `src/content/series/<slug>.yaml`; posts join via
   `seriesId` + `seriesOrder`.
 - Every tag used must be registered in `src/consts.ts` or its styling breaks.
+  Build tag URLs with `tagSlug()` from `src/lib/content.ts`.
+- `heroImage` / `coverImage`: a path relative to the content file (goes
+  through Astro's optimizer) or an https URL (goes through wsrv.nl). Paths
+  into `public/` are rejected.
+- Every listing page has an empty state; production can build with zero
+  posts. Check new surfaces with `pnpm build && pnpm preview` (drafts hidden),
+  not only `pnpm dev`.
 - Homepage slots are frontmatter-driven: `isSpotlight`, `isFocus`, `hotTakes`.
 - **Drafts**: `draft: true` on a post or series keeps it visible under
   `pnpm dev` and out of production entirely — listings, homepage slots, series,

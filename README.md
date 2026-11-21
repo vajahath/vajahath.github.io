@@ -16,11 +16,12 @@ A personal blog for wandering thoughts, late discoveries, and probably wrong tak
 
 ## Run it
 
-Requires Node 24 and pnpm 11.
+Requires Node 24. pnpm 11 comes from Corepack.
 
 ```bash
 git clone https://github.com/vajahath/vajahath.github.io.git
 cd vajahath.github.io
+corepack enable
 pnpm install
 pnpm dev       # http://localhost:4321
 ```
