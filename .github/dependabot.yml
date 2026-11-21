@@ -1,0 +1,34 @@
+# One grouped PR a month instead of a stream of single-package PRs.
+# The repo is trunk-based: these PRs are a reminder, not a merge queue.
+# Usual handling: run `pnpm update --latest '!typescript'` on main, build,
+# commit, and close the PR.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    # pnpm refuses fresh releases (minimumReleaseAge); match it so PRs
+    # don't fail CI on a package published hours earlier.
+    cooldown:
+      default-days: 3
+    open-pull-requests-limit: 1
+    groups:
+      all-npm:
+        applies-to: version-updates
+        patterns: ["*"]
+      security:
+        applies-to: security-updates
+        patterns: ["*"]
+    ignore:
+      # Blocked on @astrojs/check supporting TS 7 — see issue #17.
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
