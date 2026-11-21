@@ -1,4 +1,7 @@
 ---
+# Sample post from the scaffold era, not in Vaju's voice. Rewrite with the
+# faint-signals-post skill before publishing.
+draft: true
 title: "The Making of Warzone Kerala: Architecture of an Autonomous Arena"
 description: "How we built a zero-friction tournament coordination engine using Material Design 3 and asynchronous orchestration."
 pubDate: "Apr 07 2026"

@@ -1,4 +1,7 @@
 ---
+# Sample post from the scaffold era, not in Vaju's voice. Rewrite with the
+# faint-signals-post skill before publishing.
+draft: true
 title: "The Birth of Faint Signals: Building a Different Kind of Blog"
 description: "The sharp, high-contrast pulse of a digital record, engineered for high-voltage clarity and a 'live' broadcast energy."
 pubDate: "2026-04-26"

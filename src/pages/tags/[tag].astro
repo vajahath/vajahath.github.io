@@ -1,5 +1,5 @@
 ---
-import { getVisiblePosts } from "../../lib/content";
+import { getVisiblePosts, tagSlug } from "../../lib/content";
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
     const tags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
 
     return tags.map((tag) => ({
-        params: { tag: tag.toLowerCase().replace(/\s+/g, "-") },
+        params: { tag: tagSlug(tag) },
         props: {
             tagName: tag,
             posts: posts

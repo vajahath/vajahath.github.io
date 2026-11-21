@@ -1,5 +1,5 @@
 ---
-import { getVisiblePosts } from "../lib/content";
+import { getVisiblePosts, tagSlug } from "../lib/content";
 import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 
@@ -21,6 +21,17 @@ const randomHotTake =
 	allHotTakes.length > 0
 		? allHotTakes[Math.floor(Math.random() * allHotTakes.length)]
 		: { text: "Faint signals detected in the deep noise...", postId: "" };
+
+// Nav: the three most-used tags, so every link points at a page that exists.
+const navTags = Object.entries(
+	posts.flatMap((p) => p.data.tags).reduce<Record<string, number>>((acc, t) => {
+		acc[t] = (acc[t] ?? 0) + 1;
+		return acc;
+	}, {}),
+)
+	.sort((a, b) => b[1] - a[1])
+	.slice(0, 3)
+	.map(([tag]) => tag);
 
 // Elsewhere the page supplies its own <h1>, so the wordmark steps down to
 // avoid a second top-level heading.
@@ -44,18 +55,20 @@ import HalftoneField from './HalftoneField.astro';
 		<div
 			class="m3-label-medium whitespace-nowrap overflow-hidden flex-1 flex items-center"
 		>
-			<a
-				href={randomHotTake.postId
-					? `/blog/${randomHotTake.postId}/`
-					: "#"}
-				class="flex items-center gap-4 max-w-full opacity-0 hover:text-signal-text transition-colors animate-ticker-entry"
-			>
-				<span class="truncate">{randomHotTake.text}</span>
-				<span
-					class="shrink-0 font-black text-[10px] tracking-[0.2em] uppercase bg-white/10 px-1.5 py-0.5"
-					>Read More</span
+			{randomHotTake.postId ? (
+				<a
+					href={`/blog/${randomHotTake.postId}/`}
+					class="flex items-center gap-4 max-w-full opacity-0 hover:text-signal-text transition-colors animate-ticker-entry"
 				>
-			</a>
+					<span class="truncate">{randomHotTake.text}</span>
+					<span
+						class="shrink-0 font-black text-[10px] tracking-[0.2em] uppercase bg-white/10 px-1.5 py-0.5"
+						>Read More</span
+					>
+				</a>
+			) : (
+				<span class="truncate opacity-0 animate-ticker-entry">{randomHotTake.text}</span>
+			)}
 		</div>
 	</div>
 	<button
@@ -118,9 +131,9 @@ import HalftoneField from './HalftoneField.astro';
 			<nav
 				class="flex flex-wrap gap-x-5 gap-y-2 m3-label-large text-black/70 dark:text-white/70 md:pb-1"
 			>
-				<HeaderLink href="/tags/devlog">DEVLOG</HeaderLink>
-				<HeaderLink href="/tags/design">DESIGN</HeaderLink>
-				<HeaderLink href="/tags/case-study">CASE STUDY</HeaderLink>
+				{navTags.map((tag) => (
+					<HeaderLink href={`/tags/${tagSlug(tag)}`}>{tag}</HeaderLink>
+				))}
 				<HeaderLink href="/tags">ALL TAGS</HeaderLink>
 			</nav>
 		</div>

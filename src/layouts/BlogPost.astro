@@ -13,6 +13,7 @@ import TableOfContents from "../components/TableOfContents.astro";
 import { TAGS, type TagKey } from "../consts";
 import TagChip from "../components/TagChip.astro";
 import { splitOnHighlight, markInkClass } from "../lib/highlight";
+import { tagSlug } from "../lib/content";
 
 type Props = CollectionEntry<"blog">["data"] & {
 	series?: {
@@ -88,9 +89,7 @@ const titleInk = markInkClass(titleHighlightColor);
 									variant="solid"
 									href={
 										tag.registered
-											? `/tags/${tag.label
-													.toLowerCase()
-													.replace(/\s+/g, "-")}`
+											? `/tags/${tagSlug(tag.label)}`
 											: undefined
 									}
 								/>

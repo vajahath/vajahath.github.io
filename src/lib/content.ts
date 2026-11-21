@@ -16,3 +16,8 @@ export async function getVisiblePosts(): Promise<CollectionEntry<'blog'>[]> {
 export async function getVisibleSeries(): Promise<CollectionEntry<'series'>[]> {
 	return getCollection('series', ({ data }) => includeDrafts || !data.draft);
 }
+
+/** URL segment for a tag page: "CASE STUDY" → "case-study". */
+export function tagSlug(tag: string): string {
+	return tag.toLowerCase().replace(/\s+/g, '-');
+}

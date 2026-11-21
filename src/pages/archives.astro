@@ -57,6 +57,15 @@ const years = Object.keys(groupedPosts)
 				</p>
 			</section>
 
+			{posts.length === 0 && (
+				<div class="py-20 text-center border-2 border-dashed border-black/20 dark:border-white/20">
+					<p class="m3-headline-large opacity-50 uppercase tracking-tighter italic">
+						Nothing archived yet
+					</p>
+				</div>
+			)}
+
+			{posts.length > 0 && (
 			<div class="grid lg:grid-cols-3 gap-12 items-start">
 				<!-- Main Column (Recent Posts) -->
 				<section class="lg:col-span-2 flex flex-col">
@@ -131,6 +140,7 @@ const years = Object.keys(groupedPosts)
 					</div>
 				</aside>
 			</div>
+			)}
 		</main>
 		<Footer />
 	</body>

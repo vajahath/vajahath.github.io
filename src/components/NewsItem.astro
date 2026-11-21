@@ -6,6 +6,7 @@ import { TAGS, type TagKey } from "../consts";
 import TagChip from "./TagChip.astro";
 import HalftoneField from "./HalftoneField.astro";
 import { splitOnHighlight, markInkClass } from "../lib/highlight";
+import { tagSlug } from "../lib/content";
 
 interface Props {
     post: any;
@@ -97,9 +98,7 @@ const slugHue =
                             <TagChip
                                 label={tag.label}
                                 color={tag.color}
-                                href={`/tags/${tag.label
-                                    .toLowerCase()
-                                    .replace(/\s+/g, "-")}`}
+                                href={`/tags/${tagSlug(tag.label)}`}
                             />
                         ))}
                         {isInSeries && (
@@ -166,9 +165,7 @@ const slugHue =
                             <TagChip
                                 label={tag.label}
                                 color={tag.color}
-                                href={`/tags/${tag.label
-                                    .toLowerCase()
-                                    .replace(/\s+/g, "-")}`}
+                                href={`/tags/${tagSlug(tag.label)}`}
                             />
                         ))}
                         {overflowTagCount > 0 && (
