@@ -5,12 +5,14 @@ import { MARK_INKS } from './lib/highlight';
 
 const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
-	schema: z.object({
+	// `image()` puts local heroes through Astro's optimizer (resized, WebP,
+	// real dimensions); remote URLs go through wsrv.nl instead.
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		description: z.string(),
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
+		heroImage: z.union([image(), z.url()]).optional(),
 		author: z.string().default('Vajahath Ahmed'),
 		tags: z.array(z.string()).default(['PERSONAL BLOG']),
 		/** Substring of `title` to wrap in a marker swipe. Matched case-insensitively

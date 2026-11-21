@@ -22,7 +22,7 @@ title: "Post Title"             # from faint-signals-post, not invented here
 description: "Brief overview."  # likewise — shown on cards and in RSS
 pubDate: "YYYY-MM-DD"           # always ISO; drives chronological order
 updatedDate: "YYYY-MM-DD"       # optional
-heroImage: "../../assets/x.jpg" # optional; local path or remote URL
+heroImage: "../../assets/x.jpg" # optional; path relative to this file (optimized) or https URL
 author: "Author Name"           # optional, defaults to Vajahath Ahmed
 tags: ["AI & TECH"]             # optional, defaults to ["PERSONAL BLOG"]
 toc: "show"                     # optional, renders table of contents

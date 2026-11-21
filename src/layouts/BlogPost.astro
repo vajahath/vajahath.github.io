@@ -1,6 +1,6 @@
 ---
 import RemoteImage from "../components/RemoteImage.astro";
-import { parseDimensionsFromUrl } from "../lib/wsrv";
+import { imageDimensions } from "../lib/wsrv";
 import type { CollectionEntry } from "astro:content";
 import type { MarkdownHeading } from "astro";
 import BaseHead from "../components/BaseHead.astro";
@@ -43,7 +43,7 @@ const {
 } = Astro.props;
 
 const showToc = (toc === true || toc === "show") && headings.length > 0;
-const imageDims = heroImage ? parseDimensionsFromUrl(heroImage) : {};
+const imageDims = heroImage ? imageDimensions(heroImage) : {};
 const hasImageDims = imageDims.width !== undefined && imageDims.height !== undefined;
 // A tag only gets a link if it's registered; unregistered ones have no tag
 // page to point at, so they render as plain chips instead of dead links.

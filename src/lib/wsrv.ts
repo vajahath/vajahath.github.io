@@ -24,9 +24,12 @@ export function wsrvSrcset(
 	return widths.map((w) => `${wsrv(sourceUrl, { ...opts, w })} ${w}w`).join(', ');
 }
 
-export function parseDimensionsFromUrl(url: string): { width?: number; height?: number } {
+/** Intrinsic size of a hero/cover image: from metadata for local assets,
+ *  from `?width=&height=` query params for remote URLs (empty if absent). */
+export function imageDimensions(src: string | ImageMetadata): { width?: number; height?: number } {
+	if (typeof src !== 'string') return { width: src.width, height: src.height };
 	try {
-		const params = new URL(url).searchParams;
+		const params = new URL(src).searchParams;
 		const w = params.get('width');
 		const h = params.get('height');
 		return {

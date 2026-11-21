@@ -3,7 +3,7 @@ title: 'Style Sandbox: Typography and Layout Reference'
 description: 'A dedicated sandbox to test design tokens, Material Design 3 (M3) components, and Markdown layout rendering.'
 pubDate: 'Feb 09 2026'
 draft: true
-heroImage: '/blog-placeholder-5.jpg'
+heroImage: '../../assets/blog-placeholder-5.jpg'
 tags: ['AI & TECH', 'NODE JS', 'DESIGN', 'UX', 'FASHION', 'RANT', 'PERSONAL BLOG', 'SERIES', 'CASE STUDY']
 seriesId: 'design-sandbox'
 seriesOrder: 1

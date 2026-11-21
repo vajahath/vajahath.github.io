@@ -1,6 +1,6 @@
 ---
 import RemoteImage from "./RemoteImage.astro";
-import { parseDimensionsFromUrl } from "../lib/wsrv";
+import { imageDimensions } from "../lib/wsrv";
 import FormattedDate from "./FormattedDate.astro";
 import { TAGS, type TagKey } from "../consts";
 import TagChip from "./TagChip.astro";
@@ -54,7 +54,7 @@ const overflowTagCount = tagMetadata.length - rowTags.length;
 const segments = post.id.split("/");
 const isInSeries = segments.length > 1 && post.data.seriesOrder != null;
 const seriesOrder = post.data.seriesOrder;
-const imageDims = post.data.heroImage ? parseDimensionsFromUrl(post.data.heroImage) : {};
+const imageDims = post.data.heroImage ? imageDimensions(post.data.heroImage) : {};
 const hasImageDims = imageDims.width !== undefined && imageDims.height !== undefined;
 
 // Deterministic hue per post, so a row looks the same on every build but no

@@ -1,4 +1,8 @@
 ---
+// Renders a hero/cover image from either source:
+// - local asset (ImageMetadata) → Astro's <Picture>: resized WebP + fallback
+// - remote URL → wsrv.nl srcset, with a loading loop until it arrives
+import { Picture } from 'astro:assets';
 import { wsrv, wsrvSrcset } from '../lib/wsrv';
 
 interface Props {
@@ -27,9 +31,9 @@ const {
 	natural = false,
 } = Astro.props;
 
-// Local assets arrive as ImageMetadata; unwrap to the emitted asset URL.
+const localAsset = typeof rawSrc === 'string' ? undefined : rawSrc;
 const src = typeof rawSrc === 'string' ? rawSrc : rawSrc.src;
-const isRemote = src.startsWith('http');
+const isRemote = !localAsset && src.startsWith('http');
 const activeWidths = widths.filter((w) => w <= width * 2);
 const webpSrcset = isRemote ? wsrvSrcset(src, activeWidths) : '';
 const fallbackSrc = isRemote
@@ -37,7 +41,19 @@ const fallbackSrc = isRemote
 	: src;
 ---
 
-{isRemote ? (
+{localAsset ? (
+	<Picture
+		src={localAsset}
+		alt={alt}
+		widths={widths.filter((w) => w <= localAsset.width)}
+		sizes={sizes}
+		formats={['webp']}
+		loading={loading}
+		fetchpriority={fetchpriority}
+		decoding="async"
+		class={natural ? `media-cap block ${className}` : `w-full h-full ${className}`}
+	/>
+) : isRemote ? (
 	natural ? (
 		<div class="relative w-full">
 			<video
@@ -100,7 +116,7 @@ const fallbackSrc = isRemote
 		width={width}
 		height={height}
 		loading={loading}
-					fetchpriority={fetchpriority}
+		fetchpriority={fetchpriority}
 		decoding="async"
 		class={natural
 			? `media-cap block ${className}`

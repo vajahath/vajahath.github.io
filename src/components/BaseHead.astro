@@ -2,21 +2,28 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import { getImage } from "astro:assets";
 import { wsrv } from "../lib/wsrv";
 import { SITE_TITLE } from "../consts";
 
 interface Props {
 	title: string;
 	description: string;
-	image?: string;
+	image?: string | ImageMetadata;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image } = Astro.props;
-const ogImage = image
-	? wsrv(image, { w: 1200, h: 630, output: "jpeg", q: 90 })
-	: new URL("/blog-placeholder-2.jpg", Astro.site).toString();
+// Social cards want an absolute 1200×630 JPEG.
+const ogImage = !image
+	? new URL("/blog-placeholder-2.jpg", Astro.site).toString()
+	: typeof image === "string"
+		? wsrv(image, { w: 1200, h: 630, output: "jpeg", q: 90 })
+		: new URL(
+				(await getImage({ src: image, width: 1200, height: 630, format: "jpg", fit: "cover" })).src,
+				Astro.site,
+			).toString();
 ---
 
 <!-- Global Metadata -->
